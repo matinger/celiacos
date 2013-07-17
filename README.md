@@ -1,4 +1,0 @@
-celiacos
-========
-
-pagina sobre celiacos
