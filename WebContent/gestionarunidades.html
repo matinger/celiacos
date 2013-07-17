@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Administrador central</title>
+	<link href="bootstrap.min.css" rel="stylesheet">
+	<link href="bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="font-awesome.min.css" rel="stylesheet">
+	<link href="bootswatch.css" rel="stylesheet">
+</head>
+<body class="preview" id="top" data-spy="scroll" data-target=".subnav" data-offset="80">
+	<script>
+	(function(){
+	  var bsa = document.createElement('script');
+	     bsa.type = 'text/javascript';
+	     bsa.async = true;
+	     bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+	  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+	})();
+	</script>
+
+  <!-- Navbar
+    ================================================== -->
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="admincentral.html">Administrador central</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+					  	<li><a onclick="pageTracker._link(this.href); return false;" href="gestionaroperador.html">Operadores</a></li>
+						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionarunidades.html">Unidades</a></li>
+						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionaradministradores.html">Administradores</a></li>
+						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionarproductos.html">Productos</a></li>
+						<li><a id="swatch-link" href="perfiladmincentral.html">Perfil</a></li>
+					</ul>
+					<ul class="nav pull-right" id="main-menu-right">
+				 		<li><a href="index.html">Cerrar Sesión</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<div class="container">
+<div class="row">
+		<div class="span6">
+			<h3>Gestión de operadores de la central:</h3>
+		</div>
+		<table class="table table-bordered table-striped table-hover">	
+			<thead>
+				<tr>
+					<th>Tipo de unidad</th>
+					<th>Nombre</th>
+					<th>Dirección</th>
+					<th>Provincia</th>
+					<th>Ciudad</th>
+					<th>Teléfono</th>
+					<th>E-mail</th>
+					<th>Modifica cuota</th>
+					<th>Editar</th>
+					<th>Eliminar</th>					
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Filial</td>
+					<td>Avellaneda</td>
+					<td>avenida paso y juramento</td>
+					<td>Buenos Aires</td>
+					<td>Avellaneda</td>
+					<td>2214565343</td>
+					<td>avella@gmail.com</td>
+					<td><input type="checkbox" id="optionsCheckbox"  checked="checked"></td>
+					<td><a href="#"><span class="label label-warning">Editar</span></a></td>
+      				<td><a href="#"><span class="label label-important">Eliminar</span></a></td>
+				</tr>
+				<tr>
+					<td>Delegación</td>
+					<td>La Plata</td>
+					<td>120 e 43 y 44</td>
+					<td>Buenos Aires</td>
+					<td>La Plata</td>
+					<td>2214325373</td>
+					<td>laplataceliacos@gmail.com</td>
+					<td><input type="checkbox" id="optionsCheckbox" ></td>
+					<td><a href="#"><span class="label label-warning">Editar</span></a></td>
+      				<td><a href="#"><span class="label label-important">Eliminar</span></a></td>
+				</tr>
+				<tr>
+					<td>Grupo de referencia</td>
+					<td>Comedor El sol</td>
+					<td>169 e 56 y 57</td>
+					<td>Buenos Aires</td>
+					<td>La Plata</td>
+					<td>2214531311</td>
+					<td>elsol@gmail.com</td>
+					<td><input type="checkbox" id="optionsCheckbox"  checked="checked"></td>
+					<td><a href="#"><span class="label label-warning">Editar</span></a></td>
+      				<td><a href="#"><span class="label label-important">Eliminar</span></a></td>
+				</tr>
+				<tr>
+					<td>Institucion beneficiaria</td>
+					<td>Carcel de mujeres</td>
+					<td>66 y 170</td>
+					<td>Buenos Aires</td>
+					<td>La Plata</td>
+					<td>2214344567</td>
+					<td>carcelmujer@gmail.com</td>
+					<td><input type="checkbox" id="optionsCheckbox"  ></td>
+					<td><a href="#"><span class="label label-warning">Editar</span></a></td>
+      				<td><a href="#"><span class="label label-important">Eliminar</span></a></td>
+				</tr>				
+			</tbody>
+		</table>
+		<a class="btn btn-primary" href="crearunidad.html">Crear unidad</a>
+	</div>	
+
+</div>
+
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="jquery.smooth-scroll.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script src="bootswatch.js"></script>
+</body>
+</html>
