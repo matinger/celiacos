@@ -5,7 +5,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="perfiladministrador")
+@Table(name="PerfilAdministrador")
 @PrimaryKeyJoinColumn(name="id_perfilAdministrador", referencedColumnName="id_perfil")
 public class PerfilAdministrador extends Perfil {
 

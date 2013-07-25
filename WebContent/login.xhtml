@@ -27,12 +27,12 @@ Login
 		<h:message for="loginForm" /> <br />
 			<h:outputText value="Usuario" />
 			<h:inputText class="input-small" id="username" value="#{LoginBean.username}" required="true">
-				<f:validateLength maximum="15" minimum="3" />
+				<f:validateLength maximum="20" minimum="3" />
 			</h:inputText>
 			<h:message for="username" /><br />
 			<h:outputText value="Contraseña" />
 			<h:inputSecret class="input-small" id="password" value="#{LoginBean.password}" required="true">
-				<f:validateLength maximum="15" minimum="3" />
+				<f:validateLength maximum="20" minimum="3" />
 			</h:inputSecret>
 			<h:message for="password" /><br />
 			<h:commandButton class="btn" id="submit" action="#{LoginBean.login}" value="Enviar" />

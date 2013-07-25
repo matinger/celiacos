@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
 import Celiacos.FactoryManager;
+import Celiacos.Usuario;
 
 public class GenericDAOhibernate<T> implements GenericDAO<T> {
 
@@ -53,5 +55,23 @@ public class GenericDAOhibernate<T> implements GenericDAO<T> {
 	private EntityManager getEntityManager() {
 		return FactoryManager.getInstance();
 	}
-
+	
+	/*
+	@Transactional(readOnly=true)
+	public T findOne(Query query) {
+        T t;
+        t = (T) query.getSingleResult();
+        return t;
+    }
+	*/
+	/*
+	public Usuario getUser(String username, String password) {
+		
+		String sql = "SELECT u FROM Usuario u WHERE u.usuario = :username AND u.password = :password";
+		Query query = entityManager.createQuery(sql);
+		query.setParameter("password", password);
+		query.setParameter("username", username);		
+		Usuario u = (Usuario) query.getSingleResult();		
+		return u;
+	}*/
 }

@@ -1,8 +1,16 @@
 package Beans;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import Celiacos.Perfil;
+import Celiacos.Usuario;
+import Servicios.UsuarioServicio;
+
+@ManagedBean
+@SessionScoped
 public class LoginBean {
 	
 	String username;
@@ -15,7 +23,13 @@ public class LoginBean {
 	public void setPassword(String data) {this.password = data; }
 	
 	public String login() {
-		if ( username.equals("admin") && password.equals("admin")) {
+		UsuarioServicio us = new UsuarioServicio();
+		Usuario u = us.validarUsuario(username, password);
+		if ( u != null) {
+			Perfil p = u.getPerfiles().get(0);
+			System.out.println("--------------------------------------");
+			System.out.println(p.toString());
+			System.out.println("--------------------------------------");
 			return "success";
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();

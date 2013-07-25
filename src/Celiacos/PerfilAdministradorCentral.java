@@ -7,6 +7,5 @@ public class PerfilAdministradorCentral extends Perfil {
 
 	public PerfilAdministradorCentral() {
 
-	}
-	
+	}	
 }

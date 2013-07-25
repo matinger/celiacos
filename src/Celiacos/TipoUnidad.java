@@ -1,6 +1,7 @@
 package Celiacos;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,9 +15,11 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.IndexColumn;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name="tipounidad")
+@Table(name="TipoUnidad")
 public abstract class TipoUnidad {
 	@Id @GeneratedValue
 	@Column(name="id_unidad")
@@ -26,15 +29,16 @@ public abstract class TipoUnidad {
 	private String telefono;
 	private String email;
 	
-	@OneToMany(mappedBy="unidad" ,cascade={CascadeType.ALL})
+	@OneToMany(mappedBy="unidad" ,cascade={CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<Cuota> cuotas;
 	
-	@OneToMany(mappedBy="unidad",cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@IndexColumn(name="INDEX_COL2")
 	private List<Perfil> socios;
 	
 	public TipoUnidad(){
-		cuotas = new ArrayList<Cuota>();
-		socios = new ArrayList<Perfil>();
+		cuotas = new LinkedList<Cuota>();
+		socios = new LinkedList<Perfil>();
 	}
 	
 	public TipoUnidad(String nombre, String direccion, String telefono,

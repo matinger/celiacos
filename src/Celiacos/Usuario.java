@@ -1,13 +1,16 @@
 package Celiacos;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.IndexColumn;
+
 
 @Entity
-@Table(name="usuario")
+@Table(name="Usuario")
 public class Usuario {
 	
 	@Id @GeneratedValue
@@ -22,7 +25,8 @@ public class Usuario {
 	@Column(nullable=false)
 	private String password;
 	
-	@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE}, mappedBy="usuario")
+	@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@IndexColumn(name="INDEX_COL")
 	private List<Perfil> perfiles;
 		
 	public Usuario(){
@@ -31,7 +35,7 @@ public class Usuario {
 	public Usuario(String usuario, String pass){
 		this.usuario = usuario;
 		this.password = pass;
-		perfiles = new ArrayList<Perfil>();
+		perfiles = new LinkedList<Perfil>();
 	}
 	public String getUsuario() {
 		return usuario;

@@ -2,9 +2,11 @@ package Celiacos;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.IndexColumn;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name="perfil")
+@Table(name="Perfil")
 public abstract class Perfil {
 
 	@Id @GeneratedValue
@@ -13,10 +15,12 @@ public abstract class Perfil {
 	
 	@ManyToOne(optional=true)
 	@JoinColumn(name="id_unidad")
+	@IndexColumn(name="INDEX_COL2")
 	private TipoUnidad unidad;
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
+	@IndexColumn(name="INDEX_COL")
 	private Usuario usuario;
 	
 	public Perfil() {
@@ -43,6 +47,8 @@ public abstract class Perfil {
 		this.usuario = usuario;
 	}
 
-	
+	public String toString(){
+		return this.getClass().toString();
+	}
 	
 }

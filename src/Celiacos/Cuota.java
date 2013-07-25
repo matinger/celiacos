@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -15,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cuota")
+@Table(name="Cuota")
 public class Cuota {
 	@Id @GeneratedValue
 	@Column(name="id_cuota")
@@ -26,7 +27,7 @@ public class Cuota {
 	@OneToMany(mappedBy="cuota", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<Pago> pagos;
 
-	@OneToMany(mappedBy="cuotaPaga", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
+	@OneToMany(mappedBy="cuotaPaga", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private List<Notificacion> notificaciones;
 	
 	@ManyToOne

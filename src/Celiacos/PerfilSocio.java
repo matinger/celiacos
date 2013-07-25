@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -27,7 +28,7 @@ public class PerfilSocio extends Perfil {
 	@OneToMany(mappedBy="socio",  cascade={CascadeType.ALL})
 	private List<Notificacion> notificaciones;
 	
-	@OneToMany(mappedBy="socio", cascade={CascadeType.ALL})
+	@OneToMany(mappedBy="socio", cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
 	private List<Pago> pagos;
 	
 	public PerfilSocio(){

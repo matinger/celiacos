@@ -45,18 +45,25 @@ public class Test {
 		tipodao.guardar(unidad2);
 		
 		//Crea usuarios
-		Usuario us1 = new Usuario("root", "root");
-		Usuario us2 = new Usuario("perfilsocio", "perfilsocio");
-		Usuario us3 = new Usuario("perfiloperador", "perfiloperador");
+		Usuario us1 = new Usuario("adminunidad", "adminunidad");
+		us1.setNombre("Antonio");us1.setApellido("Rogelio");
+		Usuario us2 = new Usuario("socio", "socio");
+		us2.setNombre("Eduardo");us2.setApellido("rivas");
+		Usuario us3 = new Usuario("operador", "operador");
+		us3.setNombre("Carlos");us3.setApellido("Vimonte");
+		Usuario us4 = new Usuario("admincentral", "admincentral");
+		us4.setNombre("Jose");us4.setApellido("Hernandez");
 		
 		//Guarda los usuarios
 		UsuarioDAO usuariodao = FactoryDAO.getUsuarioDAO();
 		usuariodao.guardar(us1);
 		usuariodao.guardar(us2);
 		usuariodao.guardar(us3);
+		usuariodao.guardar(us4);
 		
 		//Crea perfiles
 		PerfilAdministradorUnidad perfiladministrador = new PerfilAdministradorUnidad();
+		PerfilAdministradorCentral perfiladministradorcentral = new PerfilAdministradorCentral();
 		PerfilOperadorUnidad perfiloperador = new PerfilOperadorUnidad();
 		Date fechanac = dfm.parse("1990-06-01");
 		Date fechadiag = dfm.parse("2005-03-11");
@@ -67,18 +74,20 @@ public class Test {
 		unidad1.addSocio(perfiladministrador);
 		unidad2.addSocio(perfilsocio);
 		unidad2.addSocio(perfiloperador);
-
+		unidad2.addSocio(perfiladministradorcentral);
+		
 		//Asocia los perfiles a los usuarios	
 		us1.addPerfil(perfiladministrador);	
 		us2.addPerfil(perfilsocio);	
 		us3.addPerfil(perfiloperador);
+		us4.addPerfil(perfiladministradorcentral);
 		
 		//Guarda los perfiles
 		PerfilDAO perfildao = FactoryDAO.getPerfilDAO();
 		perfildao.guardar(perfilsocio);
 		perfildao.guardar(perfiloperador);
 		perfildao.guardar(perfiladministrador);
-		
+		perfildao.guardar(perfiladministradorcentral);
 		
 		
 		// Crea las cuotas
