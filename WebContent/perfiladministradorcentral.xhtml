@@ -14,7 +14,7 @@
 </script>
 
 <ui:define name="titulo">
-Operador Unidad
+Administrador Central
 </ui:define>
 
 <ui:define name="menu">
@@ -28,14 +28,17 @@ Operador Unidad
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="operadorcentral.html">Operador Unidad</a>
+				<a class="brand" href="admincentral.xhtml">Administrador central</a>
 				<div class="nav-collapse collapse" id="main-menu">
 					<ul class="nav" id="main-menu-left">
-					<li><a onclick="pageTracker._link(this.href); return false;" href="gestionarsociosunidad.html">Gestionar Socios</a></li>
-					<li><a id="swatch-link" href="perfiloperadorunidad.html">Perfil</a></li>
+					  	<li><a onclick="pageTracker._link(this.href); return false;" href="gestionaroperador.xhtml">Operadores</a></li>
+						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionarunidades.xhtml">Unidades</a></li>
+						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionaradministradores.xhtml">Administradores</a></li>
+						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionarproductos.xhtml">Productos</a></li>
+						<li><a id="swatch-link" href="perfiladmincentral.xhtml">Perfil</a></li>
 					</ul>
 					<ul class="nav pull-right" id="main-menu-right">
-						<li><a href="index.html">Cerrar Sesión</a></li>
+				 		<li><a href="index.xhtml">Cerrar Sesión</a></li>
 					</ul>
 				</div>
 			</div>
@@ -43,11 +46,11 @@ Operador Unidad
 	</div>
 </ui:define>
 <ui:define name="container">
-<div class="container">
-<header class="jumbotron subhead" id="overview">
+	<div class="container">
+		<header class="jumbotron subhead" id="overview">
 	<div class="row">
 	<div class="span8">
-		<h2>Bienvenido Operador de Unidad!</h2>
+		<h2>Bienvenido Administrador central!</h2>
 		<p class="lead">Asociación Argentina de celíacos.</p>
 	</div>
 	</div>
