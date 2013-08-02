@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13741558977490" configfile="/Celiacos/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login" id="pf13741576627771" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf13744999569350 pf13744999569351" inlinks="pf13744999569351" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="greetings.xhtml" id="pf13744999569352" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13744999569350" path="/greetings.xhtml"/>
-  <links id="pf13744999569350" target="pf13744999569352" source="pf13741576627771" outcome="success"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" id="pf13741576627771" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13744999569351 pf13754570877072" inlinks="pf13744999569351" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="perfiladministradorcentral.xhtml" id="pf13754570877073" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13754570877072" path="/perfiladministradorcentral.xhtml"/>
   <links id="pf13744999569351" target="pf13741576627771" source="pf13741576627771" outcome="failure"/>
+  <links id="pf13754570877072" target="pf13754570877073" source="pf13741576627771" outcome="Celiacos.PerfilAdministradorCentral"/>
 </pageflow:Pageflow>

@@ -27,10 +27,7 @@ public class LoginBean {
 		Usuario u = us.validarUsuario(username, password);
 		if ( u != null) {
 			Perfil p = u.getPerfiles().get(0);
-			System.out.println("--------------------------------------");
-			System.out.println(p.toString());
-			System.out.println("--------------------------------------");
-			return "success";
+			return p.getClass().getName();
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
 			FacesMessage message = new FacesMessage("Invalid Username and/or Password");
