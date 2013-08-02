@@ -10,7 +10,27 @@
 	<from-view-id>/login.xhtml</from-view-id>
 	<navigation-case>
 		<from-outcome>Celiacos.PerfilAdministradorCentral</from-outcome>
-		<to-view-id>/perfiladministradorcentral.xhtml</to-view-id>
+		<to-view-id>/administradorcentral.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>Celiacos.PerfilSocio</from-outcome>
+		<to-view-id>/socio.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>Celiacos.PerfilAdministradorUnidad</from-outcome>
+		<to-view-id>/administradorunidad.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>Celiacos.PerfilOperadorCentral</from-outcome>
+		<to-view-id>/operadorcentral.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>Celiacos.PerfilOperadorUnidad</from-outcome>
+		<to-view-id>/operadorunidad.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>gestionarsocios</from-outcome>
+		<to-view-id>/gestionarsocios.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>failure</from-outcome>
@@ -21,6 +41,12 @@
 <description>Login Bean </description>
 <managed-bean-name>LoginBean</managed-bean-name>
 <managed-bean-class>Beans.LoginBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<description>Gestion Socios </description>
+<managed-bean-name>GestionSocios</managed-bean-name>
+<managed-bean-class>Beans.GestionSociosBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 </faces-config>

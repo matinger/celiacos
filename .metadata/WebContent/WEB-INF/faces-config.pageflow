@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13741558977490" configfile="/Celiacos/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login" id="pf13741576627771" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13744999569351 pf13754570877072" inlinks="pf13744999569351" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="perfiladministradorcentral.xhtml" id="pf13754570877073" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13754570877072" path="/perfiladministradorcentral.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" id="pf13741576627771" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" outlinks="pf13744999569351 pf137545986011612 pf137545986011613 pf137546086456716 pf137546086456717 pf137546086456718" inlinks="pf13744999569351" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="operadorcentral.xhtml" id="pf137545986011714" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf137545986011612" path="/operadorcentral.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="operadorunidad.xhtml" id="pf137545986011715" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf137545986011613" path="/operadorunidad.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="socio.xhtml" id="pf137546086456819" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf137546086456716" path="/socio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="administradorunidad.xhtml" id="pf137546086456820" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf137546086456717" path="/administradorunidad.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="administradorcentral.xhtml" id="pf137546086456821" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf137546086456718" path="/administradorcentral.xhtml"/>
   <links id="pf13744999569351" target="pf13741576627771" source="pf13741576627771" outcome="failure"/>
-  <links id="pf13754570877072" target="pf13754570877073" source="pf13741576627771" outcome="Celiacos.PerfilAdministradorCentral"/>
+  <links id="pf137545986011612" target="pf137545986011714" source="pf13741576627771" outcome="Celiacos.PerfilOperadorCentral"/>
+  <links id="pf137545986011613" target="pf137545986011715" source="pf13741576627771" outcome="Celiacos.PerfilOperadorUnidad"/>
+  <links id="pf137546086456716" target="pf137546086456819" source="pf13741576627771" outcome="Celiacos.PerfilSocio"/>
+  <links id="pf137546086456717" target="pf137546086456820" source="pf13741576627771" outcome="Celiacos.PerfilAdministradorUnidad"/>
+  <links id="pf137546086456718" target="pf137546086456821" source="pf13741576627771" outcome="Celiacos.PerfilAdministradorCentral"/>
 </pageflow:Pageflow>
