@@ -15,12 +15,10 @@ public abstract class Perfil {
 	
 	@ManyToOne(optional=true)
 	@JoinColumn(name="id_unidad")
-	@IndexColumn(name="INDEX_COL2")
 	private TipoUnidad unidad;
 	
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
-	@IndexColumn(name="INDEX_COL")
 	private Usuario usuario;
 	
 	public Perfil() {

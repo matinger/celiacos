@@ -9,6 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class PerfilSocio extends Perfil {
 	
@@ -26,9 +31,11 @@ public class PerfilSocio extends Perfil {
 	private boolean socioVirtual;
 	
 	@OneToMany(mappedBy="socio",  cascade={CascadeType.ALL})
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Notificacion> notificaciones;
 	
-	@OneToMany(mappedBy="socio", cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="socio", cascade={CascadeType.ALL})
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Pago> pagos;
 	
 	public PerfilSocio(){

@@ -15,6 +15,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name="Cuota")
 public class Cuota {
@@ -25,9 +30,11 @@ public class Cuota {
 	private double importe;
 	
 	@OneToMany(mappedBy="cuota", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Pago> pagos;
 
-	@OneToMany(mappedBy="cuotaPaga", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="cuotaPaga", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Notificacion> notificaciones;
 	
 	@ManyToOne

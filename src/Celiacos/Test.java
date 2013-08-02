@@ -82,6 +82,7 @@ public class Test {
 		us3.addPerfil(perfiloperador);
 		us4.addPerfil(perfiladministradorcentral);
 		
+		
 		//Guarda los perfiles
 		PerfilDAO perfildao = FactoryDAO.getPerfilDAO();
 		perfildao.guardar(perfilsocio);

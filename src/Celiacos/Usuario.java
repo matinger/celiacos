@@ -6,7 +6,11 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.IndexColumn;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 
 @Entity
@@ -25,8 +29,8 @@ public class Usuario {
 	@Column(nullable=false)
 	private String password;
 	
-	@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE}, fetch=FetchType.EAGER)
-	@IndexColumn(name="INDEX_COL")
+	@OneToMany(mappedBy="usuario", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Perfil> perfiles;
 		
 	public Usuario(){
@@ -35,7 +39,7 @@ public class Usuario {
 	public Usuario(String usuario, String pass){
 		this.usuario = usuario;
 		this.password = pass;
-		perfiles = new LinkedList<Perfil>();
+		perfiles = new ArrayList<Perfil>();
 	}
 	public String getUsuario() {
 		return usuario;
