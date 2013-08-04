@@ -14,7 +14,7 @@
 </script>
 
 <ui:define name="titulo">
-Operador Central
+Operador Unidad
 </ui:define>
 
 <ui:define name="menu">
@@ -28,11 +28,10 @@ Operador Central
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<h:link onclick="pageTracker._link(this.href); return false;" class="brand" value="Operador Central" outcome="operadorcentral" />
+				<h:link onclick="pageTracker._link(this.href); return false;" class="brand" value="Operador Unidad" outcome="operadorunidad" />
 				<div class="nav-collapse collapse" id="main-menu">
 					<ul class="nav" id="main-menu-left">
 					<li><h:link onclick="pageTracker._link(this.href); return false;" value="Gestionar Socios" outcome="gestionarsocios" /></li>
-					<li><h:link onclick="pageTracker._link(this.href); return false;" id="swatch-link" value=" Socios" outcome="listasocios" /></li>
 					<li><h:link onclick="pageTracker._link(this.href); return false;" id="swatch-link" value="Perfil" outcome="perfiloperadorcental" /></li>
 					</ul>
 					<ul class="nav pull-right" id="main-menu-right">
@@ -45,16 +44,17 @@ Operador Central
 </ui:define>
 
 <ui:define name="container">
+	
 <div class="container">
-	
-	
-
+	<form >
+		<input type="text" class="input-medium search-query">
+		<button type="submit" class="btn">Search</button>
+	</form>
 	<div class="row">
 			<div class="span6">
 				<h3>Gestión de Socios:</h3>
 			</div>
-			
-			<h:dataTable class="table table-bordered table-striped table-hover" value="#{GestionSocios.getListaSocios()}" var="socio">
+			<h:dataTable class="table table-bordered table-striped table-hover" value="#{}" var="socio">
 				<h:column>		
 	    			<f:facet name="header">Nº Socio</f:facet>				
 	    			#{socio.getNroSocio()}
@@ -94,10 +94,6 @@ Operador Central
 	    		<h:column>		
 	    			<f:facet name="header">Email</f:facet>				
 	    			#{socio.getEmail()}
-	    		</h:column>
-	    		<h:column>		
-	    			<f:facet name="header">Tipo</f:facet>				
-	    			#{socio.isSocioVirtual()}
 	    		</h:column>
 	    		<h:column>		
 	    			<f:facet name="header">Beneficio</f:facet>				
