@@ -33,6 +33,10 @@
 		<to-view-id>/gestionarsocios.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
+		<from-outcome>bares</from-outcome>
+		<to-view-id>/bares.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
 		<from-outcome>failure</from-outcome>
 		<to-view-id>/login.xhtml</to-view-id>
 	</navigation-case>
@@ -47,6 +51,18 @@
 <description>Gestion Socios </description>
 <managed-bean-name>GestionSocios</managed-bean-name>
 <managed-bean-class>Beans.GestionSociosBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<description> Bares </description>
+<managed-bean-name>Bares</managed-bean-name>
+<managed-bean-class>Beans.BaresBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<description> Productos </description>
+<managed-bean-name>Productos</managed-bean-name>
+<managed-bean-class>Beans.ProductosBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 </faces-config>

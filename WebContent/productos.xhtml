@@ -14,7 +14,7 @@
 </script>
 
 <ui:define name="titulo">
-Bares
+Productos
 </ui:define>
 
 <ui:define name="menu">
@@ -53,24 +53,39 @@ Bares
 	</ui:define>
 	<ui:define name="container">
 	<div class="container">
-		<h:dataTable class="table table-bordered table-striped table-hover" value="#{Bares.getListaBares()}" var="bar">	
-			<h:column>		
-	    		<f:facet name="header">Bar</f:facet>				
-	    		#{bar.getNombre()}
+		<h:dataTable class="table table-bordered table-striped table-hover" value="#{Productos.getListaProductos()}" var="producto">	
+		<h:column>		
+	    		<f:facet name="header">Producto</f:facet>				
+	    		#{producto.getNombre()}
 	    	</h:column>
 	    	<h:column>		
-	    		<f:facet name="header">Dirección</f:facet>				
-	    		#{bar.getDireccion()}
+	    		<f:facet name="header">Marca</f:facet>				
+	    		#{producto.getMarca()}
 	    	</h:column>
 	    	<h:column>		
-	    		<f:facet name="header">Provincia</f:facet>				
-	    		#{bar.getProvincia()}
+	    		<f:facet name="header">Descripción</f:facet>				
+	    		#{producto.getDescripcion()}
 	    	</h:column>
 	    	<h:column>		
-	    		<f:facet name="header">Ciudad</f:facet>				
-	    		#{bar.getCiudad()}
+	    		<f:facet name="header">R.N.P.A.</f:facet>				
+	    		#{producto.getRnpa()}
 	    	</h:column>
-	    	
+	    	<h:column>		
+	    		<f:facet name="header">Empresa</f:facet>				
+	    		#{producto.getEmpresa()}
+	    	</h:column>
+	    	<h:column>		
+	    		<f:facet name="header">R.N.E.</f:facet>				
+	    		#{producto.getRne()}
+	    	</h:column>
+	    		    	<h:column>		
+	    		<f:facet name="header">Fecha alta</f:facet>				
+	    		#{producto.getFechaAlta()}
+	    	</h:column>
+	    		    	<h:column>		
+	    		<f:facet name="header">FECHA CERTIFICADO LDG</f:facet>				
+	    		#{producto.getFechaCertificado()}
+	    	</h:column>
 	    </h:dataTable>
 	</div>
   </ui:define>

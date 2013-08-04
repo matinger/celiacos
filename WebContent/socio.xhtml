@@ -14,7 +14,7 @@
 </script>
 
 <ui:define name="titulo">
-Bares
+Socio
 </ui:define>
 
 <ui:define name="menu">
@@ -41,7 +41,7 @@ Bares
 					    	</ul>
 					  	</li>
 					  <li><h:link onclick="pageTracker._link(this.href); return false;" value="Estado cuenta" outcome="cuenta" /></li>
-					  <li><h:link onclick="pageTracker._link(this.href); return false;" id="swatch-link" value="Perfil" outcome="perfil" /></li>
+					  <li><h:link onclick="pageTracker._link(this.href); return false;" id="swatch-link" value="Perfil" outcome="perfilsocio" /></li>
 					</ul>
 					<ul class="nav pull-right" id="main-menu-right">
 				 	<li><h:link onclick="pageTracker._link(this.href); return false;" value="Cerrar sesión" outcome="index" /></li>
@@ -52,26 +52,14 @@ Bares
 	</div>
 	</ui:define>
 	<ui:define name="container">
-	<div class="container">
-		<h:dataTable class="table table-bordered table-striped table-hover" value="#{Bares.getListaBares()}" var="bar">	
-			<h:column>		
-	    		<f:facet name="header">Bar</f:facet>				
-	    		#{bar.getNombre()}
-	    	</h:column>
-	    	<h:column>		
-	    		<f:facet name="header">Dirección</f:facet>				
-	    		#{bar.getDireccion()}
-	    	</h:column>
-	    	<h:column>		
-	    		<f:facet name="header">Provincia</f:facet>				
-	    		#{bar.getProvincia()}
-	    	</h:column>
-	    	<h:column>		
-	    		<f:facet name="header">Ciudad</f:facet>				
-	    		#{bar.getCiudad()}
-	    	</h:column>
-	    	
-	    </h:dataTable>
+<div class="container">
+<header class="jumbotron subhead" id="overview">
+	<div class="row">
+	<div class="span6">
+	  <h1>Bienvenido socio!</h1>
+	  <p class="lead">Asociación Argentina de celíacos.</p>
 	</div>
-  </ui:define>
+	</div>
+</header>
+ </ui:define>
 </ui:composition>
