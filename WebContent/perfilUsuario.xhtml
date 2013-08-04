@@ -1,41 +1,56 @@
 <div class="container">
-		<form class="form-horizontal well">
-			<fieldset>
-				<legend>Editar perfil</legend>
-				<div class="control-group">	
-					<label class="control-label" for="input01">Direccion</label>
-					<div class="controls">
-						<input type="text" value="50 y 120" class="input-xlarge" id="input01">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Telefono</label>
-					<div class="controls">
-						<input type="text" value="4444444" class="input-xlarge" id="input01">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Ocupacion</label>
-					<div class="controls">
-						<input type="text" value="4444444" class="input-xlarge" id="input01">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">E-mail</label>
-					<div class="controls">
-						<input type="text" value="emai@email.com" class="input-xlarge" id="input01">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label" for="input01">Password</label>
-					<div class="controls">
-						<input type="password" placeholder="password" class="input-xlarge" id="input01">
-					</div>
-				</div>
-				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">Guardar cambios</button>
-					<button type="reset" class="btn">Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+<h3>Editar perfil</h3>
+<h:form class="form-horizontal well" >
+<h:message for="loginForm" /> <br />
+<div class="control-group">	
+	<label class="control-label" for="input01">Direccion</label>
+	<div class="controls">
+		<h:inputText class="input-small" id="direccion" value="#{PerfilBean.direccion}" required="true">
+		<f:validateLength maximum="20" minimum="3" />
+		</h:inputText>
 	</div>
+	<h:message for="direccion" /><br />
+</div>
+<div class="control-group">	
+	<label class="control-label" for="input01">Teléfono</label>
+	<div class="controls">
+		<h:inputText class="input-small" id="telefono" value="#{PerfilBean.telefono}" required="true">
+		<f:validateLength maximum="20" minimum="3" />
+		</h:inputText>
+	</div>
+	<h:message for="telefono" /><br />
+</div>
+<div class="control-group">	
+	<label class="control-label" for="input01">Ocupación</label>
+	<div class="controls">
+		<h:inputText class="input-small" id="ocupacion" value="#{PerfilBean.ocupacion}" required="true">
+		<f:validateLength maximum="20" minimum="3" />
+		</h:inputText>
+	</div>
+	<h:message for="ocupacion" /><br />
+</div>
+<div class="control-group">	
+	<label class="control-label" for="input01">Email</label>
+	<div class="controls">
+		<h:inputText class="input-small" id="email" value="#{PerfilBean.email}" required="true">
+		<f:validateLength maximum="20" minimum="3" />
+		</h:inputText>
+	</div>
+	<h:message for="email" /><br />
+</div>
+<div class="control-group">	
+	<label class="control-label" for="input01">Password</label>
+	<div class="controls">
+		<h:inputSecret class="input-small" id="password" value="#{PerfilBean.password}" required="true">
+				<f:validateLength maximum="20" minimum="3" />
+			</h:inputSecret>
+			<h:message for="password" /><br />
+	</div>
+</div>		
+</h:form>
+
+<div class="form-actions">
+<h:commandButton class="btn btn-primary" id="submit" type="submit" action="#{}" value="Guardar cambios" />
+<h:commandButton class="btn" action="#{}" type="reset" value="Cancelar" />
+</div>
+</div>
