@@ -28,17 +28,17 @@ Administrador Central
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="admincentral.xhtml">Administrador central</a>
+				<h:link onclick="pageTracker._link(this.href); return false;" class="brand" value="Administrador Central" outcome="admincentral" />
 				<div class="nav-collapse collapse" id="main-menu">
-					<ul class="nav" id="main-menu-left">
-					  	<li><a onclick="pageTracker._link(this.href); return false;" href="gestionaroperador.xhtml">Operadores</a></li>
-						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionarunidades.xhtml">Unidades</a></li>
-						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionaradministradores.xhtml">Administradores</a></li>
-						<li><a onclick="pageTracker._link(this.href); return false;" href="gestionarproductos.xhtml">Productos</a></li>
-						<li><a id="swatch-link" href="perfiladmincentral.xhtml">Perfil</a></li>
+					<ul class="nav" id="main-menu-left">}
+					  	<li><h:link onclick="pageTracker._link(this.href); return false;" value="Operadores" outcome="gestionaroperador" /></li>
+						<li><h:link onclick="pageTracker._link(this.href); return false;" value="Unidades" outcome="gestionarunidades" /></li>
+						<li><h:link onclick="pageTracker._link(this.href); return false;" value="administradores" outcome="gestionaradministradores" /></li>
+						<li><h:link onclick="pageTracker._link(this.href); return false;" value="Productos" outcome="gestionarproductos" /></li>
+						<li><h:link onclick="pageTracker._link(this.href); return false;" id="swatch-link" value="Perfil" outcome="perfiladmincentral" /></li>
 					</ul>
 					<ul class="nav pull-right" id="main-menu-right">
-				 		<li><a href="index.xhtml">Cerrar Sesión</a></li>
+				 		<li><h:link onclick="pageTracker._link(this.href); return false;" value="Cerrar sesión" outcome="index" /></li>
 					</ul>
 				</div>
 			</div>
