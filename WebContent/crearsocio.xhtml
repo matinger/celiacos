@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+	<script>
+		(function() {
+			var bsa = document.createElement('script');
+			bsa.type = 'text/javascript';
+			bsa.async = true;
+			bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+			(document.getElementsByTagName('head')[0] || document
+					.getElementsByTagName('body')[0]).appendChild(bsa);
+		})();
+	</script>
+
+	<ui:define name="titulo">
+Operador Central
+</ui:define>
+
+	<ui:define name="menu">
+		<!-- Navbar
+    ================================================== -->
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+					</a>
+					<h:link onclick="pageTracker._link(this.href); return false;"
+						class="brand" value="Operador central" outcome="operadorcentral" />
+					<div class="nav-collapse collapse" id="main-menu">
+						<ul class="nav" id="main-menu-left">
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Gestionar Socios" outcome="gestionarsocios" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Socios" outcome="listasocios" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Perfil" outcome="perfiloperadorcentral" /></li>
+						</ul>
+						<ul class="nav pull-right" id="main-menu-right">
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Cerrar sesión" outcome="salir" /></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+	<ui:define name="container">
+		<div class="container">
+			<h3>Crear Socio</h3>
+			<h:form class="form-horizontal well">
+				<div class="control-group">
+					<span class="control-label" for="input01">Usuario</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="usuarioInput" required="true"
+								value="#{GestionSocios.usuario}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="usuarioInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Nombre</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge" id="nombreInput"
+								required="true" value="#{GestionSocios.nombre}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="nombreInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Apellido</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="apellidoInput" required="true"
+								value="#{GestionSocios.apellido}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="apellidoInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">DNI</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge" id="dniInput"
+								required="true" value="#{GestionSocios.dni}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="dniInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Ocupación</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="ocupacionInput" required="true"
+								value="#{GestionSocios.ocupacion}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="ocupacionInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Password</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="passwordInput" required="true"
+								value="#{GestionSocios.password}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="passwordInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Fecha de
+						nacimiento</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="naimientoInput" required="true"
+								value="#{GestionSocios.nacimiento}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="naimientoInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Fecha de ingreso</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="ingresoInput" required="true"
+								value="#{GestionSocios.ingreso}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="ingresoInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Fecha de
+						diagnóstico</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="diagnosticoInput" required="true"
+								value="#{GestionSocios.diagnostico}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="diagnosticoInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Presentado por</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="presentadoporInput" required="true"
+								value="#{GestionSocios.presentadopor}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="presentadoporInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Domicilio</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="domicilioInput" required="true"
+								value="#{GestionSocios.domicilio}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="domicilioInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Teléfono</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="telefonoInput" required="true"
+								value="#{GestionSocios.telefono}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="telefonoInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Email</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge" id="emailInput"
+								required="true" value="#{GestionSocios.email}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="emailInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Posee beneficio</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="beneficioInput" required="true"
+								value="#{GestionSocios.beneficio}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="beneficioInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="form-actions">
+					<h:commandButton type="submit" class="btn btn-primary"
+						value="Guardar" action="#{GestionSocios.crearSocio()}"></h:commandButton>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
