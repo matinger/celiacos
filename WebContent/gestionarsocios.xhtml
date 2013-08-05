@@ -69,9 +69,21 @@ Operador Central
 
 				<h:dataTable class="table table-bordered table-striped table-hover"
 					value="#{GestionSocios.getListaSocios()}" var="socio">
-					<h:column>
+				<h:column>
 						<f:facet name="header">Nº Socio</f:facet>				
 	    			#{socio.getNroSocio()}
+	    		</h:column>
+				<h:column>
+						<f:facet name="header">Username</f:facet>				
+	    			#{socio.getUsuario().getUsuario()}
+	    		</h:column>
+	    		<h:column>
+						<f:facet name="header">Nombre</f:facet>				
+	    			#{socio.getUsuario().getNombre()}
+	    		</h:column>
+	    						<h:column>
+						<f:facet name="header">Apellido</f:facet>				
+	    			#{socio.getUsuario().getApellido()}
 	    		</h:column>
 					<h:column>
 						<f:facet name="header">DNI</f:facet>				
@@ -124,8 +136,11 @@ Operador Central
 					</h:column>
 					<h:column>
 						<f:facet name="header">Eliminar</f:facet>
-						<h:link onclick="pageTracker._link(this.href); return false;"
-							class="label label-important" value="Eliminar" outcome="" />
+						<h:form>
+						<h:commandLink class="label label-important" action="#{GestionSocios.eliminar()}" value="Eliminar" >
+							<f:setPropertyActionListener target="#{GestionSocios.perfilEliminar}" value="#{socio}" />
+						</h:commandLink>
+						</h:form>
 					</h:column>
 					<h:column>
 						<f:facet name="header">Registrar Pago</f:facet>

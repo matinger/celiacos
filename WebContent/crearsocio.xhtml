@@ -126,8 +126,7 @@ Operador Central
 								id="passwordInput" required="true"
 								value="#{GestionSocios.password}">
 							</h:inputSecret> <span style="color: red;"><b> <h:message
-										for="passwordInput" /> <f:validateLength maximum="20"
-										minimum="3" />
+										for="passwordInput" />
 							</b> <br /> </span>
 						</label>
 					</div>
@@ -138,7 +137,7 @@ Operador Central
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge"
 								id="naimientoInput" required="true"
-								value="#{GestionSocios.nacimiento}">
+								value="#{GestionSocios.fechaNacimiento}">
 								<f:convertDateTime pattern="dd/mm/yyyy" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="naimientoInput" />
@@ -151,7 +150,7 @@ Operador Central
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge"
 								id="ingresoInput" required="true"
-								value="#{GestionSocios.ingreso}">
+								value="#{GestionSocios.fechaIngreso}">
 								<f:convertDateTime pattern="dd/mm/yyyy" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="ingresoInput" />
@@ -165,7 +164,7 @@ Operador Central
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge"
 								id="diagnosticoInput" required="true"
-								value="#{GestionSocios.diagnostico}">
+								value="#{GestionSocios.fechaDiagnostico}">
 								<f:convertDateTime pattern="dd/mm/yyyy" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="diagnosticoInput" />
@@ -178,7 +177,7 @@ Operador Central
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge"
 								id="presentadoporInput" required="true"
-								value="#{GestionSocios.presentadopor}">
+								value="#{GestionSocios.presentadoPor}">
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="presentadoporInput" />
 							</b> <br /> </span>
@@ -218,6 +217,20 @@ Operador Central
 									pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="emailInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">SocioVirtual: </span>
+					<div class="controls">
+						<label> 
+						<h:selectOneRadio id="sociovirtualInput" class="input-xlarge" value="#{GestionSocios.socioVirtual}">
+   							<f:selectItem itemValue="true" itemLabel="Si" />
+   							<f:selectItem itemValue="false" itemLabel="No" />
+   						</h:selectOneRadio>
+						 <span style="color: red;"><b> <h:message
+										for="sociovirtualInput" />
 							</b> <br /> </span>
 						</label>
 					</div>

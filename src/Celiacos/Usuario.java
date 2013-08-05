@@ -41,6 +41,13 @@ public class Usuario {
 		this.password = pass;
 		perfiles = new ArrayList<Perfil>();
 	}
+	public Usuario(String usuario, String pass,String nombre,String apellido){
+		this.usuario = usuario;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.password = pass;
+		perfiles = new ArrayList<Perfil>();
+	}
 	public String getUsuario() {
 		return usuario;
 	}

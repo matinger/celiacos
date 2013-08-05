@@ -53,6 +53,8 @@ public class Test {
 		us3.setNombre("Carlos");us3.setApellido("Vimonte");
 		Usuario us4 = new Usuario("admincentral", "admincentral");
 		us4.setNombre("Jose");us4.setApellido("Hernandez");
+		Usuario us5 = new Usuario("socio2", "socio2");
+		us5.setNombre("Carlos");us5.setApellido("Wimmer");
 		
 		//Guarda los usuarios
 		UsuarioDAO usuariodao = FactoryDAO.getUsuarioDAO();
@@ -60,6 +62,7 @@ public class Test {
 		usuariodao.guardar(us2);
 		usuariodao.guardar(us3);
 		usuariodao.guardar(us4);
+		usuariodao.guardar(us5);
 		
 		//Crea perfiles
 		PerfilAdministradorUnidad perfiladministrador = new PerfilAdministradorUnidad();
@@ -67,25 +70,30 @@ public class Test {
 		PerfilOperadorUnidad perfiloperador = new PerfilOperadorUnidad();
 		Date fechanac = dfm.parse("1990-06-01");
 		Date fechadiag = dfm.parse("2005-03-11");
-		PerfilSocio perfilsocio = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac, fechadiag,fechadiag, "Dr. Wilmmer", "4222222","email@email.com",false);
+		PerfilSocio perfilsocio = new PerfilSocio(2021,3232322,"51 y 23", "estudiante", fechanac, fechadiag,fechadiag, "Dr. Pepe", "4333333","email4@email.com",false);
 		
+		Date fechanac2 = dfm.parse("1990-06-02");
+		Date fechadiag2 = dfm.parse("2005-03-14");
+		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag, "Dr. Pepe", "4222222","email@email.com",false);
 		
 		//Asocia perfiles a unidades
-		unidad1.addSocio(perfiladministrador);
-		unidad2.addSocio(perfilsocio);
-		unidad2.addSocio(perfiloperador);
-		unidad2.addSocio(perfiladministradorcentral);
+		unidad1.addPerfil(perfiladministrador);
+		unidad1.addPerfil(perfilsocio2);
+		unidad2.addPerfil(perfilsocio);
+		unidad2.addPerfil(perfiloperador);
+		unidad2.addPerfil(perfiladministradorcentral);
 		
 		//Asocia los perfiles a los usuarios	
 		us1.addPerfil(perfiladministrador);	
 		us2.addPerfil(perfilsocio);	
 		us3.addPerfil(perfiloperador);
 		us4.addPerfil(perfiladministradorcentral);
-		
+		us5.addPerfil(perfilsocio2);
 		
 		//Guarda los perfiles
 		PerfilDAO perfildao = FactoryDAO.getPerfilDAO();
 		perfildao.guardar(perfilsocio);
+		perfildao.guardar(perfilsocio2);
 		perfildao.guardar(perfiloperador);
 		perfildao.guardar(perfiladministrador);
 		perfildao.guardar(perfiladministradorcentral);
@@ -168,7 +176,7 @@ public class Test {
 		List<TipoUnidad> tipounidades = tipodao.listar();
 		for(TipoUnidad item : tipounidades){
 			System.out.println("Unidad: " + item.getNombre());
-			System.out.println("Cantidad de perfiles: " + item.getSocios().size());
+			System.out.println("Cantidad de perfiles: " + item.getPerfiles().size());
 		}
 
 	}

@@ -38,11 +38,11 @@ public abstract class TipoUnidad {
 	
 	@OneToMany(mappedBy="unidad",cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
 	@LazyCollection(LazyCollectionOption.FALSE)
-	private List<Perfil> socios;
+	private List<Perfil> perfiles;
 	
 	public TipoUnidad(){
 		cuotas = new ArrayList<Cuota>();
-		socios = new ArrayList<Perfil>();
+		perfiles = new ArrayList<Perfil>();
 	}
 	
 	public TipoUnidad(String nombre, String direccion, String telefono,
@@ -52,7 +52,7 @@ public abstract class TipoUnidad {
 		this.telefono = telefono;
 		this.email = email;
 		cuotas = new ArrayList<Cuota>();
-		socios = new ArrayList<Perfil>();
+		perfiles = new ArrayList<Perfil>();
 		
 	}
 	public void setId(int id){
@@ -85,12 +85,12 @@ public abstract class TipoUnidad {
 	public List<Cuota> getCuotas() {
 		return cuotas;
 	}
-	public List<Perfil> getSocios() {
-		return socios;
+	public List<Perfil> getPerfiles() {
+		return perfiles;
 	}
-	public void addSocio(Perfil socio) {
-		this.socios.add(socio);
-		socio.setUnidad(this);
+	public void addPerfil(Perfil perfil) {
+		this.perfiles.add(perfil);
+		perfil.setUnidad(this);
 	}
 	public void addCuota(Cuota cuota) {
 		this.cuotas.add(cuota);
@@ -105,8 +105,8 @@ public abstract class TipoUnidad {
 		this.cuotas = cuotas;
 	}
 
-	public void setSocios(List<Perfil> socios) {
-		this.socios = socios;
+	public void setPerfiles(List<Perfil> perfiles) {
+		this.perfiles = perfiles;
 	}
 	
 	

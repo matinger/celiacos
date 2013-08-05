@@ -27,6 +27,10 @@ public class LoginBean {
 		Usuario u = us.validarUsuario(username, password);
 		if ( u != null) {
 			Perfil p = u.getPerfiles().get(0);
+			
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.getExternalContext().getSessionMap().put("perfil", p);
+			
 			return p.getClass().getName();
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
