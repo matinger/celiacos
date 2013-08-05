@@ -28,33 +28,30 @@ Operador Central
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<h:link onclick="pageTracker._link(this.href); return false;" class="brand" value="Operador Central" outcome="operadorcentral" />
+				<h:link onclick="pageTracker._link(this.href); return false;" class="brand" value="Operador central" outcome="operadorcentral" />
 				<div class="nav-collapse collapse" id="main-menu">
 					<ul class="nav" id="main-menu-left">
 					<li><h:link onclick="pageTracker._link(this.href); return false;" value="Gestionar Socios" outcome="gestionarsocios" /></li>
-					<li><h:link onclick="pageTracker._link(this.href); return false;"  value=" Socios" outcome="listasocios" /></li>
-					<li><h:link onclick="pageTracker._link(this.href); return false;"  value="Perfil" outcome="perfiloperadorcentral" /></li>
+					<li><h:link onclick="pageTracker._link(this.href); return false;" value="Socios" outcome="listasocios" /></li>
+					<li><h:link onclick="pageTracker._link(this.href); return false;" value="Perfil" outcome="perfiloperadorcentral" /></li>
 					</ul>
 					<ul class="nav pull-right" id="main-menu-right">
-					<li><h:link onclick="pageTracker._link(this.href); return false;" value="Cerrar sesión" outcome="salir" /></li>
+						<li><h:link onclick="pageTracker._link(this.href); return false;" value="Cerrar sesión" outcome="salir" /></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-</ui:define>
-
-<ui:define name="container">
+	</ui:define>
+	
+	<ui:define name="container">
 <div class="container">
-	
-	
-
 	<div class="row">
 			<div class="span6">
 				<h3>Gestión de Socios:</h3>
 			</div>
 			
-			<h:dataTable class="table table-bordered table-striped table-hover" value="#{GestionSocios.getListaSocios()}" var="socio">
+			<h:dataTable class="table table-bordered table-striped table-hover" value="#{}" var="socio">
 				<h:column>		
 	    			<f:facet name="header">Nº Socio</f:facet>				
 	    			#{socio.getNroSocio()}
@@ -103,18 +100,6 @@ Operador Central
 	    			<f:facet name="header">Beneficio</f:facet>				
 	    			#{socio.isBeneficio()}
 	    		</h:column>	    		
-	   			<h:column>		
-	    			<f:facet name="header">Editar</f:facet>	
-	    			<h:link onclick="pageTracker._link(this.href); return false;" class="label label-warning" value="Editar" outcome="" />	
-	    		</h:column>
-	    		<h:column>		
-	    			<f:facet name="header">Eliminar</f:facet>			
-	    			<h:link onclick="pageTracker._link(this.href); return false;" class="label label-important" value="Eliminar" outcome="" />
-	    		</h:column>
-	    		<h:column>		
-	    			<f:facet name="header">Registrar Pago</f:facet>				
-	    			<h:link onclick="pageTracker._link(this.href); return false;" class="label label-success" value="Registrar pago" outcome="" />
-	    		</h:column>
 	    		<h:column>		
 	    			<f:facet name="header">Historial</f:facet>		
 	    			<h:link onclick="pageTracker._link(this.href); return false;" class="label label-inverse" value="Historial" outcome="" />
@@ -122,6 +107,7 @@ Operador Central
 
 			</h:dataTable>
 			<h:link onclick="pageTracker._link(this.href); return false;" class="btn btn-primary" value="Crear Socio" outcome="crearsocio" />			
+			
 		</div>	
 	</div>
 </ui:define>
