@@ -122,11 +122,12 @@ Operador Central
 				<div class="control-group">
 					<span class="control-label" for="input01">Password</span>
 					<div class="controls">
-						<label> <h:inputText class="input-xlarge"
+						<label> <h:inputSecret class="input-xlarge"
 								id="passwordInput" required="true"
 								value="#{GestionSocios.password}">
-							</h:inputText> <span style="color: red;"><b> <h:message
-										for="passwordInput" />
+							</h:inputSecret> <span style="color: red;"><b> <h:message
+										for="passwordInput" /> <f:validateLength maximum="20"
+										minimum="3" />
 							</b> <br /> </span>
 						</label>
 					</div>
@@ -138,6 +139,7 @@ Operador Central
 						<label> <h:inputText class="input-xlarge"
 								id="naimientoInput" required="true"
 								value="#{GestionSocios.nacimiento}">
+								<f:convertDateTime pattern="dd/mm/yyyy" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="naimientoInput" />
 							</b> <br /> </span>
@@ -150,6 +152,7 @@ Operador Central
 						<label> <h:inputText class="input-xlarge"
 								id="ingresoInput" required="true"
 								value="#{GestionSocios.ingreso}">
+								<f:convertDateTime pattern="dd/mm/yyyy" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="ingresoInput" />
 							</b> <br /> </span>
@@ -163,6 +166,7 @@ Operador Central
 						<label> <h:inputText class="input-xlarge"
 								id="diagnosticoInput" required="true"
 								value="#{GestionSocios.diagnostico}">
+								<f:convertDateTime pattern="dd/mm/yyyy" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="diagnosticoInput" />
 							</b> <br /> </span>
@@ -210,6 +214,8 @@ Operador Central
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge" id="emailInput"
 								required="true" value="#{GestionSocios.email}">
+								<f:validateRegex
+									pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" />
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="emailInput" />
 							</b> <br /> </span>
@@ -219,10 +225,12 @@ Operador Central
 				<div class="control-group">
 					<span class="control-label" for="input01">Posee beneficio</span>
 					<div class="controls">
-						<label> <h:inputText class="input-xlarge"
-								id="beneficioInput" required="true"
-								value="#{GestionSocios.beneficio}">
-							</h:inputText> <span style="color: red;"><b> <h:message
+						<label> 
+						<h:selectOneRadio id="beneficioInput" class="input-xlarge" value="#{GestionSocios.beneficio}">
+   							<f:selectItem itemValue="true" itemLabel="Si" />
+   							<f:selectItem itemValue="false" itemLabel="No" />
+   						</h:selectOneRadio>
+						 <span style="color: red;"><b> <h:message
 										for="beneficioInput" />
 							</b> <br /> </span>
 						</label>
