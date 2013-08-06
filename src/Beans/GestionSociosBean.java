@@ -8,6 +8,7 @@ import javax.faces.application.Application;
 import javax.faces.application.ViewHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
@@ -18,7 +19,7 @@ import Celiacos.Perfil;
 import Celiacos.PerfilSocio;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class GestionSociosBean {
 	private int nroSocio;
 	private String usuario;
@@ -36,107 +37,126 @@ public class GestionSociosBean {
 	private String email;
 	private boolean beneficio;
 	private boolean socioVirtual;
-	private PerfilSocio perfilEliminar;
+	private int perfilEliminar;
+	private PerfilSocio perfil;
 	
-	
-	public void setPerfilEliminar(PerfilSocio perfilEliminar) {
+	public void setPerfilEliminar(int perfilEliminar) {
 		this.perfilEliminar = perfilEliminar;
+	}
+	public void setPerfil(PerfilSocio perfil) {
+		this.perfil= perfil;
 	}
 	public int getNroSocio() {
 		return nroSocio;
 	}
 	public void setNroSocio(int nroSocio) {
 		this.nroSocio = nroSocio;
+		perfil.setNroSocio(nroSocio);
 	}
 	public String getUsuario() {
 		return usuario;
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+		perfil.getUsuario().setUsuario(usuario);
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
+		perfil.getUsuario().setPassword(password);
 	}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+		perfil.getUsuario().setNombre(nombre);
 	}
 	public String getApellido() {
 		return apellido;
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+		perfil.getUsuario().setApellido(apellido);
 	}
 	public int getDni() {
 		return dni;
 	}
 	public void setDni(int dni) {
 		this.dni = dni;
+		perfil.setDni(dni);
 	}
 	public String getDomicilio() {
 		return domicilio;
 	}
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
+		perfil.setDomicilio(domicilio);
 	}
 	public String getOcupacion() {
 		return ocupacion;
 	}
 	public void setOcupacion(String ocupacion) {
 		this.ocupacion = ocupacion;
+		perfil.setOcupacion(ocupacion);
 	}
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+		perfil.setFechaNacimiento(fechaNacimiento);
 	}
 	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
+		perfil.setFechaIngreso(fechaIngreso);
 	}
 	public Date getFechaDiagnostico() {
 		return fechaDiagnostico;
 	}
 	public void setFechaDiagnostico(Date fechaDiagnostico) {
 		this.fechaDiagnostico = fechaDiagnostico;
+		perfil.setFechaDiagnostico(fechaDiagnostico);
 	}
 	public String getPresentadoPor() {
 		return presentadoPor;
 	}
 	public void setPresentadoPor(String presentadoPor) {
 		this.presentadoPor = presentadoPor;
+		perfil.setPresentadoPor(presentadoPor);
 	}
 	public String getTelefono() {
 		return telefono;
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+		perfil.setTelefono(telefono);
 	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
+		perfil.setEmail(email);
 	}
 	public boolean isBeneficio() {
 		return beneficio;
 	}
 	public void setBeneficio(boolean beneficio) {
 		this.beneficio = beneficio;
+		perfil.setBeneficio(beneficio);
 	}
 	public boolean isSocioVirtual() {
 		return socioVirtual;
 	}
 	public void setSocioVirtual(boolean socioVirtual) {
 		this.socioVirtual = socioVirtual;
+		perfil.setSocioVirtual(socioVirtual);
 	}
 	public List<PerfilSocio> getListaSocios(){
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -154,17 +174,35 @@ public class GestionSociosBean {
 		return true;
 	}
 	public boolean eliminar(){
-		System.out.println("Llego!");
-		/*FacesContext context = FacesContext.getCurrentInstance();	
-		GestionSociosServicio g = new GestionSociosServicio();
-		PerfilSocio p = (PerfilSocio) context.getExternalContext().getRequestMap().get("perfil");*/
-		System.out.println("Dni: " + perfilEliminar.getDni());
-		System.out.println("Email: " + perfilEliminar.getEmail());
 		GestionSociosServicio g = new GestionSociosServicio();
 		g.eliminar(perfilEliminar);
 		return true;
 	}
-	
+	public boolean editar(){
+		GestionSociosServicio g = new GestionSociosServicio();
+		g.modificar(perfil);
+		return true;
+	}
+	public String editarSocio() {  
+		this.setApellido(perfil.getUsuario().getApellido());
+		this.setBeneficio(perfil.isBeneficio());
+		this.setDni(perfil.getDni());
+		this.setDomicilio(perfil.getDomicilio());
+		this.setEmail(perfil.getEmail());
+		this.setFechaDiagnostico(perfil.getFechaDiagnostico());
+		this.setFechaIngreso(perfil.getFechaIngreso());
+		this.setFechaNacimiento(perfil.getFechaNacimiento());
+		this.setNombre(perfil.getUsuario().getNombre());
+		this.setNroSocio(perfil.getNroSocio());
+		this.setOcupacion(perfil.getOcupacion());
+		this.setPassword(perfil.getUsuario().getPassword());
+		this.setPresentadoPor(perfil.getPresentadoPor());
+		this.setSocioVirtual(perfil.isSocioVirtual());
+		this.setTelefono(perfil.getTelefono());
+		this.setUsuario(perfil.getUsuario().getUsuario());
+		return "editarsocio";
+	}
+		
 	public void clear() {  
 		this.setApellido(null);
 		this.setBeneficio(false);

@@ -17,7 +17,9 @@
 					.getElementsByTagName('body')[0]).appendChild(bsa);
 		})();
 	</script>
-
+	<f:metadata>
+        <f:event type="preRenderView" listener="#{GestionSocios.clear()}"/>
+    </f:metadata>
 	<ui:define name="titulo">
 Operador Central
 </ui:define>

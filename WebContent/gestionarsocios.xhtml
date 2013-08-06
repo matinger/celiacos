@@ -47,9 +47,11 @@ Operador Central
 									value="Perfil" outcome="perfiloperadorcentral" /></li>
 						</ul>
 						<ul class="nav pull-right" id="main-menu-right">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Cerrar sesión" outcome="salir" /></li>
+							<li>
+								<h:form>
+									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
+								</h:form>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -131,14 +133,17 @@ Operador Central
 	    		</h:column>
 					<h:column>
 						<f:facet name="header">Editar</f:facet>
-						<h:link onclick="pageTracker._link(this.href); return false;"
-							class="label label-warning" value="Editar" outcome="" />
+						<h:form>
+						<h:commandLink class="label label-warning" value="Editar" action="#{GestionSocios.editarSocio()}" >
+							<f:setPropertyActionListener target="#{GestionSocios.perfil}" value="#{socio}" />
+						</h:commandLink>
+						</h:form>
 					</h:column>
 					<h:column>
 						<f:facet name="header">Eliminar</f:facet>
 						<h:form>
 						<h:commandLink class="label label-important" action="#{GestionSocios.eliminar()}" value="Eliminar" >
-							<f:setPropertyActionListener target="#{GestionSocios.perfilEliminar}" value="#{socio}" />
+							<f:setPropertyActionListener target="#{GestionSocios.perfilEliminar}" value="#{socio.getId()}" />
 						</h:commandLink>
 						</h:form>
 					</h:column>

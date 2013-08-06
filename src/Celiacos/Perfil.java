@@ -17,7 +17,7 @@ public abstract class Perfil {
 	@JoinColumn(name="id_unidad")
 	private TipoUnidad unidad;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
 	

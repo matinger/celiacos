@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13741558977490" configfile="/Celiacos/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login" x="122" y="1330" id="pf13741576627771" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13744999569351 pf137545986011612 pf137545986011613 pf137546086456716 pf137546086456717 pf137546086456718 pf13757178728390 pf13757178728391 pf13757178728392" inlinks="pf13744999569351" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" x="122" y="1330" id="pf13741576627771" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13744999569351 pf137545986011612 pf137545986011613 pf137546086456716 pf137546086456717 pf137546086456718 pf13757178728390 pf13757178728391 pf13757178728392 pf13757950480592" inlinks="pf13744999569351" path="/login.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="operadorcentral.xhtml" x="338" y="178" id="pf137545986011714" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf137545986011612" path="/operadorcentral.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="operadorunidad.xhtml" x="338" y="562" id="pf137545986011715" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf137545986011613" path="/operadorunidad.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="socio.xhtml" x="338" y="946" id="pf137546086456819" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf137546086456716" path="/socio.xhtml"/>
@@ -8,7 +8,8 @@
   <nodes xsi:type="pageflow:PFPage" name="administradorcentral.xhtml" x="338" y="1714" id="pf137546086456821" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf137546086456718" path="/administradorcentral.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="gestionarsocios.xhtml" x="338" y="2098" id="pf13757178728403" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf13757178728390" path="/gestionarsocios.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="bares.xhtml" x="338" y="2482" id="pf13757178728404" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" inlinks="pf13757178728391" path="/bares.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="crearsocio.xhtml" id="pf13757178728405" referenceLink="//@navigationRule.0/@navigationCase.8/@toViewId|" inlinks="pf13757178728392" path="/crearsocio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="crearsocio.xhtml" id="pf13757178728405" referenceLink="//@navigationRule.0/@navigationCase.9/@toViewId|" inlinks="pf13757178728392" path="/crearsocio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editarsocio.xhtml" id="pf13757950480603" referenceLink="//@navigationRule.0/@navigationCase.9/@toViewId|" inlinks="pf13757950480592" path="/editarsocio.xhtml"/>
   <links id="pf137545986011612" target="pf137545986011714" source="pf13741576627771" outcome="Celiacos.PerfilOperadorCentral"/>
   <links id="pf137545986011613" target="pf137545986011715" source="pf13741576627771" outcome="Celiacos.PerfilOperadorUnidad"/>
   <links id="pf137546086456716" target="pf137546086456819" source="pf13741576627771" outcome="Celiacos.PerfilSocio"/>
@@ -22,4 +23,5 @@
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
   <links id="pf13757178728392" target="pf13757178728405" source="pf13741576627771" outcome="crearsocio"/>
+  <links id="pf13757950480592" target="pf13757950480603" source="pf13741576627771" outcome="editarsocio"/>
 </pageflow:Pageflow>

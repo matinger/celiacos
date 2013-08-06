@@ -21,9 +21,16 @@ public class GestionSociosServicio {
 		return socios;
 	}
 	
-	public boolean eliminar(PerfilSocio s){
-		System.out.println("El id a eliminar es: " + s.getId());
-		dao.eliminarPorId(s.getId());
+	public boolean eliminar(int id){
+		System.out.println("El id a eliminar es: " + id);
+		dao.eliminarPorId(id);
+		return true;
+	}
+	
+	public boolean modificar(PerfilSocio s){
+		System.out.println("El id a editar es: " + s.getId());
+		dao.modificar(s);
+		
 		return true;
 	}
 	
