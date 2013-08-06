@@ -55,6 +55,12 @@ public class GenericDAOhibernate<T> implements GenericDAO<T> {
 	private EntityManager getEntityManager() {
 		return FactoryManager.getInstance();
 	}
+
+	@Transactional(readOnly=false) 
+	public void eliminarPorId(Object id) {
+		entityManager.remove(this.entityManager.getReference(persistenceClass, id));
+		
+	}
 	
 	/*
 	@Transactional(readOnly=true)

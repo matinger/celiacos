@@ -12,6 +12,7 @@ public interface GenericDAO<T1> {
 
 	public void guardar(T1 objeto) ;
 	public void eliminar(T1 objeto) ;
+	public void eliminarPorId(Object id) ;
     public T1 encontrar(Object id);
     public T1 modificar(T1 objeto);
     public List<T1> listar();

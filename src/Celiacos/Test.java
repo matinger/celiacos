@@ -159,6 +159,12 @@ public class Test {
 		pd.guardar(p2);
 		pd.guardar(p3);
 		
+		pd.eliminarPorId(p1.getId());
+		
+		perfildao.eliminarPorId(perfilsocio2.getId());
+		
+		usuariodao.eliminarPorId(us4.getId());
+		
 		System.out.println("Va a listar productos");
 
 		List<Producto> productos =  pd.listar();
