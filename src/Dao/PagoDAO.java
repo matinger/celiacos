@@ -3,9 +3,8 @@ package Dao;
 import java.util.List;
 
 import Celiacos.Pago;
-import Celiacos.Perfil;
+import Celiacos.PerfilSocio;
 
 public interface PagoDAO extends GenericDAO<Pago>{
-	public List<Pago> getPagosFromPerfil(int p);
 
 }

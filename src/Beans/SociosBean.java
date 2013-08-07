@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 
 import Celiacos.Pago;
 import Celiacos.Perfil;
+import Celiacos.PerfilSocio;
 import Celiacos.Producto;
 import Celiacos.Restaurante;
 import Servicios.BarServicio;
@@ -30,8 +31,7 @@ public class SociosBean {
 		
 		public List<Pago> getPagos(){
 			FacesContext context = FacesContext.getCurrentInstance();
-			Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
-			SocioServicio s=new SocioServicio();
-			return s.getPagos(p.getId());
+			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
+			return p.getPagos();
 		}
 }

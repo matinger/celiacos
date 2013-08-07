@@ -13,7 +13,7 @@ public abstract class Perfil {
 	@Column(name="id_perfil")
 	private int id;
 	
-	@ManyToOne(optional=true)
+	@ManyToOne(optional=true, cascade = {CascadeType.MERGE})
 	@JoinColumn(name="id_unidad")
 	private TipoUnidad unidad;
 	

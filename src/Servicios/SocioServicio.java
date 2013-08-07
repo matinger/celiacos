@@ -4,6 +4,7 @@ import java.util.List;
 
 import Celiacos.Pago;
 import Celiacos.Perfil;
+import Celiacos.PerfilSocio;
 import Celiacos.Producto;
 import Celiacos.Restaurante;
 import Dao.FactoryDAO;
@@ -24,11 +25,6 @@ public class SocioServicio {
 		List<Producto> productos = dao.listar();
 		return productos;
 	}
-	public List<Pago> getPagos(int id){
-		PagoDAO dao=FactoryDAO.getPagoDAO();
-		//List<Pago> pagos= dao.getPagosFromPerfil(id);
-		List<Pago> pagos= dao.listar();
-		return pagos;
-	}
+
 }
 

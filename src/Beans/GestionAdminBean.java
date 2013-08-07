@@ -80,6 +80,7 @@ public class GestionAdminBean {
 		this.setNombre(perfil.getUsuario().getNombre());
 		this.setPassword(perfil.getUsuario().getPassword());
 		this.setUsuario(perfil.getUsuario().getUsuario());
+		this.setSeleccion(perfil.getUnidad().getId());
 		return "editaradmin";
 	}
 	
