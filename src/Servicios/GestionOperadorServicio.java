@@ -4,6 +4,7 @@ import java.util.List;
 
 import Celiacos.Perfil;
 import Celiacos.PerfilAdministradorUnidad;
+import Celiacos.PerfilOperadorCentral;
 import Celiacos.TipoUnidad;
 import Celiacos.Usuario;
 import Dao.FactoryDAO;
@@ -11,12 +12,12 @@ import Dao.PerfilDAO;
 import Dao.TipoUnidadDAO;
 import Dao.UsuarioDAO;
 
-public class GestionAdminServicio {
+public class GestionOperadorServicio {
+
 	PerfilDAO dao = FactoryDAO.getPerfilDAO();
-	
-	public List<PerfilAdministradorUnidad> getListaAdmin() {				
-		List<PerfilAdministradorUnidad> socios = dao.getPerfilesAdmin();
-		return socios;
+	public List<PerfilOperadorCentral> getListaOperadoresUnidades() {				
+		List<PerfilOperadorCentral> operadores = dao.getPerfilesOperadores();
+		return operadores;
 	}
 	
 	public boolean eliminar(int id){
@@ -32,22 +33,19 @@ public class GestionAdminServicio {
 		return true;
 	}
 	
-	public boolean crearAdmin(String usuario, String password,  String nombre, String apellido, int unidad) {
+	public boolean crearOperadorCentral(String usuario, String password,  String nombre, String apellido, TipoUnidad unidad) {
 		
 		Usuario u = new Usuario(usuario, password, nombre, apellido);	
 		//Guarda los usuarios
 		UsuarioDAO usuariodao = FactoryDAO.getUsuarioDAO();
 		usuariodao.guardar(u);
 
-		PerfilAdministradorUnidad pu = new PerfilAdministradorUnidad();
-		
-		TipoUnidadDAO unidao = FactoryDAO.getTipoUnidadDAO();
-		TipoUnidad unidadaguardar = unidao.encontrar(unidad);
-		
-		pu.setUnidad(unidadaguardar);
+		PerfilOperadorCentral pu = new PerfilOperadorCentral();
+				
+		pu.setUnidad(unidad);
 		
 		u.addPerfil(pu);
-		unidadaguardar.addPerfil(pu);
+		unidad.addPerfil(pu);
 		
 		PerfilDAO perfildao = FactoryDAO.getPerfilDAO();
 		perfildao.guardar(pu);

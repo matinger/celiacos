@@ -17,7 +17,7 @@
 					.getElementsByTagName('body')[0]).appendChild(bsa);
 		})();
 	</script>
-
+	
 	<ui:define name="titulo">
 	Administrador central
 	</ui:define>
@@ -28,55 +28,54 @@
 	<ui:include src="menu.xhtml">
 	</ui:include>
 	</ui:define>
-
+	
 	<ui:define name="container">
 		<div class="container">
 			<div class="row">
 				<div class="span6">
-					<h3>Gestión de operadores de la central:</h3>
+					<h3>Gestión de operadores:</h3>
 				</div>
 				<h:dataTable class="table table-bordered table-striped table-hover"
-					value="#{GestionSocios.getListaSocios()}" var="admin">
-
+					value="#{GestionOperador.getListaOperador()}" var="operador">
+				<h:column>
 					<f:facet name="header">Username</f:facet>				
-	    			#{admin.getUsername()}
+		    		#{operador.getUsuario().getUsuario()}
 	    		</h:column>
+	    		<h:column>
 					<f:facet name="header">Nombre</f:facet>				
-	    			#{admin.getNombre()}
+	    			#{operador.getUsuario().getNombre()}
 	    		</h:column>
+	    		<h:column>
 					<f:facet name="header">Apellido</f:facet>				
-	    			#{admin.getApellido()}
+	    			#{operador.getUsuario().getApellido()}
 	    		</h:column>
-					<f:facet name="header">Domicilio</f:facet>				
-	    			#{admin.getDomicilio()}
+				<h:column>
+					<f:facet name="header">Unidad</f:facet>				
+	    			#{operador.getUnidad().getNombre()}
 	    		</h:column>
-					<h:column>
-						<f:facet name="header">Telefono</f:facet>				
-	    			#{admin.getTelefono()}
-	    		</h:column>
-					<h:column>
-						<f:facet name="header">Email</f:facet>				
-	    			#{admin.getEmail()}
-	    		</h:column>
-					<h:column>
-						<f:facet name="header">Nacimiento</f:facet>				
-	    			#{admin.getFechaNacimiento()}
-	    		</h:column>
-					<h:column>
-						<f:facet name="header">Editar</f:facet>
-						<h:link onclick="pageTracker._link(this.href); return false;"
-							class="label label-warning" value="Editar" outcome="" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Eliminar</f:facet>
-						<h:link onclick="pageTracker._link(this.href); return false;"
-							class="label label-important" value="Eliminar" outcome="" />
-					</h:column>
+	    		<h:column>
+					<f:facet name="header">Editar</f:facet>
+					
+					<h:form>
+						<h:commandLink class="label label-warning" value="Editar" action="#{GestionOperador.editarOperador()}" >
+							<f:setPropertyActionListener target="#{GestionOperador.perfil}" value="#{operador}" />
+						</h:commandLink>
+					</h:form>
+					
+				</h:column>		
+				<h:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<h:form>			
+					<h:commandLink class="label label-important" onclick="return confirm('Are you sure?')" action="#{GestionOperador.eliminar()}" value="Eliminar" >
+						<f:setPropertyActionListener target="#{GestionOperador.perfilEliminar}" value="#{operador.getId()}" />
+					</h:commandLink>
+					</h:form>	
+				</h:column>
 				</h:dataTable>
 				<h:link onclick="pageTracker._link(this.href); return false;"
 					class="btn btn-primary" value="Crear Operador"
 					outcome="crearoperador" />
 			</div>
-			</div>
+		</div>
 	</ui:define>
 </ui:composition>

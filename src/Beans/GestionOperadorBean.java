@@ -1,35 +1,31 @@
 package Beans;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
-import Servicios.GestionAdminServicio;
-import Servicios.GestionUnidadesServicio;
-
-import Celiacos.PerfilAdministradorUnidad;
+import Celiacos.Perfil;
+import Celiacos.PerfilOperadorCentral;
 import Celiacos.TipoUnidad;
+import Servicios.GestionAdminServicio;
+import Servicios.GestionOperadorServicio;
 
 @ManagedBean
 @ViewScoped
-public class GestionAdminBean {
+public class GestionOperadorBean {
 	private String usuario;
 	private String password;
 	private String nombre;
 	private String apellido;
-	private Map<String, Integer> mapValue;
-	private int seleccion;
-	private TipoUnidad u;
 	private int perfilEliminar;
-	private PerfilAdministradorUnidad perfil;
+	private PerfilOperadorCentral perfil;
 	
-	public PerfilAdministradorUnidad getPerfil() {
+	public PerfilOperadorCentral getPerfil() {
 		return perfil;
 	}
-	public void setPerfil(PerfilAdministradorUnidad perfil) {
+	public void setPerfil(PerfilOperadorCentral perfil) {
 		this.perfil = perfil;
 	}
 	public String getUsuario() {
@@ -65,26 +61,25 @@ public class GestionAdminBean {
 		perfil.getUsuario().setApellido(apellido);
 	}
 	
-	public List<PerfilAdministradorUnidad> getListaAdmin(){
-		GestionAdminServicio g = new GestionAdminServicio();		
-		return g.getListaAdmin();
+	public List<PerfilOperadorCentral> getListaOperador(){
+		GestionOperadorServicio g = new GestionOperadorServicio();		
+		return g.getListaOperadoresUnidades();
 	}
 	
 	public boolean eliminar(){
-		GestionAdminServicio g = new GestionAdminServicio();
+		GestionOperadorServicio g = new GestionOperadorServicio();		
 		return g.eliminar(perfilEliminar);
 	}
-	public String editarAdmin() {  
+	public String editarOperador() {  
 		this.setApellido(perfil.getUsuario().getApellido());
 		this.setNombre(perfil.getUsuario().getNombre());
 		this.setPassword(perfil.getUsuario().getPassword());
 		this.setUsuario(perfil.getUsuario().getUsuario());
-		this.setSeleccion(perfil.getUnidad().getId());
-		return "editaradmin";
+		return "editaroperador";
 	}
 	
 	public boolean editar(){
-		GestionAdminServicio g = new GestionAdminServicio();
+		GestionOperadorServicio g = new GestionOperadorServicio();	
 		return g.modificar(perfil);
 		
 	}
@@ -103,29 +98,13 @@ public class GestionAdminBean {
 		this.setUsuario(null);
 	}
 	
-	public void cargarUnidades(){
-		mapValue = new LinkedHashMap<String,Integer>();
-		GestionUnidadesServicio unidadesservicio = new GestionUnidadesServicio();
-		List<TipoUnidad> unidades = unidadesservicio.getListaUnidades();
-		for (TipoUnidad uni : unidades){
-			mapValue.put(uni.getNombre(), uni.getId()); //label, value
-		 }
-	}
-	
-	public boolean crearAdmin(){
-		GestionAdminServicio g = new GestionAdminServicio();
-		g.crearAdmin(usuario, password, nombre, apellido, seleccion);
+	public boolean crearOperador(){
+		GestionOperadorServicio g = new GestionOperadorServicio();	
+		FacesContext context = FacesContext.getCurrentInstance();
+		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
+		g.crearOperadorCentral(usuario, password, nombre, apellido, p.getUnidad() );
 		return true;
 	}
 	
-	public Map<String,Integer> getMapValue() {
-		return mapValue;
-	}
-	public int getSeleccion() {
-		return seleccion;
-	}
-	public void setSeleccion(int seleccion) {
-		this.seleccion = seleccion;
-	}
 	
 }

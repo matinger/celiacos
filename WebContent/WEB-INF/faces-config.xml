@@ -37,6 +37,15 @@
 		<to-view-id>/admincentral/crearunidad.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
+		<from-outcome>crearoperador</from-outcome>
+		<to-view-id>/admincentral/crearoperador.xhtml</to-view-id>
+	</navigation-case>
+	
+	<navigation-case>
+		<from-outcome>editaroperador</from-outcome>
+		<to-view-id>/admincentral/editaroperador.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
 		<from-outcome>editarunidad</from-outcome>
 		<to-view-id>/admincentral/editarunidad.xhtml</to-view-id>
 	</navigation-case>
@@ -124,6 +133,13 @@
 <managed-bean-class>Beans.GestionAdminBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
+<managed-bean>
+<description>Gestion Operadores Bean </description>
+<managed-bean-name>GestionOperador</managed-bean-name>
+<managed-bean-class>Beans.GestionOperadorBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+
 <managed-bean>
 <description> Socios </description>
 <managed-bean-name>Socios</managed-bean-name>

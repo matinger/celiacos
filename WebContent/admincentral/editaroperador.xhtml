@@ -17,9 +17,6 @@
 					.getElementsByTagName('body')[0]).appendChild(bsa);
 		})();
 	</script>
-	<f:metadata>
-        <f:event type="preRenderView" listener="#{GestionAdmin.cargarUnidades()}"/>
-    </f:metadata>
 	
 	<ui:define name="titulo">
 	Administrador central
@@ -41,7 +38,7 @@
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge"
 								id="usuarioInput" required="true"
-								value="#{GestionAdmin.usuario}">
+								value="#{GestionOperador.usuario}">
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="usuarioInput" />
 							</b> <br /> </span>
@@ -52,7 +49,7 @@
 					<span class="control-label" for="input01">Password</span>
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge" id="passwordInput"
-								required="true" value="#{GestionAdmin.password}">
+								required="true" value="#{GestionOperador.password}">
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="passwordInput" />
 							</b> <br /> </span>
@@ -64,7 +61,7 @@
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge"
 								id="nombreInput" required="true"
-								value="#{GestionAdmin.nombre}">
+								value="#{GestionOperador.nombre}">
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="nombreInput" />
 							</b> <br /> </span>
@@ -76,27 +73,17 @@
 					<div class="controls">
 						<label> <h:inputText class="input-xlarge"
 								id="apellidoInput" required="true"
-								value="#{GestionAdmin.apellido}">
+								value="#{GestionOperador.apellido}">
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="apellidoInput" />
 							</b> <br /> </span>
 						</label>
 					</div>
-				</div>
-				
-				<div class="control-group">
-					<span class="control-label" for="input01">Unidad</span>
-					<div class="controls">
-						<h:selectOneMenu value="#{GestionAdmin.seleccion}">
-							<f:selectItems value="#{GestionAdmin.mapValue}" />
-						</h:selectOneMenu>
-					</div>
-				</div>
-				
+				</div>	
 
 				<div class="form-actions">
 					<h:commandButton type="submit" class="btn btn-primary"
-						value="Guardar" action="#{GestionAdmin.editar()}"></h:commandButton>
+						value="Guardar" action="#{GestionOperador.editar()}"></h:commandButton>
 				</div>
 			</h:form>
 		</div>
