@@ -1,22 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
-
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+<h:head />
+<body>
+<ui:composition>
 <div class="container">
 	<h3>Editar perfil</h3>
 	<h:form class="form-horizontal well">
-		<h:message for="loginForm" />
+		<h:message for="PerfilForm" />
 		<br />
 		<div class="control-group">
-			<label class="control-label" for="input01">Direccion</label>
+			<label class="control-label">Direccion</label>
 			<div class="controls">
 				<h:inputText class="input-small" id="direccion"
-					value="#{PerfilBean.direccion}" required="true">
+					value="#{GestionSocios.domicilio}" required="true">
 					<f:validateLength maximum="20" minimum="3" />
 				</h:inputText>
 			</div>
@@ -24,10 +25,10 @@
 			<br />
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="input01">Teléfono</label>
+			<label class="control-label" >Teléfono</label>
 			<div class="controls">
 				<h:inputText class="input-small" id="telefono"
-					value="#{PerfilBean.telefono}" required="true">
+					value="#{GestionSocios.telefono}" required="true">
 					<f:validateLength maximum="20" minimum="3" />
 				</h:inputText>
 			</div>
@@ -35,10 +36,10 @@
 			<br />
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="input01">Ocupación</label>
+			<label class="control-label" >Ocupación</label>
 			<div class="controls">
 				<h:inputText class="input-small" id="ocupacion"
-					value="#{PerfilBean.ocupacion}" required="true">
+					value="#{GestionSocios.ocupacion}" required="true">
 					<f:validateLength maximum="20" minimum="3" />
 				</h:inputText>
 			</div>
@@ -46,10 +47,10 @@
 			<br />
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="input01">Email</label>
+			<label class="control-label" >Email</label>
 			<div class="controls">
 				<h:inputText class="input-small" id="email"
-					value="#{PerfilBean.email}" required="true">
+					value="#{GestionSocios.email}" required="true">
 					<f:validateLength maximum="20" minimum="3" />
 				</h:inputText>
 			</div>
@@ -57,23 +58,24 @@
 			<br />
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="input01">Password</label>
+			<label class="control-label">Password</label>
 			<div class="controls">
 				<h:inputSecret class="input-small" id="password"
-					value="#{PerfilBean.password}" required="true">
+					value="#{GestionSocios.password}" required="true">
 					<f:validateLength maximum="20" minimum="3" />
 				</h:inputSecret>
 				<h:message for="password" />
 				<br />
 			</div>
 		</div>
-	</h:form>
+	
 
 	<div class="form-actions">
 		<h:commandButton class="btn btn-primary" id="submit" type="submit"
-			action="#{}" value="Guardar cambios" />
-		<h:commandButton class="btn" action="#{}" type="reset"
-			value="Cancelar" />
+			action="#{GestionSocios.crearSocio()}" value="Guardar cambios" />
 	</div>
+	</h:form>
 </div>
 </ui:composition>
+</body>
+</html>
