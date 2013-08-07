@@ -44,9 +44,11 @@ Operador Unidad
 									value="Perfil" outcome="perfiloperadorunidad" /></li>
 						</ul>
 						<ul class="nav pull-right" id="main-menu-right">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Cerrar sesión" outcome="salir" /></li>
+							<li><h:form>
+								<ul class="nav pull-right" id="main-menu-right">
+									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
+								</ul>
+							</h:form></li>
 						</ul>
 					</div>
 				</div>

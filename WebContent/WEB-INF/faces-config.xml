@@ -48,6 +48,10 @@
 		<from-outcome>editarsocio</from-outcome>
 		<to-view-id>/editarsocio.xhtml</to-view-id>
 	</navigation-case>
+	<navigation-case>
+		<from-outcome>cerrarsesion</from-outcome>
+		<to-view-id>/login.xhtml</to-view-id>
+	</navigation-case>
 </navigation-rule>
 <managed-bean>
 <description>Login Bean </description>
@@ -62,15 +66,9 @@
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 <managed-bean>
-<description> Bares </description>
-<managed-bean-name>Bares</managed-bean-name>
-<managed-bean-class>Beans.BaresBean</managed-bean-class>
-<managed-bean-scope>session</managed-bean-scope>
-</managed-bean>
-<managed-bean>
-<description> Productos </description>
-<managed-bean-name>Productos</managed-bean-name>
-<managed-bean-class>Beans.ProductosBean</managed-bean-class>
+<description> Socios </description>
+<managed-bean-name>Socios</managed-bean-name>
+<managed-bean-class>Beans.SociosBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 </faces-config>

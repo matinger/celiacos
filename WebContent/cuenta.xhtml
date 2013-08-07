@@ -19,10 +19,11 @@
 	</script>
 
 	<ui:define name="titulo">
-Operador Unidad
+Socio
 </ui:define>
 
 	<ui:define name="menu">
+
 		<!-- Navbar
     ================================================== -->
 		<div class="navbar navbar-fixed-top">
@@ -33,15 +34,21 @@ Operador Unidad
 						class="icon-bar"></span> <span class="icon-bar"></span>
 					</a>
 					<h:link onclick="pageTracker._link(this.href); return false;"
-						class="brand" value="Operador Unidad" outcome="operadorunidad" />
+						class="brand" value="Socio" outcome="socio" />
 					<div class="nav-collapse collapse" id="main-menu">
 						<ul class="nav" id="main-menu-left">
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value="Gestionar Socios" outcome="gestionarsocios" /></li>
+									value="Productos" outcome="productos" /></li>
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value="Perfil" outcome="perfiloperadorunidad" /></li>
+									value="Bares" outcome="bares" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Estado cuenta" outcome="cuenta" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									id="swatch-link" value="Perfil" outcome="perfilsocio" /></li>
 						</ul>
 						<ul class="nav pull-right" id="main-menu-right">
 							<li><h:form>
@@ -55,9 +62,40 @@ Operador Unidad
 			</div>
 		</div>
 	</ui:define>
-
 	<ui:define name="container">
-		<ui:include src="perfilUsuario.xhtml">
-		</ui:include>
+	<div class="container">
+	<!-- Headings & Paragraph Copy -->
+		<div class="row">
+			<div class="span4">
+				<div class="well">
+					<h3>Estado cuenta: Activada</h3>
+				</div>
+			</div>
+			<div class="span4">
+			  <h3>Resumen de cuenta:</h3>
+			  <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+			  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</p>
+			</div>
+		</div>
+		
+	<div class="row">
+		<div class="span6">
+			<h3>Pagos:</h3>
+		</div>
+		
+		<h:dataTable class="table table-bordered table-striped table-hover"
+					value="#{Socios.getPagos()}" var="pago">
+					
+					<h:column>
+						<f:facet name="header">Fecha</f:facet>				
+	    			#{pago.getFecha()}
+	    		</h:column>
+					<h:column>
+						<f:facet name="header">Monto</f:facet>				
+	    			#{pago.getMonto()}
+	    		</h:column>
+				</h:dataTable>
+	</div>
+	</div>
 	</ui:define>
 </ui:composition>

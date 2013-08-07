@@ -118,13 +118,19 @@ public class Test {
 		Date d2 = dfm.parse("2013-06-10");
 		Pago pago = new Pago(d2,100);
 		
+		Date d3 = dfm.parse("2010-30-10");
+		Pago pago2 = new Pago(d3,100);
+		
 		//Asigno pago a socio y a cuota
 		perfilsocio.addPago(pago);
 		cu.addPago(pago);
+		perfilsocio.addPago(pago2);
+		cu.addPago(pago2);
 		
 		//Guardo pago
 		PagoDAO pagodao = FactoryDAO.getPagoDAO();
 		pagodao.guardar(pago);
+		pagodao.guardar(pago2);
 		
 		//Creo notificacion
 		Notificacion noti = new Notificacion("Esta es la primera noti");

@@ -19,7 +19,7 @@
 	</script>
 
 	<ui:define name="titulo">
-Bares
+Socio
 </ui:define>
 
 	<ui:define name="menu">
@@ -37,32 +37,26 @@ Bares
 						class="brand" value="Socio" outcome="socio" />
 					<div class="nav-collapse collapse" id="main-menu">
 						<ul class="nav" id="main-menu-left">
-							<li class="dropdown"><h:link
+							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									class="dropdown-toggle" data-toggle="dropdown" value="Consulta"
-									outcome="" /><b class="caret"></b>
-								<ul class="dropdown-menu" id="swatch-menu">
-									<li><h:link
-											onclick="pageTracker._link(this.href); return false;"
-											value="Productos" outcome="productos" /></li>
-									<li><h:link
-											onclick="pageTracker._link(this.href); return false;"
-											value="Bares" outcome="bares" /></li>
-									<li><h:link
-											onclick="pageTracker._link(this.href); return false;"
-											value="Dieteticas" outcome="dieteticas" /></li>
-								</ul></li>
+									value="Productos" outcome="productos" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Bares" outcome="bares" /></li>
+
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
 									value="Estado cuenta" outcome="cuenta" /></li>
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									id="swatch-link" value="Perfil" outcome="perfil" /></li>
+									id="swatch-link" value="Perfil" outcome="perfilsocio" /></li>
 						</ul>
 						<ul class="nav pull-right" id="main-menu-right">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Cerrar sesión" outcome="salir" /></li>
+							<li><h:form>
+								<ul class="nav pull-right" id="main-menu-right">
+									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
+								</ul>
+							</h:form></li>
 						</ul>
 					</div>
 				</div>
@@ -72,7 +66,7 @@ Bares
 	<ui:define name="container">
 		<div class="container">
 			<h:dataTable class="table table-bordered table-striped table-hover"
-				value="#{Bares.getListaBares()}" var="bar">
+				value="#{Socios.getListaBares()}" var="bar">
 				<h:column>
 					<f:facet name="header">Bar</f:facet>				
 	    		#{bar.getNombre()}

@@ -19,7 +19,7 @@
 	</script>
 
 	<ui:define name="titulo">
-Operador Central
+Operador Unidad
 </ui:define>
 
 	<ui:define name="menu">
@@ -33,26 +33,23 @@ Operador Central
 						class="icon-bar"></span> <span class="icon-bar"></span>
 					</a>
 					<h:link onclick="pageTracker._link(this.href); return false;"
-						class="brand" value="Operador Central" outcome="operadorcentral" />
+						class="brand" value="Operador Unidad" outcome="operadorunidad" />
 					<div class="nav-collapse collapse" id="main-menu">
 						<ul class="nav" id="main-menu-left">
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
 									value="Gestionar Socios" outcome="gestionarsocios" /></li>
+							
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value=" Socios" outcome="listasocios" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Perfil" outcome="perfiloperadorcentral" /></li>
+									value="Perfil" outcome="perfiloperadorunidad" /></li>
 						</ul>
-						<ul class="nav pull-right" id="main-menu-right">
-							<li>
-								<h:form>
+							<li><h:form>
+								<ul class="nav pull-right" id="main-menu-right">
 									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
-								</h:form>
-							</li>
-						</ul>
+								</ul>
+							</h:form></li>
+						
 					</div>
 				</div>
 			</div>
@@ -142,7 +139,7 @@ Operador Central
 					<h:column>
 						<f:facet name="header">Eliminar</f:facet>
 						<h:form>
-						<h:commandLink class="label label-important" action="#{GestionSocios.eliminar()}" value="Eliminar" >
+						<h:commandLink class="label label-important" onclick="return confirm('Are you sure?')" action="#{GestionSocios.eliminar()}" value="Eliminar" >
 							<f:setPropertyActionListener target="#{GestionSocios.perfilEliminar}" value="#{socio.getId()}" />
 						</h:commandLink>
 						</h:form>
