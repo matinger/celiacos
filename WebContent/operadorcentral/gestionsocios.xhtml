@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+	<script>
+		(function() {
+			var bsa = document.createElement('script');
+			bsa.type = 'text/javascript';
+			bsa.async = true;
+			bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+			(document.getElementsByTagName('head')[0] || document
+					.getElementsByTagName('body')[0]).appendChild(bsa);
+		})();
+	</script>
+
+	<ui:define name="titulo">
+Operador Central
+</ui:define>
+	<ui:define name="menu">
+	<!-- Navbar
+	  ================================================== -->
+	<ui:include src="menu.xhtml">
+	</ui:include>
+</ui:define>
+	<ui:define name="container">
+		<div class="container">
+
+			<div class="container">
+
+
+
+				<div class="row">
+					<div class="span6">
+						<h3>Gestión de Socios:</h3>
+					</div>
+
+					<h:dataTable class="table table-bordered table-striped table-hover"
+						value="#{GestionSocios.getListaSocios()}" var="socio">
+						<h:column>
+							<f:facet name="header">Nº Socio</f:facet>				
+	    			#{socio.getNroSocio()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Username</f:facet>				
+	    			#{socio.getUsuario().getUsuario()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Nombre</f:facet>				
+	    			#{socio.getUsuario().getNombre()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Apellido</f:facet>				
+	    			#{socio.getUsuario().getApellido()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">DNI</f:facet>				
+	    			#{socio.getDni()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Domicilio</f:facet>				
+	    			#{socio.getDomicilio()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Ocupación</f:facet>				
+	    			#{socio.getOcupacion()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Nacimiento</f:facet>				
+	    			#{socio.getFechaNacimiento()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Ingreso</f:facet>				
+	    			#{socio.getFechaIngreso()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Diagnostico</f:facet>				
+	    			#{socio.getFechaDiagnostico()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Presentado por</f:facet>				
+	    			#{socio.getPresentadoPor()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Telefono</f:facet>				
+	    			#{socio.getTelefono()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Email</f:facet>				
+	    			#{socio.getEmail()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Tipo</f:facet>				
+	    			#{socio.isSocioVirtual()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Beneficio</f:facet>				
+	    			#{socio.isBeneficio()}
+	    		</h:column>
+						<h:column>
+							<f:facet name="header">Editar</f:facet>
+							<h:form>
+								<h:commandLink class="label label-warning" value="Editar"
+									action="#{GestionSocios.editarSocio()}">
+									<f:setPropertyActionListener target="#{GestionSocios.perfil}"
+										value="#{socio}" />
+								</h:commandLink>
+							</h:form>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Eliminar</f:facet>
+							<h:form>
+								<h:commandLink class="label label-important"
+									onclick="return confirm('Are you sure?')"
+									action="#{GestionSocios.eliminar()}" value="Eliminar">
+									<f:setPropertyActionListener
+										target="#{GestionSocios.perfilEliminar}"
+										value="#{socio.getId()}" />
+								</h:commandLink>
+							</h:form>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Registrar Pago</f:facet>
+							<h:link onclick="pageTracker._link(this.href); return false;"
+								class="label label-success" value="Registrar pago" outcome="" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Historial</f:facet>
+							<h:link onclick="pageTracker._link(this.href); return false;"
+								class="label label-inverse" value="Historial" outcome="" />
+						</h:column>
+
+					</h:dataTable>
+					<h:link onclick="pageTracker._link(this.href); return false;"
+						class="btn btn-primary" value="Crear Socio" outcome="crearsocio" />
+				</div>
+			</div>
+				</div>
+	</ui:define>
+
+</ui:composition>

@@ -43,11 +43,11 @@
 	
 	<navigation-case>
 		<from-outcome>Celiacos.PerfilAdministradorUnidad</from-outcome>
-		<to-view-id>/administradorunidad.xhtml</to-view-id>
+		<to-view-id>/adminunidad/adminunidad.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>Celiacos.PerfilOperadorCentral</from-outcome>
-		<to-view-id>/operadorcentral.xhtml</to-view-id>
+		<to-view-id>/operadorcentral/operadorcentral.xhtml</to-view-id>
 	</navigation-case>
 	
 	

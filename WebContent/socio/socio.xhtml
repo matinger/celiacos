@@ -23,46 +23,11 @@ Socio
 </ui:define>
 
 	<ui:define name="menu">
-
-		<!-- Navbar
-    ================================================== -->
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="btn btn-navbar" data-toggle="collapse"
-						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span>
-					</a>
-					<h:link onclick="pageTracker._link(this.href); return false;"
-						class="brand" value="Socio" outcome="socio" />
-					<div class="nav-collapse collapse" id="main-menu">
-						<ul class="nav" id="main-menu-left">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Productos" outcome="productos" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Bares" outcome="bares" /></li>
-
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Estado cuenta" outcome="cuenta" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									id="swatch-link" value="Perfil" outcome="socioperfil" /></li>
-						</ul>
-						<ul class="nav pull-right" id="main-menu-right">
-							<li><h:form>
-								<ul class="nav pull-right" id="main-menu-right">
-									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
-								</ul>
-							</h:form></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</ui:define>
+	<!-- Navbar
+	  ================================================== -->
+	<ui:include src="menu.xhtml">
+	</ui:include>
+</ui:define>
 	<ui:define name="container">
 		<div class="container">
 			<header class="jumbotron subhead" id="overview">

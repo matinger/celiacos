@@ -19,37 +19,17 @@
 	</script>
 
 	<ui:define name="titulo">
-Socio
+Administrador de Unidad
 </ui:define>
 
-<ui:define name="menu">
+	<ui:define name="menu">
 	<!-- Navbar
 	  ================================================== -->
 	<ui:include src="menu.xhtml">
 	</ui:include>
 </ui:define>
 	<ui:define name="container">
-		<div class="container">
-			<h:dataTable class="table table-bordered table-striped table-hover"
-				value="#{Socios.getListaBares()}" var="bar">
-				<h:column>
-					<f:facet name="header">Bar</f:facet>				
-	    		#{bar.getNombre()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">Dirección</f:facet>				
-	    		#{bar.getDireccion()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">Provincia</f:facet>				
-	    		#{bar.getProvincia()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">Ciudad</f:facet>				
-	    		#{bar.getCiudad()}
-	    	</h:column>
-
-			</h:dataTable>
-		</div>
+		<ui:include src="../perfilUsuario.xhtml">
+		</ui:include>
 	</ui:define>
 </ui:composition>
