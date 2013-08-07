@@ -19,10 +19,11 @@
 	</script>
 
 	<ui:define name="titulo">
-Administrador Central
+Socio
 </ui:define>
 
 	<ui:define name="menu">
+
 		<!-- Navbar
     ================================================== -->
 		<div class="navbar navbar-fixed-top">
@@ -33,30 +34,29 @@ Administrador Central
 						class="icon-bar"></span> <span class="icon-bar"></span>
 					</a>
 					<h:link onclick="pageTracker._link(this.href); return false;"
-						class="brand" value="Administrador Central" outcome="admincentral" />
+						class="brand" value="Socio" outcome="socio" />
 					<div class="nav-collapse collapse" id="main-menu">
 						<ul class="nav" id="main-menu-left">
-							}
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value="Operadores" outcome="gestionaroperador" /></li>
+									value="Productos" outcome="productos" /></li>
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value="Unidades" outcome="gestionarunidades" /></li>
+									value="Bares" outcome="bares" /></li>
+
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value="administradores" outcome="gestionaradministradores" /></li>
+									value="Estado cuenta" outcome="cuenta" /></li>
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value="Productos" outcome="gestionarproductos" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									id="swatch-link" value="Perfil" outcome="perfiladmincentral" /></li>
+									id="swatch-link" value="Perfil" outcome="socioperfil" /></li>
 						</ul>
 						<ul class="nav pull-right" id="main-menu-right">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Cerrar sesión" outcome="salir" /></li>
+							<li><h:form>
+								<ul class="nav pull-right" id="main-menu-right">
+									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
+								</ul>
+							</h:form></li>
 						</ul>
 					</div>
 				</div>
@@ -65,15 +65,26 @@ Administrador Central
 	</ui:define>
 	<ui:define name="container">
 		<div class="container">
-			<header class="jumbotron subhead" id="overview">
-			<div class="row">
-				<div class="span8">
-					<h2>Bienvenido Administrador central!</h2>
-					<p class="lead">Asociación Argentina de celíacos.</p>
-				</div>
-			</div>
-			</header>
+			<h:dataTable class="table table-bordered table-striped table-hover"
+				value="#{Socios.getListaBares()}" var="bar">
+				<h:column>
+					<f:facet name="header">Bar</f:facet>				
+	    		#{bar.getNombre()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Dirección</f:facet>				
+	    		#{bar.getDireccion()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Provincia</f:facet>				
+	    		#{bar.getProvincia()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Ciudad</f:facet>				
+	    		#{bar.getCiudad()}
+	    	</h:column>
 
+			</h:dataTable>
 		</div>
 	</ui:define>
 </ui:composition>

@@ -10,12 +10,37 @@
 	<from-view-id>/login.xhtml</from-view-id>
 	<navigation-case>
 		<from-outcome>Celiacos.PerfilAdministradorCentral</from-outcome>
-		<to-view-id>/administradorcentral.xhtml</to-view-id>
+		<to-view-id>/admincentral/administradorcentral.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
-		<from-outcome>Celiacos.PerfilSocio</from-outcome>
-		<to-view-id>/socio.xhtml</to-view-id>
+		<from-outcome>gestionarproductos</from-outcome>
+		<to-view-id>/admincentral/gestionarproductos.xhtml</to-view-id>
 	</navigation-case>
+	<navigation-case>
+		<from-outcome>gestionaroperador</from-outcome>
+		<to-view-id>/admincentral/gestionaroperador.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>gestionarunidades</from-outcome>
+		<to-view-id>/admincentral/gestionarunidades.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>admincentralperfil</from-outcome>
+		<to-view-id>/admincentral/admincentralperfil.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>crearunidad</from-outcome>
+		<to-view-id>/admincentral/crearunidad.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>crearadmin</from-outcome>
+		<to-view-id>/admincentral/crearunidad.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>editarunidad</from-outcome>
+		<to-view-id>/admincentral/editarunidad.xhtml</to-view-id>
+	</navigation-case>
+	
 	<navigation-case>
 		<from-outcome>Celiacos.PerfilAdministradorUnidad</from-outcome>
 		<to-view-id>/administradorunidad.xhtml</to-view-id>
@@ -24,35 +49,57 @@
 		<from-outcome>Celiacos.PerfilOperadorCentral</from-outcome>
 		<to-view-id>/operadorcentral.xhtml</to-view-id>
 	</navigation-case>
+	
+	
 	<navigation-case>
 		<from-outcome>Celiacos.PerfilOperadorUnidad</from-outcome>
-		<to-view-id>/operadorunidad.xhtml</to-view-id>
+		<to-view-id>/operadorunidad/operadorunidad.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>gestionarsocios</from-outcome>
-		<to-view-id>/gestionarsocios.xhtml</to-view-id>
+		<to-view-id>/operadorunidad/gestionarsocios.xhtml</to-view-id>
 	</navigation-case>
-	<navigation-case>
-		<from-outcome>bares</from-outcome>
-		<to-view-id>/bares.xhtml</to-view-id>
-	</navigation-case>
-	<navigation-case>
-		<from-outcome>failure</from-outcome>
-		<to-view-id>/login.xhtml</to-view-id>
-	</navigation-case>
-	<navigation-case>
+		<navigation-case>
 		<from-outcome>crearsocio</from-outcome>
-		<to-view-id>/crearsocio.xhtml</to-view-id>
+		<to-view-id>/operadorunidad/crearsocio.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>editarsocio</from-outcome>
-		<to-view-id>/editarsocio.xhtml</to-view-id>
+		<to-view-id>/operadorunidad/editarsocio.xhtml</to-view-id>
+	</navigation-case>
+	
+	
+	<navigation-case>
+		<from-outcome>Celiacos.PerfilSocio</from-outcome>
+		<to-view-id>/socio/socio.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>bares</from-outcome>
+		<to-view-id>/socio/bares.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>productos</from-outcome>
+		<to-view-id>/socio/productos.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>cuenta</from-outcome>
+		<to-view-id>/socio/cuenta.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>socioperfil</from-outcome>
+		<to-view-id>/socio/socioperfil.xhtml</to-view-id>
+	</navigation-case>
+	
+	<navigation-case>
+		<from-outcome>failure</from-outcome>
+		<to-view-id>/login.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>cerrarsesion</from-outcome>
 		<to-view-id>/login.xhtml</to-view-id>
 	</navigation-case>
 </navigation-rule>
+
 <managed-bean>
 <description>Login Bean </description>
 <managed-bean-name>LoginBean</managed-bean-name>
@@ -63,6 +110,18 @@
 <description>Gestion Socios </description>
 <managed-bean-name>GestionSocios</managed-bean-name>
 <managed-bean-class>Beans.GestionSociosBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<description>Gestion Unidades Bean </description>
+<managed-bean-name>GestionUnidades</managed-bean-name>
+<managed-bean-class>Beans.GestionUnidadesBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<description>Gestion Administradores Bean </description>
+<managed-bean-name>GestionAdmin</managed-bean-name>
+<managed-bean-class>Beans.GestionAdminBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 <managed-bean>

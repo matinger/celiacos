@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+					</a>
+					<h:link onclick="pageTracker._link(this.href); return false;"
+						class="brand" value="Administrador Central" outcome="admincentral" />
+					<div class="nav-collapse collapse" id="main-menu">
+						<ul class="nav" id="main-menu-left">
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Administradores" outcome="gestionaradministradores" /></li>				
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Operadores" outcome="gestionaroperador" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Unidades" outcome="gestionarunidades" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									value="Productos" outcome="gestionarproductos" /></li>
+							<li><h:link
+									onclick="pageTracker._link(this.href); return false;"
+									id="swatch-link" value="Perfil" outcome="admincentralperfil" /></li>
+						</ul>
+							
+								<ul class="nav pull-right" id="main-menu-right">
+								<h:form>
+									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
+									</h:form>
+								</ul>
+							
+					</div>
+				</div>
+			</div>
+	</div>
+</ui:composition>

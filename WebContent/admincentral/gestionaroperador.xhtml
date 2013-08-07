@@ -19,48 +19,14 @@
 	</script>
 
 	<ui:define name="titulo">
-Administrador Central
-</ui:define>
+	Administrador central
+	</ui:define>
 
 	<ui:define name="menu">
-		<!-- Navbar
-    ================================================== -->
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="btn btn-navbar" data-toggle="collapse"
-						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span>
-					</a>
-					<h:link onclick="pageTracker._link(this.href); return false;"
-						class="brand" value="Administrador Central" outcome="admincentral" />
-					<div class="nav-collapse collapse" id="main-menu">
-						<ul class="nav" id="main-menu-left">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Operadores" outcome="gestionaroperador" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Unidades" outcome="gestionarUnidades" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Administradores" outcome="gestionaradministradores" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Productos" outcome="gestionarproductos" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Perfil" outcome="perfiladmincentral" /></li>
-						</ul>
-						<ul class="nav pull-right" id="main-menu-right">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Cerrar sesión" outcome="salir" /></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+	<!-- Navbar
+	  ================================================== -->
+	<ui:include src="menu.xhtml">
+	</ui:include>
 	</ui:define>
 
 	<ui:define name="container">
@@ -110,6 +76,7 @@ Administrador Central
 				<h:link onclick="pageTracker._link(this.href); return false;"
 					class="btn btn-primary" value="Crear Operador"
 					outcome="crearoperador" />
+			</div>
 			</div>
 	</ui:define>
 </ui:composition>

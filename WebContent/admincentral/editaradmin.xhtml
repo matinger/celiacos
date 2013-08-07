@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+	<script>
+		(function() {
+			var bsa = document.createElement('script');
+			bsa.type = 'text/javascript';
+			bsa.async = true;
+			bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+			(document.getElementsByTagName('head')[0] || document
+					.getElementsByTagName('body')[0]).appendChild(bsa);
+		})();
+	</script>
+	<f:metadata>
+        <f:event type="preRenderView" listener="#{GestionAdmin.cargarUnidades()}"/>
+    </f:metadata>
+	
+	<ui:define name="titulo">
+	Administrador central
+	</ui:define>
+	
+	<ui:define name="menu">
+	<!-- Navbar
+	  ================================================== -->
+	<ui:include src="menu.xhtml">
+	</ui:include>
+	</ui:define>
+	
+	<ui:define name="container">
+		<div class="container">
+			<h3>Crear Admin</h3>
+			<h:form class="form-horizontal well">
+				<div class="control-group">
+					<span class="control-label" for="input01">Usuario</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="usuarioInput" required="true"
+								value="#{GestionAdmin.usuario}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="usuarioInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Password</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge" id="passwordInput"
+								required="true" value="#{GestionAdmin.password}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="passwordInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Nombre</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="nombreInput" required="true"
+								value="#{GestionAdmin.nombre}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="nombreInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Apellido</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="apellidoInput" required="true"
+								value="#{GestionAdmin.apellido}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="apellidoInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<span class="control-label" for="input01">Unidad</span>
+					<div class="controls">
+						<h:selectOneMenu value="#{GestionAdmin.seleccion}">
+							<f:selectItems value="#{GestionAdmin.mapValue}" />
+						</h:selectOneMenu>
+					</div>
+				</div>
+				
+
+				<div class="form-actions">
+					<h:commandButton type="submit" class="btn btn-primary"
+						value="Guardar" action="#{GestionAdmin.editar()}"></h:commandButton>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

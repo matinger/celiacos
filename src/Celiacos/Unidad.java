@@ -9,7 +9,7 @@ public class Unidad extends TipoUnidad {
 		
 	}
 	public Unidad(String nombre, String direccion, String telefono,
-			String email, String tipo) {
+			String email) {
 		super(nombre, direccion, telefono, email);
 		// TODO Auto-generated constructor stub
 	}

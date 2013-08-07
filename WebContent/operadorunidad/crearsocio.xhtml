@@ -21,7 +21,7 @@
         <f:event type="preRenderView" listener="#{GestionSocios.clear()}"/>
     </f:metadata>
 	<ui:define name="titulo">
-Operador Central
+Operador Unidad
 </ui:define>
 
 	<ui:define name="menu">
@@ -35,7 +35,7 @@ Operador Central
 						class="icon-bar"></span> <span class="icon-bar"></span>
 					</a>
 					<h:link onclick="pageTracker._link(this.href); return false;"
-						class="brand" value="Operador central" outcome="operadorcentral" />
+						class="brand" value="Operador Unidad" outcome="operadorunidad" />
 					<div class="nav-collapse collapse" id="main-menu">
 						<ul class="nav" id="main-menu-left">
 							<li><h:link
@@ -43,15 +43,15 @@ Operador Central
 									value="Gestionar Socios" outcome="gestionarsocios" /></li>
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									value="Socios" outcome="listasocios" /></li>
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Perfil" outcome="perfiloperadorcentral" /></li>
+									value="Perfil" outcome="perfiloperadorunidad" /></li>
 						</ul>
 						<ul class="nav pull-right" id="main-menu-right">
-							<li><h:link
-									onclick="pageTracker._link(this.href); return false;"
-									value="Cerrar sesión" outcome="salir" /></li>
+							<li><h:form>
+								<ul class="nav pull-right" id="main-menu-right">
+									<h:commandLink action="#{LoginBean.logout}" value="Cerrar Sesión" />
+								</ul>
+								</h:form>
+							</li>
 						</ul>
 					</div>
 				</div>

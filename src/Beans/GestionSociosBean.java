@@ -51,6 +51,7 @@ public class GestionSociosBean {
 	}
 	public void setNroSocio(int nroSocio) {
 		this.nroSocio = nroSocio;
+		if (perfil != null)
 		perfil.setNroSocio(nroSocio);
 	}
 	public String getUsuario() {
@@ -58,6 +59,7 @@ public class GestionSociosBean {
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+		if (perfil != null)
 		perfil.getUsuario().setUsuario(usuario);
 	}
 	public String getPassword() {
@@ -65,6 +67,7 @@ public class GestionSociosBean {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+		if (perfil != null)
 		perfil.getUsuario().setPassword(password);
 	}
 	public String getNombre() {
@@ -72,6 +75,7 @@ public class GestionSociosBean {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+		if (perfil != null)
 		perfil.getUsuario().setNombre(nombre);
 	}
 	public String getApellido() {
@@ -79,6 +83,7 @@ public class GestionSociosBean {
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+		if (perfil != null)
 		perfil.getUsuario().setApellido(apellido);
 	}
 	public int getDni() {
@@ -86,6 +91,7 @@ public class GestionSociosBean {
 	}
 	public void setDni(int dni) {
 		this.dni = dni;
+		if (perfil != null)
 		perfil.setDni(dni);
 	}
 	public String getDomicilio() {
@@ -93,6 +99,7 @@ public class GestionSociosBean {
 	}
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
+		if (perfil != null)
 		perfil.setDomicilio(domicilio);
 	}
 	public String getOcupacion() {
@@ -100,13 +107,16 @@ public class GestionSociosBean {
 	}
 	public void setOcupacion(String ocupacion) {
 		this.ocupacion = ocupacion;
+		if (perfil != null)
 		perfil.setOcupacion(ocupacion);
 	}
 	public Date getFechaNacimiento() {
+		
 		return fechaNacimiento;
 	}
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+		if (perfil != null)
 		perfil.setFechaNacimiento(fechaNacimiento);
 	}
 	public Date getFechaIngreso() {
@@ -114,6 +124,7 @@ public class GestionSociosBean {
 	}
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
+		if (perfil != null)
 		perfil.setFechaIngreso(fechaIngreso);
 	}
 	public Date getFechaDiagnostico() {
@@ -121,6 +132,7 @@ public class GestionSociosBean {
 	}
 	public void setFechaDiagnostico(Date fechaDiagnostico) {
 		this.fechaDiagnostico = fechaDiagnostico;
+		if (perfil != null)
 		perfil.setFechaDiagnostico(fechaDiagnostico);
 	}
 	public String getPresentadoPor() {
@@ -128,6 +140,7 @@ public class GestionSociosBean {
 	}
 	public void setPresentadoPor(String presentadoPor) {
 		this.presentadoPor = presentadoPor;
+		if (perfil != null)
 		perfil.setPresentadoPor(presentadoPor);
 	}
 	public String getTelefono() {
@@ -135,6 +148,7 @@ public class GestionSociosBean {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+		if (perfil != null)
 		perfil.setTelefono(telefono);
 	}
 	public String getEmail() {
@@ -142,6 +156,7 @@ public class GestionSociosBean {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+		if (perfil != null)
 		perfil.setEmail(email);
 	}
 	public boolean isBeneficio() {
@@ -149,6 +164,7 @@ public class GestionSociosBean {
 	}
 	public void setBeneficio(boolean beneficio) {
 		this.beneficio = beneficio;
+		if (perfil != null)
 		perfil.setBeneficio(beneficio);
 	}
 	public boolean isSocioVirtual() {
@@ -156,6 +172,7 @@ public class GestionSociosBean {
 	}
 	public void setSocioVirtual(boolean socioVirtual) {
 		this.socioVirtual = socioVirtual;
+		if (perfil != null)
 		perfil.setSocioVirtual(socioVirtual);
 	}
 	public List<PerfilSocio> getListaSocios(){
@@ -165,7 +182,6 @@ public class GestionSociosBean {
 		return g.getListaPersonas(p);
 	}
 	public boolean crearSocio(){
-
 		GestionSociosServicio g = new GestionSociosServicio();
 		FacesContext context = FacesContext.getCurrentInstance();
 		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
@@ -203,7 +219,7 @@ public class GestionSociosBean {
 		return "editarsocio";
 	}
 		
-	public void clear() {  
+	public void clear() {
 		this.setApellido(null);
 		this.setBeneficio(false);
 		this.setDni(0);

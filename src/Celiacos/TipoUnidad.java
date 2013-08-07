@@ -100,7 +100,7 @@ public abstract class TipoUnidad {
 	public int getId() {
 		return id;
 	}
-
+		
 	public void setCuotas(List<Cuota> cuotas) {
 		this.cuotas = cuotas;
 	}

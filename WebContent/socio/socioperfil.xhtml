@@ -49,7 +49,7 @@ Socio
 									value="Estado cuenta" outcome="cuenta" /></li>
 							<li><h:link
 									onclick="pageTracker._link(this.href); return false;"
-									id="swatch-link" value="Perfil" outcome="perfilsocio" /></li>
+									id="swatch-link" value="Perfil" outcome="socioperfil" /></li>
 						</ul>
 						<ul class="nav pull-right" id="main-menu-right">
 							<li><h:form>
@@ -64,42 +64,7 @@ Socio
 		</div>
 	</ui:define>
 	<ui:define name="container">
-		<div class="container">
-			<h:dataTable class="table table-bordered table-striped table-hover"
-				value="#{Socios.getListaProductos()}" var="producto">
-				<h:column>
-					<f:facet name="header">Producto</f:facet>				
-	    		#{producto.getNombre()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">Marca</f:facet>				
-	    		#{producto.getMarca()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">Descripción</f:facet>				
-	    		#{producto.getDescripcion()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">R.N.P.A.</f:facet>				
-	    		#{producto.getRnpa()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">Empresa</f:facet>				
-	    		#{producto.getEmpresa()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">R.N.E.</f:facet>				
-	    		#{producto.getRne()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">Fecha alta</f:facet>				
-	    		#{producto.getFechaAlta()}
-	    	</h:column>
-				<h:column>
-					<f:facet name="header">FECHA CERTIFICADO LDG</f:facet>				
-	    		#{producto.getFechaCertificado()}
-	    	</h:column>
-			</h:dataTable>
-		</div>
+		<ui:include src="../perfilUsuario.xhtml">
+		</ui:include>
 	</ui:define>
 </ui:composition>

@@ -36,7 +36,7 @@ public class Test {
 		DateFormat dfm = new SimpleDateFormat("yyyy-MM-dd");
 
 		//Crea unidades
-		Unidad unidad1 = new Unidad("Unidad 1","12 y 35","4111111","unidad1@email.com","Organizacion");
+		Unidad unidad1 = new Unidad("Unidad 1","12 y 35","4111111","unidad1@email.com");
 		UnidadCentral unidad2 = new UnidadCentral("Unidad 2 ","60 y 1","4222222","unidad2@email.com");
 		
 		//Guarda las unidades
