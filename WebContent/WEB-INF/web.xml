@@ -3,7 +3,7 @@
   <display-name>Celiacos</display-name>
 
 	<welcome-file-list>
-		<welcome-file>faces/login.xhtml</welcome-file>
+		<welcome-file>faces/login/login.xhtml</welcome-file>
 	</welcome-file-list>
 	
   <servlet>

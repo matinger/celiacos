@@ -34,4 +34,6 @@ public class SociosBean {
 			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
 			return p.getPagos();
 		}
+		
+		
 }

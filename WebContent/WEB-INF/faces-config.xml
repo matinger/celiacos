@@ -7,7 +7,7 @@
     version="2.1">
     
 <navigation-rule>
-	<from-view-id>/login.xhtml</from-view-id>
+	<from-view-id>/login/*</from-view-id>
 	<navigation-case>
 		<from-outcome>Celiacos.PerfilAdministradorCentral</from-outcome>
 		<to-view-id>/admincentral/administradorcentral.xhtml</to-view-id>
@@ -101,14 +101,17 @@
 	
 	<navigation-case>
 		<from-outcome>failure</from-outcome>
-		<to-view-id>/login.xhtml</to-view-id>
+		<to-view-id>/login/login.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
 		<from-outcome>cerrarsesion</from-outcome>
-		<to-view-id>/login.xhtml</to-view-id>
+		<to-view-id>/login/login.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>perfiles</from-outcome>
+		<to-view-id>/login/perfiles.xhtml</to-view-id>
 	</navigation-case>
 </navigation-rule>
-
 <managed-bean>
 <description>Login Bean </description>
 <managed-bean-name>LoginBean</managed-bean-name>
@@ -144,6 +147,13 @@
 <description> Socios </description>
 <managed-bean-name>Socios</managed-bean-name>
 <managed-bean-class>Beans.SociosBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+<description> Seleccion </description>
+<managed-bean-name>Seleccion</managed-bean-name>
+<managed-bean-class>Beans.SeleccionBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 </faces-config>

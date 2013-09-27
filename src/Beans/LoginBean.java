@@ -1,6 +1,7 @@
 package Beans;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -9,6 +10,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+
 
 import Celiacos.Perfil;
 import Celiacos.Usuario;
@@ -31,12 +33,16 @@ public class LoginBean {
 		UsuarioServicio us = new UsuarioServicio();
 		Usuario u = us.validarUsuario(username, password);
 		if ( u != null) {
-			Perfil p = u.getPerfiles().get(0);
-			
+			List<Perfil> perfiles = u.getPerfiles();
 			FacesContext context = FacesContext.getCurrentInstance();
-			context.getExternalContext().getSessionMap().put("perfil", p);
-			
-			return p.getClass().getName();
+			if (perfiles.size() == 1){
+				Perfil p = perfiles.get(0);			
+				context.getExternalContext().getSessionMap().put("perfil", p);				
+				return p.getClass().getName();
+			}else{			
+				context.getExternalContext().getSessionMap().put("perfiles", perfiles);				
+				return "perfiles";
+			}
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
 			FacesMessage message = new FacesMessage("Invalid Username and/or Password");
