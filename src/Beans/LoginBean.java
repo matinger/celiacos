@@ -63,7 +63,7 @@ public class LoginBean {
 			    // si se usa una HttpServletResponse fallará.
 			    // Sin embargo, como ya está fuera del ciclo de vida 
 			    // de JSF se debe usar la ruta completa -_-U
-			    ctx.redirect(ctxPath + "/faces/login.xhtml");
+			    ctx.redirect(ctxPath + "/faces/login/login.xhtml");
 			  } catch (IOException ex) {
 			    ex.printStackTrace();
 			  }
