@@ -29,75 +29,65 @@
 	</ui:include>
 	</ui:define>
 	
-<div class="container">
-		<form class="well form-search">
-			<input type="text" class="input-medium search-query">
-			<button type="submit" class="btn">Search</button>
-		</form>
-		<table class="table table-bordered table-striped table-hover">	
-			<thead>
-				<tr>
-					<th>Producto</th>
-					<th>Marca</th>
-					<th>Descripcion</th>
-					<th>R.N.P.A.</th>
-					<th>Empresa</th>
-					<th>R.N.E.</th>
-					<th>Fecha de alta</th>
-					<th>FECHA CERTIFICADO LDG</th>
-					<th>Editar</th>
-					<th>Eliminar</th>	
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Harina de quinoa</td>
-					<td>Cañuelas</td>
-					<td>Harina libre de gluten</td>
-					<td>32875784</td>
-					<td>Carlitos</td>
-					<td>77855112</td>
-					<td>20/02/2002</td>
-					<td>21/07/2000</td>
-					<td><a href="#"><span class="label label-warning">Editar</span></a></td>
-	      			<td><a href="#"><span class="label label-important">Eliminar</span></a></td>
-				</tr>
-				<tr>
-					<td>Pan</td>
-					<td>Fargo</td>
-					<td>Pan de mesa fargo sin gluten</td>
-					<td>32456784</td>
-					<td>Fargo</td>
-					<td>77842012</td>
-					<td>02/02/2006</td>
-					<td>15/10/2004</td>
-					<td><a href="#"><span class="label label-warning">Editar</span></a></td>
-	      			<td><a href="#"><span class="label label-important">Eliminar</span></a></td>
-				</tr>
-				<tr>
-					<td>Galletas de arroz</td>
-					<td>Cañuelas</td>
-					<td>Galletas de arroz libres de gluten</td>
-					<td>456757834</td>
-					<td>Ca�uelas</td>
-					<td>77855689</td>
-					<td>25/08/2012</td>
-					<td>21/08/2013</td>
-					<td><a href="#"><span class="label label-warning">Editar</span></a></td>
-	      			<td><a href="#"><span class="label label-important">Eliminar</span></a></td>
-				</tr>
-			</tbody>	
-		</table>
-			<a class="btn btn-primary" href="#">Crear producto</a>
-	</div>
-
-	<!-- Le javascript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="jquery.smooth-scroll.min.js"></script>
-	<script src="bootstrap.min.js"></script>
-	<script src="bootswatch.js"></script>
-	
+<ui:define name="container">
+		<div class="container">
+			<h:dataTable class="table table-bordered table-striped table-hover"
+				value="#{Productos.getListaProductos()}" var="producto">
+				<h:column>
+					<f:facet name="header">Producto</f:facet>				
+	    		#{producto.getNombre()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Marca</f:facet>				
+	    		#{producto.getMarca()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Descripción</f:facet>				
+	    		#{producto.getDescripcion()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">R.N.P.A.</f:facet>				
+	    		#{producto.getRnpa()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Empresa</f:facet>				
+	    		#{producto.getEmpresa()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">R.N.E.</f:facet>				
+	    		#{producto.getRne()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Fecha alta</f:facet>				
+	    		#{producto.getFechaAlta()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">FECHA CERTIFICADO LDG</f:facet>				
+	    		#{producto.getFechaCertificado()}
+	    	</h:column>
+	    	<h:column>
+					<f:facet name="header">Editar</f:facet>
+					
+					<h:form>
+						<h:commandLink class="label label-warning" value="Editar" action="#{Productos.editarProducto()}" >
+							<f:setPropertyActionListener target="#{Productos.productoEditar}" value="#{producto}" />
+						</h:commandLink>
+					</h:form>
+					
+				</h:column>		
+				<h:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<h:form>			
+					<h:commandLink class="label label-important" onclick="return confirm('Are you sure?')" action="#{Productos.eliminar()}" value="Eliminar" >
+						<f:setPropertyActionListener target="#{Productos.productoEliminar}" value="#{producto.getId()}" />
+					</h:commandLink>
+					</h:form>	
+				</h:column>
+				</h:dataTable>
+				<h:link onclick="pageTracker._link(this.href); return false;"
+					class="btn btn-primary" value="Crear Producto"
+					outcome="crearproducto" />
+			
+		</div>
 	</ui:define>
 </ui:composition>

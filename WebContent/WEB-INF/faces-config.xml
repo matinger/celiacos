@@ -46,6 +46,10 @@
 		<to-view-id>/admincentral/editaroperador.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
+		<from-outcome>editarproducto</from-outcome>
+		<to-view-id>/admincentral/editarproducto.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
 		<from-outcome>editarunidad</from-outcome>
 		<to-view-id>/admincentral/editarunidad.xhtml</to-view-id>
 	</navigation-case>
@@ -136,6 +140,7 @@
 <managed-bean-class>Beans.GestionAdminBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
+
 <managed-bean>
 <description>Gestion Operadores Bean </description>
 <managed-bean-name>GestionOperador</managed-bean-name>
@@ -154,6 +159,13 @@
 <description> Seleccion </description>
 <managed-bean-name>Seleccion</managed-bean-name>
 <managed-bean-class>Beans.SeleccionBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+<description> Productos </description>
+<managed-bean-name>Productos</managed-bean-name>
+<managed-bean-class>Beans.ProductosBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 </faces-config>
