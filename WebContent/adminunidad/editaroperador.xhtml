@@ -17,12 +17,9 @@
 					.getElementsByTagName('body')[0]).appendChild(bsa);
 		})();
 	</script>
-	<f:metadata>
-        <f:event type="preRenderView" listener="#{GestionOperador.clear()}"/>
-    </f:metadata>
 	
 	<ui:define name="titulo">
-	Administrador central
+	Administrador Unidad
 	</ui:define>
 	
 	<ui:define name="menu">
@@ -34,7 +31,7 @@
 	
 	<ui:define name="container">
 		<div class="container">
-			<h3>Crear Operador</h3>
+			<h3>Editar operador</h3>
 			<h:form class="form-horizontal well">
 				<div class="control-group">
 					<span class="control-label" for="input01">Usuario</span>
@@ -82,12 +79,11 @@
 							</b> <br /> </span>
 						</label>
 					</div>
-				</div>
-								
+				</div>	
 
 				<div class="form-actions">
 					<h:commandButton type="submit" class="btn btn-primary"
-						value="Guardar" action="#{GestionOperador.crearOperadorCentral()}"></h:commandButton>
+						value="Guardar" action="#{GestionOperador.editar()}"></h:commandButton>
 				</div>
 			</h:form>
 		</div>

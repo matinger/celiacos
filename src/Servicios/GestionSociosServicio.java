@@ -21,6 +21,14 @@ public class GestionSociosServicio {
 		return socios;
 	}
 	
+	public List<PerfilSocio> getListaPersonasCentral(Perfil perfil) {
+		
+		List<PerfilSocio> socioscentral = dao.getSociosFromPerfil(perfil);
+		List<PerfilSocio> sociosvirtuales = dao.getSociosVirtualesUnidad();
+		socioscentral.addAll(sociosvirtuales);
+		return socioscentral;
+	}
+	
 	public boolean eliminar(int id){
 		System.out.println("El id a eliminar es: " + id);
 		dao.eliminarPorId(id);

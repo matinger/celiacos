@@ -27,65 +27,54 @@ Administrar operadores
 	<ui:include src="menu.xhtml">
 	</ui:include>
 </ui:define>
-	<ui:define name="container">
+	
+		<ui:define name="container">
 		<div class="container">
 			<div class="row">
 				<div class="span6">
-					<h3>Operadores de su unidad:</h3>
+					<h3>Gestión de operadores:</h3>
 				</div>
-				<h:dataTable class="table table-bordered table-striped table-hover">
-					<h:column>
-						<f:facet name="header">Nombre</f:facet>				
-	    		#{socio.getNombre()}
-	    	</h:column>
-					<h:column>
-						<f:facet name="header">Apellido</f:facet>				
-	    		#{socio.getApellido()}
-	    	</h:column>
-					<h:column>
-						<f:facet name="header">Username</f:facet>				
-	    		#{socio.getUsername()}
-	    	</h:column>
-					<h:column>
-						<f:facet name="header">DNI</f:facet>				
-	    			#{socio.getDni()}
+				<h:dataTable class="table table-bordered table-striped table-hover"
+					value="#{GestionOperador.getListaOperadorUnidad()}" var="operador">
+				<h:column>
+					<f:facet name="header">Username</f:facet>				
+		    		#{operador.getUsuario().getUsuario()}
 	    		</h:column>
-					<h:column>
-						<f:facet name="header">Nacimiento</f:facet>				
-	    			#{socio.getFechaNacimiento()}
+	    		<h:column>
+					<f:facet name="header">Nombre</f:facet>				
+	    			#{operador.getUsuario().getNombre()}
 	    		</h:column>
-					<h:column>
-						<f:facet name="header">Domicilio</f:facet>				
-	    			#{socio.getDomicilio()}
+	    		<h:column>
+					<f:facet name="header">Apellido</f:facet>				
+	    			#{operador.getUsuario().getApellido()}
 	    		</h:column>
-					<h:column>
-						<f:facet name="header">Telefono</f:facet>				
-	    			#{socio.getTelefono()}
+				<h:column>
+					<f:facet name="header">Unidad</f:facet>				
+	    			#{operador.getUnidad().getNombre()}
 	    		</h:column>
-					<h:column>
-						<f:facet name="header">Email</f:facet>				
-	    			#{socio.getEmail()}
-	    		</h:column>
-					<h:column>
-						<f:facet name="header">FechaAlta</f:facet>				
-	    			#{socio.getFechaAlta()}
-	    		</h:column>
-					<h:column>
-						<f:facet name="header">Editar</f:facet>
-						<h:link onclick="pageTracker._link(this.href); return false;"
-							class="label label-warning" value="Editar" outcome="" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Eliminar</f:facet>
-						<h:link onclick="pageTracker._link(this.href); return false;"
-							class="label label-important" value="Eliminar" outcome="" />
-					</h:column>
+	    		<h:column>
+					<f:facet name="header">Editar</f:facet>
+					
+					<h:form>
+						<h:commandLink class="label label-warning" value="Editar" action="#{GestionOperador.editarOperador()}" >
+							<f:setPropertyActionListener target="#{GestionOperador.perfil}" value="#{operador}" />
+						</h:commandLink>
+					</h:form>
+					
+				</h:column>		
+				<h:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<h:form>			
+					<h:commandLink class="label label-important" onclick="return confirm('Are you sure?')" action="#{GestionOperador.eliminar()}" value="Eliminar" >
+						<f:setPropertyActionListener target="#{GestionOperador.perfilEliminar}" value="#{operador.getId()}" />
+					</h:commandLink>
+					</h:form>	
+				</h:column>
 				</h:dataTable>
 				<h:link onclick="pageTracker._link(this.href); return false;"
-			class="btn btn-primary"
-					value="Crear operador" outcome="asignaroperador" />
+					class="btn btn-primary" value="Crear Operador"
+					outcome="crearoperador" />
 			</div>
-
 		</div>
 	</ui:define>
 </ui:composition>

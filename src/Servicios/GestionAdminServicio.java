@@ -25,8 +25,12 @@ public class GestionAdminServicio {
 		return true;
 	}
 	
-	public boolean modificar(Perfil s){
+	public boolean modificar(Perfil s, int unidad){
 		System.out.println("El id a editar es: " + s.getId());
+		
+		TipoUnidadDAO unidao = FactoryDAO.getTipoUnidadDAO();
+		TipoUnidad unidadaguardar = unidao.encontrar(unidad);
+		s.setUnidad(unidadaguardar);
 		dao.modificar(s);
 		
 		return true;

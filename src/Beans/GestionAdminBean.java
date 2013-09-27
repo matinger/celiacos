@@ -85,7 +85,7 @@ public class GestionAdminBean {
 	
 	public boolean editar(){
 		GestionAdminServicio g = new GestionAdminServicio();
-		return g.modificar(perfil);
+		return g.modificar(perfil, seleccion);
 		
 	}
 	

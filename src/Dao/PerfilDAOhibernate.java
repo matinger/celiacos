@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import Celiacos.Perfil;
 import Celiacos.PerfilAdministradorUnidad;
 import Celiacos.PerfilOperadorCentral;
+import Celiacos.PerfilOperadorUnidad;
 
 public class PerfilDAOhibernate extends GenericDAOhibernate<Perfil> implements PerfilDAO{
 
@@ -23,8 +24,15 @@ public class PerfilDAOhibernate extends GenericDAOhibernate<Perfil> implements P
 	}
 
 	@Transactional(readOnly=true) 
-	public List<PerfilOperadorCentral> getPerfilesOperadores() {
+	public List<PerfilOperadorCentral> getPerfilesOperadoresCentrales() {
 		String sql = "FROM PerfilOperadorCentral";
+		Query query = entityManager.createQuery(sql);	
+		return query.getResultList();
+	}
+
+	@Transactional(readOnly=true) 
+	public List<PerfilOperadorUnidad> getPerfilesOperadoresUnidades() {
+		String sql = "FROM PerfilOperadorUnidad";
 		Query query = entityManager.createQuery(sql);	
 		return query.getResultList();
 	}

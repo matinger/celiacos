@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 
 import Celiacos.Perfil;
 import Celiacos.PerfilOperadorCentral;
+import Celiacos.PerfilOperadorUnidad;
 import Celiacos.TipoUnidad;
 import Servicios.GestionAdminServicio;
 import Servicios.GestionOperadorServicio;
@@ -20,12 +21,12 @@ public class GestionOperadorBean {
 	private String nombre;
 	private String apellido;
 	private int perfilEliminar;
-	private PerfilOperadorCentral perfil;
+	private Perfil perfil;
 	
-	public PerfilOperadorCentral getPerfil() {
+	public Perfil getPerfil() {
 		return perfil;
 	}
-	public void setPerfil(PerfilOperadorCentral perfil) {
+	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
 	public String getUsuario() {
@@ -63,6 +64,11 @@ public class GestionOperadorBean {
 	
 	public List<PerfilOperadorCentral> getListaOperador(){
 		GestionOperadorServicio g = new GestionOperadorServicio();		
+		return g.getListaOperadoresCentrales();
+	}
+	
+	public List<PerfilOperadorUnidad> getListaOperadorUnidad(){
+		GestionOperadorServicio g = new GestionOperadorServicio();		
 		return g.getListaOperadoresUnidades();
 	}
 	
@@ -98,13 +104,21 @@ public class GestionOperadorBean {
 		this.setUsuario(null);
 	}
 	
-	public boolean crearOperador(){
+	public boolean crearOperadorCentral(){
 		GestionOperadorServicio g = new GestionOperadorServicio();	
 		FacesContext context = FacesContext.getCurrentInstance();
 		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
-		g.crearOperadorCentral(usuario, password, nombre, apellido, p.getUnidad() );
+		PerfilOperadorCentral pc = new PerfilOperadorCentral();
+		g.crearOperador(usuario, password, nombre, apellido, p.getUnidad(), pc );
 		return true;
 	}
-	
+	public boolean crearOperadorUnidad(){
+		GestionOperadorServicio g = new GestionOperadorServicio();	
+		FacesContext context = FacesContext.getCurrentInstance();
+		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
+		PerfilOperadorUnidad pc = new PerfilOperadorUnidad();
+		g.crearOperador(usuario, password, nombre, apellido, p.getUnidad(), pc );
+		return true;
+	}
 	
 }

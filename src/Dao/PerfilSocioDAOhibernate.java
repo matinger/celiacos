@@ -13,13 +13,19 @@ public class PerfilSocioDAOhibernate extends GenericDAOhibernate<PerfilSocio> im
 		super(PerfilSocio.class);
 		// TODO Auto-generated constructor stub
 	}
-	@Transactional(readOnly=false) 
+	@Transactional(readOnly=true) 
 	public List<PerfilSocio> getSociosFromPerfil(Perfil perfil){
 		String sql = "SELECT s FROM PerfilSocio s join s.unidad where s.unidad = :unidad";
 		Query query = entityManager.createQuery(sql);
 		query.setParameter("unidad", perfil.getUnidad());	
 		return query.getResultList();
 	}
-
+	@Transactional(readOnly=true) 
+	public List<PerfilSocio> getSociosVirtualesUnidad() {
+		String sql = "SELECT s FROM PerfilSocio s where s.socioVirtual = 1";
+		Query query = entityManager.createQuery(sql);
+		return query.getResultList();
+	}
+	
 
 }

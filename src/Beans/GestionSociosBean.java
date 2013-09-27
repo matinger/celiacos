@@ -181,6 +181,12 @@ public class GestionSociosBean {
 		GestionSociosServicio g = new GestionSociosServicio();
 		return g.getListaPersonas(p);
 	}
+	public List<PerfilSocio> getListaSociosCentral(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
+		GestionSociosServicio g = new GestionSociosServicio();
+		return g.getListaPersonasCentral(p);
+	}
 	public boolean crearSocio(){
 		GestionSociosServicio g = new GestionSociosServicio();
 		FacesContext context = FacesContext.getCurrentInstance();

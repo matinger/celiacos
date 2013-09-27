@@ -8,4 +8,6 @@ import Celiacos.PerfilSocio;
 public interface PerfilSocioDAO extends GenericDAO<PerfilSocio>{
 
 	public List<PerfilSocio> getSociosFromPerfil(Perfil perfil);
+	public List<PerfilSocio> getSociosVirtualesUnidad();
+
 }

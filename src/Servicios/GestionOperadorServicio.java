@@ -5,6 +5,7 @@ import java.util.List;
 import Celiacos.Perfil;
 import Celiacos.PerfilAdministradorUnidad;
 import Celiacos.PerfilOperadorCentral;
+import Celiacos.PerfilOperadorUnidad;
 import Celiacos.TipoUnidad;
 import Celiacos.Usuario;
 import Dao.FactoryDAO;
@@ -15,8 +16,13 @@ import Dao.UsuarioDAO;
 public class GestionOperadorServicio {
 
 	PerfilDAO dao = FactoryDAO.getPerfilDAO();
-	public List<PerfilOperadorCentral> getListaOperadoresUnidades() {				
-		List<PerfilOperadorCentral> operadores = dao.getPerfilesOperadores();
+	public List<PerfilOperadorCentral> getListaOperadoresCentrales() {				
+		List<PerfilOperadorCentral> operadores = dao.getPerfilesOperadoresCentrales();
+		return operadores;
+	}
+	
+	public List<PerfilOperadorUnidad> getListaOperadoresUnidades() {				
+		List<PerfilOperadorUnidad> operadores = dao.getPerfilesOperadoresUnidades();
 		return operadores;
 	}
 	
@@ -33,14 +39,12 @@ public class GestionOperadorServicio {
 		return true;
 	}
 	
-	public boolean crearOperadorCentral(String usuario, String password,  String nombre, String apellido, TipoUnidad unidad) {
+	public boolean crearOperador(String usuario, String password,  String nombre, String apellido, TipoUnidad unidad, Perfil pu) {
 		
 		Usuario u = new Usuario(usuario, password, nombre, apellido);	
 		//Guarda los usuarios
 		UsuarioDAO usuariodao = FactoryDAO.getUsuarioDAO();
 		usuariodao.guardar(u);
-
-		PerfilOperadorCentral pu = new PerfilOperadorCentral();
 				
 		pu.setUnidad(unidad);
 		
