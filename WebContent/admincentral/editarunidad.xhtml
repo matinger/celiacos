@@ -31,7 +31,7 @@
 	
 		<ui:define name="container">
 		<div class="container">
-			<h3>Editar Socio</h3>
+			<h3>Editar Unidad</h3>
 			<h:form class="form-horizontal well">
 				<div class="control-group">
 					<span class="control-label" for="input01">Nombre</span>
@@ -76,6 +76,18 @@
 								value="#{GestionUnidades.email}">
 							</h:inputText> <span style="color: red;"><b> <h:message
 										for="emailInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Tipo</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="tipoInput" required="true"
+								value="#{GestionUnidades.tipo}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="tipoInput" />
 							</b> <br /> </span>
 						</label>
 					</div>

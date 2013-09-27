@@ -31,6 +31,7 @@ public abstract class TipoUnidad {
 	private String direccion;
 	private String telefono;
 	private String email;
+	private String tipo;
 	
 	@OneToMany(mappedBy="unidad" ,cascade={CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -46,11 +47,12 @@ public abstract class TipoUnidad {
 	}
 	
 	public TipoUnidad(String nombre, String direccion, String telefono,
-			String email) {
+			String email, String tipo) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.email = email;
+		this.tipo = tipo;
 		cuotas = new ArrayList<Cuota>();
 		perfiles = new ArrayList<Perfil>();
 		
@@ -107,6 +109,14 @@ public abstract class TipoUnidad {
 
 	public void setPerfiles(List<Perfil> perfiles) {
 		this.perfiles = perfiles;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 	

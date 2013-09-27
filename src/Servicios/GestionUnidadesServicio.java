@@ -27,9 +27,9 @@ public class GestionUnidadesServicio {
 		return true;
 	}
 	
-	public void crearUnidad(String nombre, String direccion, String telefono, String email){
+	public void crearUnidad(String nombre, String direccion, String telefono, String email, String tipo){
 	
-		Unidad u = new Unidad(nombre, direccion, telefono, email);
+		Unidad u = new Unidad(nombre, direccion, telefono, email, tipo);
 		
 		TipoUnidadDAO tipodao = FactoryDAO.getTipoUnidadDAO();
 		tipodao.guardar(u);

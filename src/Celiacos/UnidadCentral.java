@@ -10,7 +10,7 @@ public class UnidadCentral extends TipoUnidad {
 	}
 	public UnidadCentral(String nombre, String direccion, String telefono,
 			String email) {
-		super(nombre, direccion, telefono, email);
+		super(nombre, direccion, telefono, email, "Central");
 		// TODO Auto-generated constructor stub
 	}
 

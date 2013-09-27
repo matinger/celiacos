@@ -15,6 +15,7 @@ public class GestionUnidadesBean {
 	private String direccion;
 	private String telefono;
 	private String email;
+	private String tipo;
 	private int unidadEliminar;
 	private TipoUnidad unidad;
 	
@@ -42,6 +43,14 @@ public class GestionUnidadesBean {
 		if (unidad != null)
 			unidad.setTelefono(telefono);
 	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+		if (unidad != null)
+			unidad.setTipo(tipo);
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -63,7 +72,7 @@ public class GestionUnidadesBean {
 	
 	public void crearUnidad(){
 		GestionUnidadesServicio g = new GestionUnidadesServicio();
-		g.crearUnidad(nombre, direccion, telefono, email);
+		g.crearUnidad(nombre, direccion, telefono, email, tipo);
 	}
 	
 	public String editarUnidad(){
@@ -71,6 +80,7 @@ public class GestionUnidadesBean {
 		this.setEmail(unidad.getEmail());
 		this.setNombre(unidad.getNombre());
 		this.setTelefono(unidad.getTelefono());
+		this.setTipo(unidad.getTipo());
 		return "editarunidad";
 	}
 	
@@ -80,6 +90,7 @@ public class GestionUnidadesBean {
 		this.setEmail(null);
 		this.setNombre(null);
 		this.setTelefono(null);
+		this.setTipo(null);
 
 	}  
 	
