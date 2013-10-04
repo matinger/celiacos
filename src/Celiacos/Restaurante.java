@@ -58,5 +58,12 @@ public class Restaurante {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 }

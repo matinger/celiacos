@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+	<script>
+		(function() {
+			var bsa = document.createElement('script');
+			bsa.type = 'text/javascript';
+			bsa.async = true;
+			bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+			(document.getElementsByTagName('head')[0] || document
+					.getElementsByTagName('body')[0]).appendChild(bsa);
+		})();
+	</script>
+
+	<ui:define name="titulo">
+	Administrador central
+	</ui:define>
+
+	<ui:define name="menu">
+	<!-- Navbar
+	  ================================================== -->
+	<ui:include src="menu.xhtml">
+	</ui:include>
+	</ui:define>
+	
+<ui:define name="container">
+		<div class="container">
+			<h:dataTable class="table table-bordered table-striped table-hover"
+				value="#{Bares.getListaBares()}" var="bar">
+				<h:column>
+					<f:facet name="header">Bar</f:facet>				
+	    		#{bar.getNombre()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Dirección</f:facet>				
+	    		#{bar.getDireccion()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Provincia</f:facet>				
+	    		#{bar.getProvincia()}
+	    	</h:column>
+				<h:column>
+					<f:facet name="header">Ciudad</f:facet>				
+	    		#{bar.getCiudad()}
+	    	</h:column>
+	    	<h:column>
+					<f:facet name="header">Editar</f:facet>
+					
+					<h:form>
+						<h:commandLink class="label label-warning" value="Editar" action="#{Bares.editarBar()}" >
+							<f:setPropertyActionListener target="#{Bares.barEditar}" value="#{bar}" />
+						</h:commandLink>
+					</h:form>
+					
+				</h:column>		
+				<h:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<h:form>			
+					<h:commandLink class="label label-important" onclick="return confirm('Are you sure?')" action="#{Bares.eliminar()}" value="Eliminar" >
+						<f:setPropertyActionListener target="#{Bares.barEliminar}" value="#{bar.getId()}" />
+					</h:commandLink>
+					</h:form>	
+				</h:column>
+				</h:dataTable>
+				<h:link onclick="pageTracker._link(this.href); return false;"
+					class="btn btn-primary" value="Crear Bar"
+					outcome="crearbar" />
+			
+		</div>
+	</ui:define>
+</ui:composition>

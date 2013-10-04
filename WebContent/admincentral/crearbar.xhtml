@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+	<script>
+		(function() {
+			var bsa = document.createElement('script');
+			bsa.type = 'text/javascript';
+			bsa.async = true;
+			bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+			(document.getElementsByTagName('head')[0] || document
+					.getElementsByTagName('body')[0]).appendChild(bsa);
+		})();
+	</script>
+	<f:metadata>
+        <f:event type="preRenderView" listener="#{Productos.clear()}"/>
+    </f:metadata>
+	
+	<ui:define name="titulo">
+	Administrador central
+	</ui:define>
+	
+	<ui:define name="menu">
+	<!-- Navbar
+	  ================================================== -->
+	<ui:include src="menu.xhtml">
+	</ui:include>
+	</ui:define>
+	
+	<ui:define name="container">
+		<div class="container">
+			<h3>Crear Bar</h3>
+			<h:form class="form-horizontal well">
+				<div class="control-group">
+					<span class="control-label" for="input01">Bar</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="nombreInput" required="true"
+								value="#{Bares.nombre}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="barInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Dirección</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="direccionInput" required="true"
+								value="#{Bares.direccion}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="direccionInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Provincia</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="provinciaInput" required="true"
+								value="#{Bares.provincia}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="provinciaInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<span class="control-label" for="input01">Ciudad</span>
+					<div class="controls">
+						<label> <h:inputText class="input-xlarge"
+								id="ciudadInput" required="true"
+								value="#{Bares.ciudad}">
+							</h:inputText> <span style="color: red;"><b> <h:message
+										for="ciudadInput" />
+							</b> <br /> </span>
+						</label>
+					</div>
+				</div>
+				<div class="form-actions">
+					<h:commandButton type="submit" class="btn btn-primary"
+						value="Guardar" action="#{Bares.crearBar()}"></h:commandButton>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
