@@ -1,5 +1,6 @@
 package Beans;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -12,13 +13,43 @@ import Celiacos.PerfilSocio;
 import Celiacos.Producto;
 import Celiacos.Restaurante;
 import Servicios.BarServicio;
+import Servicios.NotificacionServicio;
 import Servicios.ProductoServicio;
 import Servicios.SocioServicio;
 
 @ManagedBean
 @SessionScoped
 public class SociosBean {
+	private Date fechapago;
+	private float monto;
+	private String medio;
+	private String numeroidentificatorio;
 	
+	
+	public Date getFechapago() {
+		return fechapago;
+	}
+	public void setFechapago(Date fechapago) {
+		this.fechapago = fechapago;
+	}
+	public float getMonto() {
+		return monto;
+	}
+	public void setMonto(float monto) {
+		this.monto = monto;
+	}
+	public String getMedio() {
+		return medio;
+	}
+	public void setMedio(String medio) {
+		this.medio = medio;
+	}
+	public String getNumeroidentificatorio() {
+		return numeroidentificatorio;
+	}
+	public void setNumeroidentificatorio(String numeroidentificatorio) {
+		this.numeroidentificatorio = numeroidentificatorio;
+	}
 		public List<Restaurante> getListaBares(){
 			BarServicio b = new BarServicio();
 			return b.getListaBares();
@@ -35,5 +66,17 @@ public class SociosBean {
 			return p.getPagos();
 		}
 		
+		public boolean isVirtual(){
+			FacesContext context = FacesContext.getCurrentInstance();
+			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
+			return p.isSocioVirtual();
+		}
+		
+		public void enviarNotificacion(){
+			NotificacionServicio noti = new NotificacionServicio();
+			FacesContext context = FacesContext.getCurrentInstance();
+			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
+			noti.crearNotificacion(monto, fechapago, medio, numeroidentificatorio,p);
+		}
 		
 }

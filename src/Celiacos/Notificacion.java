@@ -1,5 +1,8 @@
 package Celiacos;
 
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,16 +17,24 @@ public class Notificacion {
 	@Column(name="id_notificacion")
 	private int id;
 	private boolean visto;
-	private String mensaje;
-	
-	
-	@ManyToOne
-	@JoinColumn(name="id_cuota")
-	private Cuota cuotaPaga;
+	private String medio;
+	private float monto;
+	private String numeroidentificatorio;
+	private Date fecha;
 	
 	@ManyToOne
 	@JoinColumn(name="id_perfil")
 	private PerfilSocio socio;
+	
+	public Notificacion(float monto,Date fecha, String medio, String numeroidentificatorio, boolean visto){
+		super();
+		this.monto=monto;
+		this.fecha=fecha;
+		this.medio=medio;
+		this.numeroidentificatorio=numeroidentificatorio;
+		this.visto=visto;
+		
+	}
 	
 	public Notificacion(){
 		
@@ -31,21 +42,9 @@ public class Notificacion {
 	public Notificacion(String mensaje) {
 		super();
 	
-		this.mensaje = mensaje;
 		this.setVisto(false);
 	}
-	public Cuota getCuotaPaga() {
-		return cuotaPaga;
-	}
-	public void setCuotaPaga(Cuota cuotaPaga) {
-		this.cuotaPaga = cuotaPaga;
-	}
-	public String getMensaje() {
-		return mensaje;
-	}
-	public void setMensaje(String mensaje) {
-		this.mensaje = mensaje;
-	}
+
 	public PerfilSocio getSocio() {
 		return socio;
 	}
@@ -60,6 +59,42 @@ public class Notificacion {
 	}
 	public int getId() {
 		return id;
+	}
+
+	public String getMedio() {
+		return medio;
+	}
+
+	public void setMedio(String medio) {
+		this.medio = medio;
+	}
+
+	public float getMonto() {
+		return monto;
+	}
+
+	public void setMonto(float monto) {
+		this.monto = monto;
+	}
+
+	public String getNumeroidentificatorio() {
+		return numeroidentificatorio;
+	}
+
+	public void setNumeroidentificatorio(String numeroidentificatorio) {
+		this.numeroidentificatorio = numeroidentificatorio;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

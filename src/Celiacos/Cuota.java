@@ -33,24 +33,18 @@ public class Cuota {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Pago> pagos;
 
-	@OneToMany(mappedBy="cuotaPaga", cascade = {CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
-	@LazyCollection(LazyCollectionOption.FALSE)
-	private List<Notificacion> notificaciones;
-	
 	@ManyToOne
 	@JoinColumn(name="id_unidad")
 	private TipoUnidad unidad;
 	
 	public Cuota(){
 		pagos = new ArrayList<Pago>();
-		notificaciones = new ArrayList<Notificacion>();
 	}
 	public Cuota(double importe, Date fecha) {
 		super();
 		this.fecha = fecha;
 		this.importe = importe;
 		pagos = new ArrayList<Pago>();
-		notificaciones = new ArrayList<Notificacion>();
 	}
 
 	public TipoUnidad getUnidad() {
@@ -84,19 +78,11 @@ public class Cuota {
 	public void setPagos(List<Pago> pagos) {
 		this.pagos = pagos;
 	}
-	public void setNotificaciones(List<Notificacion> notificaciones) {
-		this.notificaciones = notificaciones;
-	}
+
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public List<Notificacion> getNotificaciones() {
-		return notificaciones;
-	}
-	public void addNotificacion(Notificacion notificacion) {
-		this.notificaciones.add(notificacion);
-		notificacion.setCuotaPaga(this);
-	}
+
 	public int getId() {
 		return id;
 	}
