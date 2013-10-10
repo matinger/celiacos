@@ -33,11 +33,14 @@ public class LoginBean {
 		UsuarioServicio us = new UsuarioServicio();
 		Usuario u = us.validarUsuario(username, password);
 		if ( u != null) {
+
+			HttpSession session =  (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+            
 			List<Perfil> perfiles = u.getPerfiles();
 			FacesContext context = FacesContext.getCurrentInstance();
 			if (perfiles.size() == 1){
-				Perfil p = perfiles.get(0);			
-				context.getExternalContext().getSessionMap().put("perfil", p);				
+				Perfil p = perfiles.get(0);			            
+				session.setAttribute("perfil", p);
 				return p.getClass().getName();
 			}else{			
 				context.getExternalContext().getSessionMap().put("perfiles", perfiles);				
@@ -52,8 +55,8 @@ public class LoginBean {
 	}
 	public void logout() {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
+		ctx.getSessionMap().remove(ctx.getSessionMap().get("perfil"));
 			  String ctxPath = ((ServletContext) ctx.getContext()).getContextPath();
-
 			  try {
 			    // Usar el contexto de JSF para invalidar la sesión,
 			    // NO EL DE SERVLETS (nada de HttpServletRequest)
@@ -63,9 +66,10 @@ public class LoginBean {
 			    // si se usa una HttpServletResponse fallará.
 			    // Sin embargo, como ya está fuera del ciclo de vida 
 			    // de JSF se debe usar la ruta completa -_-U
-			    ctx.redirect(ctxPath + "/faces/login/login.xhtml");
+			    ctx.redirect(ctxPath);
 			  } catch (IOException ex) {
 			    ex.printStackTrace();
 			  }
 	}
+	
 }
