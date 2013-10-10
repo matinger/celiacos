@@ -78,7 +78,7 @@ public class Test {
 		
 		Date fechanac2 = dfm.parse("1990-06-02");
 		Date fechadiag2 = dfm.parse("2005-03-14");
-		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag, "Dr. Pepe", "4222222","email@email.com",false);
+		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag, "Dr. Pepe", "4222222","email@email.com",true);
 		
 		Date fechanac3 = dfm.parse("1990-06-02");
 		Date fechadiag3 = dfm.parse("2005-03-14");
@@ -146,11 +146,11 @@ public class Test {
 		pagodao.guardar(pago2);
 		
 		//Creo notificacion
-		Notificacion noti = new Notificacion("Esta es la primera noti");
+		Date dnot = dfm.parse("2013-05-10");
+		Notificacion noti = new Notificacion(222,dnot,"bapro","1234",false);
 		
 		//Asigno notificacion
-		cu2.addNotificacion(noti);
-		perfilsocio.addNotificacion(noti);
+		perfilsocio2.addNotificacion(noti);
 		
 		//Guardo notificacion
 		NotificacionDAO notidao = FactoryDAO.getNotificacionDAO();
