@@ -15,6 +15,11 @@ import Dao.ProductoDAO;
 public class NotificacionServicio {
 	NotificacionDAO dao = FactoryDAO.getNotificacionDAO();	
 	
+	public List<Notificacion> getNotificaciones(PerfilSocio p){
+		
+		return dao.getNotificacionesfromPerfil(p);
+	}
+	
 public boolean crearNotificacion(float monto, Date fecha, String medio, String numeroidentificatorio, PerfilSocio p) {
 		
 		Notificacion n = new Notificacion(monto,fecha,medio,numeroidentificatorio,false);

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import Celiacos.Notificacion;
 import Celiacos.Pago;
 import Celiacos.Perfil;
 import Celiacos.PerfilSocio;
@@ -58,6 +59,14 @@ public class SociosBean {
 		public List<Producto> getListaProductos(){
 			ProductoServicio p = new ProductoServicio();
 			return p.getListaProductos();
+		}
+		
+		public List<Notificacion> getNotificaciones(){
+			NotificacionServicio n= new NotificacionServicio();
+			FacesContext context = FacesContext.getCurrentInstance();
+			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
+			System.out.print("dni peerfil: " + p.getDni());
+			return n.getNotificaciones(p);
 		}
 		
 		public List<Pago> getPagos(){
