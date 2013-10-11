@@ -65,7 +65,6 @@ public class SociosBean {
 			NotificacionServicio n= new NotificacionServicio();
 			FacesContext context = FacesContext.getCurrentInstance();
 			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
-			System.out.print("dni peerfil: " + p.getDni());
 			return n.getNotificaciones(p);
 		}
 		

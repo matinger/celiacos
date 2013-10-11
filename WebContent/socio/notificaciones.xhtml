@@ -31,11 +31,8 @@ Socio
 	<ui:define name="container">
 		<div class="container">
 			<h:dataTable class="table table-bordered table-striped table-hover"
-				value="#{Socios.getNotificaciones()}" var="bar">
-				<h:column>
-					<f:facet name="header">Fecha pago</f:facet>				
-	    		#{noti.getFechapago()}
-	    	</h:column>
+				value="#{Socios.getNotificaciones()}" var="noti">
+				
 				<h:column>
 					<f:facet name="header">Monto</f:facet>				
 	    		#{noti.getMonto()}
@@ -47,6 +44,10 @@ Socio
 				<h:column>
 					<f:facet name="header">Numero identificador</f:facet>				
 	    		#{noti.getNumeroidentificatorio()}
+	    	</h:column>
+	    	<h:column>
+					<f:facet name="header">Fecha pago</f:facet>				
+	    		#{noti.getFechapago()}
 	    	</h:column>
 
 			</h:dataTable>
