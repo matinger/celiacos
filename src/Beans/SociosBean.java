@@ -21,17 +21,17 @@ import Servicios.SocioServicio;
 @ManagedBean
 @SessionScoped
 public class SociosBean {
-	private Date fechapago;
+	private Date fecha;
 	private float monto;
 	private String medio;
 	private String numeroidentificatorio;
 	
 	
-	public Date getFechapago() {
-		return fechapago;
+	public Date getFecha() {
+		return fecha;
 	}
-	public void setFechapago(Date fechapago) {
-		this.fechapago = fechapago;
+	public void setFecha(Date fechapago) {
+		this.fecha = fechapago;
 	}
 	public float getMonto() {
 		return monto;
@@ -84,7 +84,7 @@ public class SociosBean {
 			NotificacionServicio noti = new NotificacionServicio();
 			FacesContext context = FacesContext.getCurrentInstance();
 			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
-			noti.crearNotificacion(monto, fechapago, medio, numeroidentificatorio,p);
+			noti.crearNotificacion(monto, fecha, medio, numeroidentificatorio,p);
 		}
 		
 }
