@@ -17,7 +17,7 @@ public class NotificacionServicio {
 	
 	public List<Notificacion> getNotificaciones(PerfilSocio p){
 		
-		return dao.getNotificacionesfromPerfil(p);
+		return p.getNotificaciones();
 	}
 	
 public boolean crearNotificacion(float monto, Date fecha, String medio, String numeroidentificatorio, PerfilSocio p) {

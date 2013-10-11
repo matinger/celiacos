@@ -74,15 +74,15 @@ public class Test {
 		PerfilOperadorCentral perfilcentral = new PerfilOperadorCentral();
 		Date fechanac = dfm.parse("1990-06-01");
 		Date fechadiag = dfm.parse("2005-03-11");
-		PerfilSocio perfilsocio = new PerfilSocio(2021,3232322,"51 y 23", "estudiante", fechanac, fechadiag,fechadiag, "Dr. Pepe", "4333333","email4@email.com",false);
+		PerfilSocio perfilsocio = new PerfilSocio(2021,3232322,"51 y 23", "estudiante", fechanac, fechadiag,fechadiag, "Dr. Pepe", "4333333","email4@email.com",false,false);
 		
 		Date fechanac2 = dfm.parse("1990-06-02");
 		Date fechadiag2 = dfm.parse("2005-03-14");
-		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag, "Dr. Pepe", "4222222","email@email.com",true);
+		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag, "Dr. Pepe", "4222222","email@email.com",true,true);
 		
 		Date fechanac3 = dfm.parse("1990-06-02");
 		Date fechadiag3 = dfm.parse("2005-03-14");
-		PerfilSocio perfilsocio3 = new PerfilSocio(2023,31111111,"50 y 120", "estudiante", fechanac3, fechadiag3,fechadiag, "Dr. Pepe", "4222222","admincentral@admincentral.com",false);
+		PerfilSocio perfilsocio3 = new PerfilSocio(2023,31111111,"50 y 120", "estudiante", fechanac3, fechadiag3,fechadiag, "Dr. Pepe", "4222222","admincentral@admincentral.com",false,false);
 		
 		//Asocia perfiles a unidades
 		unidad1.addPerfil(perfiladministrador);

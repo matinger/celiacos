@@ -45,7 +45,7 @@ public class PerfilSocio extends Perfil {
 	public PerfilSocio(int nroSocio, int dni, String domicilio,
 			String ocupacion, Date fechaNacimiento, Date fechaIngreso,
 			Date fechaDiagnostico, String presentadoPor, String telefono,
-			String email, boolean beneficio) {
+			String email, boolean beneficio, boolean socioVirtual) {
 		super();
 		this.nroSocio = nroSocio;
 		this.dni = dni;
@@ -58,6 +58,7 @@ public class PerfilSocio extends Perfil {
 		this.telefono = telefono;
 		this.email = email;
 		this.beneficio = beneficio;
+		this.socioVirtual = socioVirtual;
 		pagos = new ArrayList<Pago>();
 		notificaciones = new ArrayList<Notificacion>();
 	}

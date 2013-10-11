@@ -51,7 +51,7 @@ public class GestionSociosServicio {
 		UsuarioDAO usuariodao = FactoryDAO.getUsuarioDAO();
 		usuariodao.guardar(u);
 
-		PerfilSocio perfilsocio = new PerfilSocio(nroSocio , dni , domicilio, ocupacion, fechaNacimiento, fechaIngreso ,fechaDiagnostico, presentadoPor, telefono, email ,beneficio);
+		PerfilSocio perfilsocio = new PerfilSocio(nroSocio , dni , domicilio, ocupacion, fechaNacimiento, fechaIngreso ,fechaDiagnostico, presentadoPor, telefono, email ,beneficio,false);
 		perfilsocio.setSocioVirtual(socioVirtual);
 		
 		u.addPerfil(perfilsocio);
