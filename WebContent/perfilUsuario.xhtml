@@ -10,69 +10,34 @@
 <ui:composition>
 <div class="container">
 	<h3>Editar perfil</h3>
-	<h:form class="form-horizontal well">
-		<h:message for="PerfilForm" />
+	<h:form id="perfilform" class="form-horizontal well">
+		<h:message for="Perfil" />
 		<br />
 		<div class="control-group">
-			<label class="control-label">Direccion</label>
 			<div class="controls">
-				<h:inputText class="input-small" id="direccion"
-					value="#{GestionSocios.domicilio}" required="true">
+			<h:outputText value="Usuario" />
+				<h:inputText class="input-small" id="username"
+					value="#{LoginBean.username}" required="true">
 					<f:validateLength maximum="20" minimum="3" />
 				</h:inputText>
 			</div>
-			<h:message for="direccion" />
+			<h:message for="username" />
 			<br />
 		</div>
 		<div class="control-group">
-			<label class="control-label" >Teléfono</label>
 			<div class="controls">
-				<h:inputText class="input-small" id="telefono"
-					value="#{GestionSocios.telefono}" required="true">
-					<f:validateLength maximum="20" minimum="3" />
-				</h:inputText>
-			</div>
-			<h:message for="telefono" />
-			<br />
-		</div>
-		<div class="control-group">
-			<label class="control-label" >Ocupación</label>
-			<div class="controls">
-				<h:inputText class="input-small" id="ocupacion"
-					value="#{GestionSocios.ocupacion}" required="true">
-					<f:validateLength maximum="20" minimum="3" />
-				</h:inputText>
-			</div>
-			<h:message for="ocupacion" />
-			<br />
-		</div>
-		<div class="control-group">
-			<label class="control-label" >Email</label>
-			<div class="controls">
-				<h:inputText class="input-small" id="email"
-					value="#{GestionSocios.email}" required="true">
-					<f:validateLength maximum="20" minimum="3" />
-				</h:inputText>
-			</div>
-			<h:message for="email" />
-			<br />
-		</div>
-		<div class="control-group">
-			<label class="control-label">Password</label>
-			<div class="controls">
+			<h:outputText value="Contraseña" />
 				<h:inputSecret class="input-small" id="password"
-					value="#{GestionSocios.password}" required="true">
-					<f:validateLength maximum="20" minimum="3" />
-				</h:inputSecret>
-				<h:message for="password" />
-				<br />
+				value="#{LoginBean.password}" required="true">
+				<f:validateLength maximum="20" minimum="3" />
+			</h:inputSecret>
 			</div>
+			<h:message for="password" />
+			<br />
 		</div>
-	
-
 	<div class="form-actions">
 		<h:commandButton class="btn btn-primary" id="submit" type="submit"
-			action="#{GestionSocios.crearSocio()}" value="Guardar cambios" />
+			action="#{LoginBean.modificar()}" value="Guardar cambios" />
 	</div>
 	</h:form>
 </div>

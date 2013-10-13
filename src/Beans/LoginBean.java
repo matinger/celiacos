@@ -11,9 +11,11 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
-
 import Celiacos.Perfil;
 import Celiacos.Usuario;
+import Dao.FactoryDAO;
+import Dao.ProductoDAO;
+import Dao.UsuarioDAO;
 import Servicios.UsuarioServicio;
 
 @ManagedBean
@@ -70,6 +72,29 @@ public class LoginBean {
 			  } catch (IOException ex) {
 			    ex.printStackTrace();
 			  }
+	}
+	public String modificar(){
+		UsuarioServicio us = new UsuarioServicio();
+		//Usuario u = us.validarUsuario(this.getUsername(), this.getPassword());
+		
+		HttpSession session =  (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		Perfil p=(Perfil) session.getAttribute("perfil");
+		Usuario usu= p.getUsuario();
+		usu.setUsuario(this.getUsername());
+		usu.setPassword(this.getPassword());
+		if(us.esValido(usu.getUsuario())){
+			System.out.println("El usuario es: "+usu.getUsuario());
+			System.out.println("La contraseña es: "+usu.getPassword());
+		UsuarioDAO dao = FactoryDAO.getUsuarioDAO();	
+		dao.modificar(usu);
+		return "";
+	}
+		else {
+			FacesContext context = FacesContext.getCurrentInstance();
+		FacesMessage message = new FacesMessage("Invalid Username and/or Password");
+		context.addMessage("Perfil", message);
+		return "failure";
+		}
 	}
 	
 }

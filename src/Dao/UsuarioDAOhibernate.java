@@ -27,4 +27,17 @@ public class UsuarioDAOhibernate extends GenericDAOhibernate<Usuario> implements
 		return l.get(0);
 	}
 
+	@Transactional(readOnly=true) 
+	public Usuario getUser(String username) {
+		String sql = "SELECT u FROM Usuario u WHERE u.usuario = :username";
+		Query query = entityManager.createQuery(sql);
+		query.setParameter("username", username);
+		query.getResultList();
+		List<Usuario> l = query.getResultList();
+		if (l.isEmpty()) {
+			return null;
+		}
+		return l.get(0);
+	}
+
 }
