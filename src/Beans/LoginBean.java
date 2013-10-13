@@ -91,7 +91,7 @@ public class LoginBean {
 	}
 		else {
 			FacesContext context = FacesContext.getCurrentInstance();
-		FacesMessage message = new FacesMessage("Invalid Username and/or Password");
+		FacesMessage message = new FacesMessage("El usuario ya existe");
 		context.addMessage("Perfil", message);
 		return "failure";
 		}
