@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import Celiacos.Notificacion;
 import Celiacos.TipoUnidad;
 import Servicios.GestionUnidadesServicio;
 
@@ -110,4 +111,5 @@ public class GestionUnidadesBean {
 	public void setUnidad(TipoUnidad unidad) {
 		this.unidad = unidad;
 	}
+	
 }

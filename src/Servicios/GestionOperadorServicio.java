@@ -2,11 +2,13 @@ package Servicios;
 
 import java.util.List;
 
+import Celiacos.Notificacion;
 import Celiacos.Perfil;
 import Celiacos.PerfilAdministradorUnidad;
 import Celiacos.PerfilOperadorCentral;
 import Celiacos.PerfilOperadorUnidad;
 import Celiacos.TipoUnidad;
+import Celiacos.Unidad;
 import Celiacos.Usuario;
 import Dao.FactoryDAO;
 import Dao.PerfilDAO;
@@ -55,5 +57,9 @@ public class GestionOperadorServicio {
 		perfildao.guardar(pu);
 		
 		return false;
+	}
+
+	public List<Notificacion> getListaNotificaciones(Unidad u) {
+		return dao.getNotificaciones(u);
 	}
 }

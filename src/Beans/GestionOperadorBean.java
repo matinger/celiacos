@@ -6,10 +6,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import Celiacos.Notificacion;
 import Celiacos.Perfil;
 import Celiacos.PerfilOperadorCentral;
 import Celiacos.PerfilOperadorUnidad;
+import Celiacos.PerfilSocio;
 import Celiacos.TipoUnidad;
+import Celiacos.Unidad;
 import Servicios.GestionAdminServicio;
 import Servicios.GestionOperadorServicio;
 
@@ -120,5 +123,14 @@ public class GestionOperadorBean {
 		g.crearOperador(usuario, password, nombre, apellido, p.getUnidad(), pc );
 		return true;
 	}
+	public List<Notificacion> getNotificaciones(){
+		Unidad u= (Unidad) perfil.getUnidad();
+		GestionOperadorServicio g = new GestionOperadorServicio();	
+		 List<Notificacion> l=g.getListaNotificaciones(u);
+		System.out.println("La cantidad es: "+ l.size() );
+		return l;
+		
+	}
+	
 	
 }
