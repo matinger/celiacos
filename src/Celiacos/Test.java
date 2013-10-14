@@ -37,13 +37,18 @@ public class Test {
 
 		//Crea unidades
 		Unidad unidad1 = new Unidad("Unidad 1","12 y 35","4111111","unidad1@email.com", "Beneficiaria");
+		unidad1.setPuedeCambiarCuota(true);
 		UnidadCentral unidad2 = new UnidadCentral("Unidad 2 ","60 y 1","4222222","unidad2@email.com");
+		Unidad unidad3 = new Unidad("Unidad 3","12 y 35","4111111","unidad3@email.com", "Institucion");
+
+		unidad2.setImporte(100);
+		unidad1.setImporte(110);
 		
 		//Guarda las unidades
 		TipoUnidadDAO tipodao = FactoryDAO.getTipoUnidadDAO();
 		tipodao.guardar(unidad1);
 		tipodao.guardar(unidad2);
-		
+		tipodao.guardar(unidad3);
 		//Crea usuarios
 		Usuario us1 = new Usuario("adminunidad", "adminunidad");
 		us1.setNombre("Antonio");us1.setApellido("Rogelio");

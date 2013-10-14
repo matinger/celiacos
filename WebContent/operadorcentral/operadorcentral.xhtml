@@ -40,10 +40,16 @@ Operador Central
 	</div>
 	
 	<div class="controls">
+
+		<h:form>
+			<label>
+			<h:commandButton type="submit" class="btn btn-primary" value="Agregar Cuota del mes" action="#{GestionCuota.agregarCuota()}" />
+			</label>
+		</h:form>
 		<h:form>
 			<label>
 			<h:inputText class="input-xlarge" id="importeInput" required="true" value="#{GestionCuota.importe}" />
-			<h:commandButton type="submit" class="btn btn-primary" value="Agregar Cuota del mes" action="#{GestionCuota.agregarCuota()}" />
+			<h:commandButton type="submit" class="btn btn-primary" value="Cambiar valor cuota" action="#{GestionCuota.cambiarCuotaCentral()}" />
 			</label>
 		</h:form>
 	</div>

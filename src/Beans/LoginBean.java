@@ -73,7 +73,7 @@ public class LoginBean {
 			    ex.printStackTrace();
 			  }
 	}
-	public String modificar(){
+	public void modificar(){
 		UsuarioServicio us = new UsuarioServicio();
 		//Usuario u = us.validarUsuario(this.getUsername(), this.getPassword());
 		
@@ -87,13 +87,11 @@ public class LoginBean {
 			System.out.println("La contraseña es: "+usu.getPassword());
 		UsuarioDAO dao = FactoryDAO.getUsuarioDAO();	
 		dao.modificar(usu);
-		return "";
-	}
+		}
 		else {
-			FacesContext context = FacesContext.getCurrentInstance();
+		FacesContext context = FacesContext.getCurrentInstance();
 		FacesMessage message = new FacesMessage("El usuario ya existe");
-		context.addMessage("Perfil", message);
-		return "failure";
+		context.addMessage("perfilform", message);
 		}
 	}
 	

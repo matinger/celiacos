@@ -8,12 +8,12 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import Servicios.GestionUnidadesServicio;
+
+import Servicios.PagoServicio;
 
 import Celiacos.Cuota;
 import Celiacos.Pago;
 import Celiacos.PerfilSocio;
-import Celiacos.TipoUnidad;
 import Dao.FactoryDAO;
 import Dao.PagoDAO;
 
@@ -70,7 +70,6 @@ public class GestionPago {
 				total += p.getMonto();
 			}	
 			if (cu.getImporte() > total){
-				System.out.println("El importe de cuota es: " + cu.getImporte() + "y se pago" + total);
 				mapValue.put(cu.getFecha().toString() , cu.getId());
 			}
 		}
@@ -78,7 +77,8 @@ public class GestionPago {
 	}
 	
 	public void guardarPago(){
-		
+		PagoServicio g = new PagoServicio();
+		g.crearPago(fecha, monto, perfil , seleccion);
 	}
 	
 	public int getSeleccion() {
