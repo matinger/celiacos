@@ -16,7 +16,6 @@ import Celiacos.Restaurante;
 import Servicios.BarServicio;
 import Servicios.NotificacionServicio;
 import Servicios.ProductoServicio;
-import Servicios.SocioServicio;
 
 @ManagedBean
 @SessionScoped
@@ -51,22 +50,6 @@ public class SociosBean {
 	public void setNumeroidentificatorio(String numeroidentificatorio) {
 		this.numeroidentificatorio = numeroidentificatorio;
 	}
-		public List<Restaurante> getListaBares(){
-			BarServicio b = new BarServicio();
-			return b.getListaBares();
-		
-	}
-		public List<Producto> getListaProductos(){
-			ProductoServicio p = new ProductoServicio();
-			return p.getListaProductos();
-		}
-		
-		public List<Notificacion> getNotificaciones(){
-			NotificacionServicio n= new NotificacionServicio();
-			FacesContext context = FacesContext.getCurrentInstance();
-			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
-			return n.getNotificaciones(p);
-		}
 		
 		public List<Pago> getPagos(){
 			FacesContext context = FacesContext.getCurrentInstance();

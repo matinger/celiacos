@@ -190,4 +190,10 @@
 <managed-bean-class>Beans.GestionPago</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
+<managed-bean>
+<description> GestionNotificacion </description>
+<managed-bean-name>GestionNotificacion</managed-bean-name>
+<managed-bean-class>Beans.NotificacionesBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
 </faces-config>

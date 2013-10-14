@@ -123,16 +123,7 @@ public class GestionOperadorBean {
 		g.crearOperador(usuario, password, nombre, apellido, p.getUnidad(), pc );
 		return true;
 	}
-	public List<Notificacion> getNotificaciones(){
-		FacesContext context = FacesContext.getCurrentInstance();
-		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
-		Unidad u= (Unidad) p.getUnidad();
-		GestionOperadorServicio g = new GestionOperadorServicio();	
-		 List<Notificacion> l=g.getListaNotificaciones(u);
-		System.out.println("La cantidad es: "+ l.size() );
-		return l;
-		
-	}
+
 	
 	
 }
