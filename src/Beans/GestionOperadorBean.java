@@ -124,7 +124,9 @@ public class GestionOperadorBean {
 		return true;
 	}
 	public List<Notificacion> getNotificaciones(){
-		Unidad u= (Unidad) perfil.getUnidad();
+		FacesContext context = FacesContext.getCurrentInstance();
+		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
+		Unidad u= (Unidad) p.getUnidad();
 		GestionOperadorServicio g = new GestionOperadorServicio();	
 		 List<Notificacion> l=g.getListaNotificaciones(u);
 		System.out.println("La cantidad es: "+ l.size() );

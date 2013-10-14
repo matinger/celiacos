@@ -77,8 +77,8 @@ public class Test {
 		PerfilSocio perfilsocio = new PerfilSocio(2021,3232322,"51 y 23", "estudiante", fechanac, fechadiag,fechadiag, "Dr. Pepe", "4333333","email4@email.com",false,false);
 		
 		Date fechanac2 = dfm.parse("1990-06-02");
-		Date fechadiag2 = dfm.parse("2005-03-14");
-		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag, "Dr. Pepe", "4222222","email@email.com",true,true);
+		Date fechadiag2 = dfm.parse("2013-04-01");
+		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag2, "Dr. Pepe", "4222222","email@email.com",true,true);
 		
 		Date fechanac3 = dfm.parse("1990-06-02");
 		Date fechadiag3 = dfm.parse("2005-03-14");
@@ -117,33 +117,54 @@ public class Test {
 		Cuota cu = new Cuota(100, cuota1);
 		Date cuota2 = dfm.parse("2013-05-01");
 		Cuota cu2 = new Cuota(100, cuota2);
-						
+		Date cuota3 = dfm.parse("2013-04-01");
+		Cuota cu3 = new Cuota(100, cuota3);
+		Date cuota4 = dfm.parse("2013-03-01");
+		Cuota cu4 = new Cuota(100, cuota4);
+		
 		//Asigna las cuotas a las unidades
 		unidad1.addCuota(cu);
 		unidad1.addCuota(cu2);
+		unidad1.addCuota(cu3);
+		unidad1.addCuota(cu4);
 		
 		//Guarda las cuotas
 		CuotaDAO cuotadao = FactoryDAO.getCuotaDAO();
 		cuotadao.guardar(cu);
 		cuotadao.guardar(cu2);		
+		cuotadao.guardar(cu3);
+		cuotadao.guardar(cu4);
 		
 		//Creo pago
 		Date d2 = dfm.parse("2013-06-10");
 		Pago pago = new Pago(d2,100);
 		
-		Date d3 = dfm.parse("2010-30-10");
-		Pago pago2 = new Pago(d3,100);
+		Date d3 = dfm.parse("2013-04-02");
+		Pago pago2 = new Pago(d3,60);
+		
+		Date d4 = dfm.parse("2013-05-02");
+		Pago pago3 = new Pago(d4,90);
+		
+		Date d5 = dfm.parse("2013-05-02");
+		Pago pago4 = new Pago(d5,10);
 		
 		//Asigno pago a socio y a cuota
 		perfilsocio.addPago(pago);
 		cu.addPago(pago);
+		
 		perfilsocio2.addPago(pago2);
-		cu.addPago(pago2);
+		cu3.addPago(pago2);
+		perfilsocio2.addPago(pago3);
+		cu2.addPago(pago3);
+		perfilsocio2.addPago(pago4);
+		cu2.addPago(pago4);
 		
 		//Guardo pago
 		PagoDAO pagodao = FactoryDAO.getPagoDAO();
 		pagodao.guardar(pago);
 		pagodao.guardar(pago2);
+		pagodao.guardar(pago3);
+		pagodao.guardar(pago4);
 		
 		//Creo notificacion
 		Date dnot = dfm.parse("2013-05-10");
@@ -157,12 +178,12 @@ public class Test {
 		notidao.guardar(noti);
 		
 		// Se crean productos
-		Date d4 = dfm.parse("2013-06-04");
-		Date d5 = dfm.parse("2013-06-05");
-		Date d6 = dfm.parse("2013-06-06");
-		Producto p1 = new Producto("a","a","a","a","a","a",d4,d4);
-		Producto p2 = new Producto("b","b","b","b","b","b",d5,d5);
-		Producto p3 = new Producto("c","c","c","c","c","c",d6,d6);
+		Date do4 = dfm.parse("2013-06-04");
+		Date do5 = dfm.parse("2013-06-05");
+		Date do6 = dfm.parse("2013-06-06");
+		Producto p1 = new Producto("a","a","a","a","a","a",do4,do4);
+		Producto p2 = new Producto("b","b","b","b","b","b",do5,do5);
+		Producto p3 = new Producto("c","c","c","c","c","c",do6,do6);
 	
 		// Se crea Restaurante y se guarda
 		Restaurante r1 = new Restaurante("c","c","c","c","c");

@@ -119,8 +119,12 @@ Operador Unidad
 					</h:column>
 					<h:column>
 						<f:facet name="header">Registrar Pago</f:facet>
-						<h:link onclick="pageTracker._link(this.href); return false;"
-							class="label label-success" value="Registrar pago" outcome="" />
+						<h:form>
+							<h:commandLink class="label label-success" value="Registrar pago" action="#{GestionPago.registrarPago()}" >
+								<f:setPropertyActionListener target="#{GestionPago.perfil}" value="#{socio}" />
+							</h:commandLink>
+						</h:form>
+						
 					</h:column>
 					<h:column>
 						<f:facet name="header">Historial</f:facet>

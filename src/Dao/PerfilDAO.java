@@ -15,5 +15,5 @@ public interface PerfilDAO extends GenericDAO<Perfil>{
 
 	public List<PerfilOperadorCentral> getPerfilesOperadoresCentrales();
 	public List<PerfilOperadorUnidad> getPerfilesOperadoresUnidades();
-	public List<Notificacion> getNotificaciones(Unidad unidad);
+	
 }

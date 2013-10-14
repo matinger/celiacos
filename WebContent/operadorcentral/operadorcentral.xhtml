@@ -38,8 +38,17 @@ Operador Central
 		<p class="lead">Asociación Argentina de celíacos.</p>
 	</div>
 	</div>
+	
+	<div class="controls">
+		<h:form>
+			<label>
+			<h:inputText class="input-xlarge" id="importeInput" required="true" value="#{GestionCuota.importe}" />
+			<h:commandButton type="submit" class="btn btn-primary" value="Agregar Cuota del mes" action="#{GestionCuota.agregarCuota()}" />
+			</label>
+		</h:form>
+	</div>
 </header>
 </div>
-	</ui:define>
+</ui:define>
 	
 </ui:composition>

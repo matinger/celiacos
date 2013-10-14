@@ -32,6 +32,7 @@ public abstract class TipoUnidad {
 	private String telefono;
 	private String email;
 	private String tipo;
+	private boolean puedeCambiarCuota;
 	
 	@OneToMany(mappedBy="unidad" ,cascade={CascadeType.REMOVE, CascadeType.REFRESH, CascadeType.MERGE})
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -47,7 +48,7 @@ public abstract class TipoUnidad {
 	}
 	
 	public TipoUnidad(String nombre, String direccion, String telefono,
-			String email, String tipo) {
+			String email, String tipo, boolean cambiarCuota) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
@@ -55,7 +56,7 @@ public abstract class TipoUnidad {
 		this.tipo = tipo;
 		cuotas = new ArrayList<Cuota>();
 		perfiles = new ArrayList<Perfil>();
-		
+		puedeCambiarCuota = cambiarCuota;
 	}
 	public void setId(int id){
 		this.id = id;
@@ -117,6 +118,14 @@ public abstract class TipoUnidad {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public boolean getPuedeCambiarCuota() {
+		return puedeCambiarCuota;
+	}
+
+	public void setPuedeCambiarCuota(boolean puedeCambiarCuota) {
+		this.puedeCambiarCuota = puedeCambiarCuota;
 	}
 	
 	

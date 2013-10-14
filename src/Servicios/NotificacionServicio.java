@@ -16,7 +16,6 @@ public class NotificacionServicio {
 	NotificacionDAO dao = FactoryDAO.getNotificacionDAO();	
 	
 	public List<Notificacion> getNotificaciones(PerfilSocio p){
-		
 		return p.getNotificaciones();
 	}
 	

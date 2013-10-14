@@ -39,12 +39,6 @@ public class PerfilDAOhibernate extends GenericDAOhibernate<Perfil> implements P
 		return query.getResultList();
 	}
 
-	@Transactional(readOnly=true) 
-	public List<Notificacion> getNotificaciones(Unidad unidad) {
-		String sql = "SELECT n FROM Notificacion n join n.perfil where n.unidad = :unidad";
-		Query query = entityManager.createQuery(sql);
-		query.setParameter("unidad",unidad);	
-		return query.getResultList();
-	}
+
 
 }

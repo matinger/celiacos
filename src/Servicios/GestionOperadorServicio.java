@@ -11,6 +11,7 @@ import Celiacos.TipoUnidad;
 import Celiacos.Unidad;
 import Celiacos.Usuario;
 import Dao.FactoryDAO;
+import Dao.NotificacionDAO;
 import Dao.PerfilDAO;
 import Dao.TipoUnidadDAO;
 import Dao.UsuarioDAO;
@@ -59,7 +60,9 @@ public class GestionOperadorServicio {
 		return false;
 	}
 
+	
 	public List<Notificacion> getListaNotificaciones(Unidad u) {
+		NotificacionDAO dao = FactoryDAO.getNotificacionDAO();
 		return dao.getNotificaciones(u);
 	}
 }

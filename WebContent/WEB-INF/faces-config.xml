@@ -77,6 +77,10 @@
 		<to-view-id>/operadorunidad/crearsocio.xhtml</to-view-id>
 	</navigation-case>
 	<navigation-case>
+		<from-outcome>registrarpago</from-outcome>
+		<to-view-id>/operadorunidad/registrarpago.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
 		<from-outcome>editarsocio</from-outcome>
 		<to-view-id>/operadorunidad/editarsocio.xhtml</to-view-id>
 	</navigation-case>
@@ -172,6 +176,18 @@
 <description> Bares </description>
 <managed-bean-name>Bares</managed-bean-name>
 <managed-bean-class>Beans.BaresBean</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<description> GestionCuota </description>
+<managed-bean-name>GestionCuota</managed-bean-name>
+<managed-bean-class>Beans.GestionCuota</managed-bean-class>
+<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<description> GestionPago </description>
+<managed-bean-name>GestionPago</managed-bean-name>
+<managed-bean-class>Beans.GestionPago</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 </faces-config>
