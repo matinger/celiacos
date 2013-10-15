@@ -50,7 +50,7 @@ public class SeleccionBean {
 		System.out.println("PerfilSeleccionado: " + seleccion);
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		HttpSession session =  (HttpSession)ctx.getSession(false);	
-		PerfilSocio ps = FactoryDAO.getPerfilSocioDAO().encontrar(seleccion);
+		Perfil ps = FactoryDAO.getPerfilDAO().encontrar(seleccion);
 		session.setAttribute("perfil", ps);
 		System.out.println(ps.getClass().getName());
 		return ps.getClass().getName();
