@@ -1,5 +1,6 @@
 package Beans;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 
 import Servicios.PagoServicio;
@@ -20,6 +22,23 @@ import Dao.PagoDAO;
 @ManagedBean
 @ViewScoped
 public class GestionPago {
+	
+	public class Deuda {
+		private Date fecha;
+		private double monto;
+		
+		public Deuda(Date f, Double m){
+			fecha = f;
+			monto = m;
+		}
+		public Date getFecha(){
+			return fecha;
+		}
+		public Double getMonto(){
+			return monto;
+		}
+	}
+	
 	private Date fecha;
 	private double monto;
 	
@@ -76,6 +95,26 @@ public class GestionPago {
 		
 	}
 	
+	public List<Deuda> getDeudas(){		
+		FacesContext context = FacesContext.getCurrentInstance();
+		PerfilSocio pf = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
+		PagoDAO pDao = FactoryDAO.getPagoDAO();
+		List<Cuota> cuotas = FactoryDAO.getCuotaDAO().getCuotasFromSocio(pf);
+		List<Deuda> fin = new ArrayList<Deuda>();
+		for (Cuota cu : cuotas){
+			double total = 0;
+			List<Pago> pagos= pDao.getPagosFromCuotaAndSocio(pf, cu);
+			for (Pago p : pagos){
+				total += p.getMonto();
+			}	
+			if (cu.getImporte() > total){
+				fin.add(new Deuda(cu.getFecha(),cu.getImporte() - total));
+			}
+		}
+		return fin;
+		
+	}
+	
 	public void guardarPago(){
 		PagoServicio g = new PagoServicio();
 		g.crearPago(fecha, monto, perfil , seleccion);
@@ -89,3 +128,4 @@ public class GestionPago {
 	}
 	
 }
+

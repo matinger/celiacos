@@ -34,13 +34,8 @@ Socio
 		<div class="row">
 			<div class="span4">
 				<div class="well">
-					<h3>Estado cuenta: Activada</h3>
+					<h3>Estado cuenta: #{Socios.getCuentaActivada()}</h3>
 				</div>
-			</div>
-			<div class="span4">
-			  <h3>Resumen de cuenta:</h3>
-			  <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-			  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</p>
 			</div>
 		</div>
 		
@@ -59,6 +54,23 @@ Socio
 					<h:column>
 						<f:facet name="header">Monto</f:facet>				
 	    			#{pago.getMonto()}
+	    		</h:column>
+				</h:dataTable>
+				
+				
+		<div class="span6">
+			<h3>Deudas:</h3>
+		</div>
+		<h:dataTable class="table table-bordered table-striped table-hover"
+					value="#{GestionPago.getDeudas()}" var="deuda">
+					
+					<h:column>
+						<f:facet name="header">Fecha</f:facet>				
+	    			#{deuda.getFecha()}
+	    		</h:column>
+					<h:column>
+						<f:facet name="header">Deuda</f:facet>				
+	    			#{deuda.getMonto()}
 	    		</h:column>
 				</h:dataTable>
 	</div>

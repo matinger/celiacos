@@ -27,6 +27,7 @@ public class PerfilSocio extends Perfil {
 	private String presentadoPor;
 	private String telefono;
 	private String email;
+	private boolean activada;
 	private boolean beneficio;
 	private boolean socioVirtual;
 	
@@ -59,6 +60,7 @@ public class PerfilSocio extends Perfil {
 		this.email = email;
 		this.beneficio = beneficio;
 		this.socioVirtual = socioVirtual;
+		this.activada = true;
 		pagos = new ArrayList<Pago>();
 		notificaciones = new ArrayList<Notificacion>();
 	}
@@ -154,6 +156,12 @@ public class PerfilSocio extends Perfil {
 	}
 	public void setPagos(List<Pago> pagos) {
 		this.pagos = pagos;
+	}
+	public boolean isActivada() {
+		return activada;
+	}
+	public void setActivada(boolean activada) {
+		this.activada = activada;
 	}
 	
 	

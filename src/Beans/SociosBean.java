@@ -69,5 +69,10 @@ public class SociosBean {
 			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
 			noti.crearNotificacion(monto, fecha, medio, numeroidentificatorio,p);
 		}
+		public String getCuentaActivada(){
+			FacesContext context = FacesContext.getCurrentInstance();
+			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
+			return (p.isActivada()) ? "Activada" : "Desactivada";
+		}
 		
 }
