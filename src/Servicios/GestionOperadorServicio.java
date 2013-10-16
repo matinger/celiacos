@@ -61,7 +61,7 @@ public class GestionOperadorServicio {
 	}
 
 	
-	public List<Notificacion> getListaNotificaciones(Unidad u) {
+	public List<Notificacion> getListaNotificaciones(TipoUnidad u) {
 		NotificacionDAO dao = FactoryDAO.getNotificacionDAO();
 		return dao.getNotificaciones(u);
 	}
