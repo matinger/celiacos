@@ -45,10 +45,11 @@ public class AuthFilter implements Filter {
 
 	           	if (!reqURI.contains(matchUri)){
 	                   String contextPath = ((HttpServletRequest)request).getContextPath();
-	                   ((HttpServletResponse)response).sendRedirect(contextPath + "/error");
+	                   ((HttpServletResponse)response).sendRedirect(contextPath + "/error.xhtml");
+	           	}else{
+	        		chain.doFilter(request, response);
 	           	}
-        		chain.doFilter(request, response);
-        		
+      		
         }
                 
     } 
