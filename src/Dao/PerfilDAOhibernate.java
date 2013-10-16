@@ -9,6 +9,7 @@ import Celiacos.Perfil;
 import Celiacos.PerfilAdministradorUnidad;
 import Celiacos.PerfilOperadorCentral;
 import Celiacos.PerfilOperadorUnidad;
+import Celiacos.TipoUnidad;
 import Celiacos.Unidad;
 
 public class PerfilDAOhibernate extends GenericDAOhibernate<Perfil> implements PerfilDAO{
@@ -39,6 +40,14 @@ public class PerfilDAOhibernate extends GenericDAOhibernate<Perfil> implements P
 		return query.getResultList();
 	}
 
+	@Transactional(readOnly=true) 
+	public List<PerfilOperadorUnidad> getPerfilesOperadoresUnidadesFromUnidad(TipoUnidad unidad) {
+		String sql = "SELECT p FROM PerfilOperadorUnidad p join p.unidad where p.unidad = :unidad";
+		Query query = entityManager.createQuery(sql);
+		query.setParameter("unidad", unidad);
+		return query.getResultList();
+	}
+	
 
 
 }

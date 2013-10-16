@@ -78,8 +78,6 @@ public class LoginBean {
 		usu.setUsuario(this.getUsername());
 		usu.setPassword(this.getPassword());
 		if(us.esValido(usu.getUsuario())){
-			System.out.println("El usuario es: "+usu.getUsuario());
-			System.out.println("La contraseña es: "+usu.getPassword());
 		UsuarioDAO dao = FactoryDAO.getUsuarioDAO();	
 		dao.modificar(usu);
 		}

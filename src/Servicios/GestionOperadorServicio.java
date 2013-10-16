@@ -24,6 +24,11 @@ public class GestionOperadorServicio {
 		return operadores;
 	}
 	
+	public List<PerfilOperadorUnidad> getListaOperadoresUnidades(TipoUnidad unidad) {				
+		List<PerfilOperadorUnidad> operadores = dao.getPerfilesOperadoresUnidadesFromUnidad(unidad);
+		return operadores;
+	}
+	
 	public List<PerfilOperadorUnidad> getListaOperadoresUnidades() {				
 		List<PerfilOperadorUnidad> operadores = dao.getPerfilesOperadoresUnidades();
 		return operadores;

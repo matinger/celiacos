@@ -71,8 +71,10 @@ public class GestionOperadorBean {
 	}
 	
 	public List<PerfilOperadorUnidad> getListaOperadorUnidad(){
-		GestionOperadorServicio g = new GestionOperadorServicio();		
-		return g.getListaOperadoresUnidades();
+		GestionOperadorServicio g = new GestionOperadorServicio();	
+		FacesContext context = FacesContext.getCurrentInstance();
+		Perfil p = (Perfil) context.getExternalContext().getSessionMap().get("perfil");
+		return g.getListaOperadoresUnidades(p.getUnidad());
 	}
 	
 	public boolean eliminar(){

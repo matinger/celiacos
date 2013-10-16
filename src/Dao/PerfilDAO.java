@@ -7,6 +7,7 @@ import Celiacos.Perfil;
 import Celiacos.PerfilAdministradorUnidad;
 import Celiacos.PerfilOperadorCentral;
 import Celiacos.PerfilOperadorUnidad;
+import Celiacos.TipoUnidad;
 import Celiacos.Unidad;
 
 public interface PerfilDAO extends GenericDAO<Perfil>{
@@ -15,5 +16,5 @@ public interface PerfilDAO extends GenericDAO<Perfil>{
 
 	public List<PerfilOperadorCentral> getPerfilesOperadoresCentrales();
 	public List<PerfilOperadorUnidad> getPerfilesOperadoresUnidades();
-	
+	public List<PerfilOperadorUnidad> getPerfilesOperadoresUnidadesFromUnidad(TipoUnidad unidad);
 }

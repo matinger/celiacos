@@ -15,9 +15,6 @@ import Dao.ProductoDAO;
 import Dao.TipoUnidadDAO;
 import Dao.UsuarioDAO;
 
-
-
-
 public class Test {
 
 	/**
