@@ -42,9 +42,7 @@ public class AuthFilter implements Filter {
         }else{     	
 				String matchUri = (String) roles.get( ((Perfil)ses.getAttribute("perfil")).getClass().getName() );
 				String reqURI = req.getRequestURI();
-				System.out.println("match es " + matchUri);
-				System.out.println("req es " + reqURI);
-				System.out.println("Resultado de contains de reqURI con match = " +  reqURI.contains(matchUri) );
+
 	           	if (!reqURI.contains(matchUri)){
 	                   String contextPath = ((HttpServletRequest)request).getContextPath();
 	                   ((HttpServletResponse)response).sendRedirect(contextPath + "/error");

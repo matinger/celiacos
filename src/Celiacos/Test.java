@@ -85,9 +85,6 @@ public class Test {
 		Date fechadiag2 = dfm.parse("2013-04-01");
 		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag2, "Dr. Pepe", "4222222","email@email.com",true,true);
 		
-		Date fechanac3 = dfm.parse("1990-06-02");
-		Date fechadiag3 = dfm.parse("2005-03-14");
-		PerfilSocio perfilsocio3 = new PerfilSocio(2023,31111111,"50 y 120", "estudiante", fechanac3, fechadiag3,fechadiag, "Dr. Pepe", "4222222","admincentral@admincentral.com",false,false);
 		
 		//Asocia perfiles a unidades
 		unidad1.addPerfil(perfiladministrador);
@@ -95,7 +92,6 @@ public class Test {
 		unidad1.addPerfil(perfiloperador);
 		unidad2.addPerfil(perfilsocio);
 		unidad2.addPerfil(perfilcentral);
-		unidad2.addPerfil(perfilsocio3);
 		unidad2.addPerfil(perfiladministradorcentral);
 		
 		//Asocia los perfiles a los usuarios	
@@ -103,7 +99,6 @@ public class Test {
 		us2.addPerfil(perfilsocio);	
 		us3.addPerfil(perfiloperador);
 		us4.addPerfil(perfiladministradorcentral);
-		us4.addPerfil(perfilsocio3);
 		us5.addPerfil(perfilsocio2);
 		us6.addPerfil(perfilcentral);
 		
@@ -111,7 +106,6 @@ public class Test {
 		PerfilDAO perfildao = FactoryDAO.getPerfilDAO();
 		perfildao.guardar(perfilsocio);
 		perfildao.guardar(perfilsocio2);
-		perfildao.guardar(perfilsocio3);
 		perfildao.guardar(perfiloperador);
 		perfildao.guardar(perfiladministrador);
 		perfildao.guardar(perfiladministradorcentral);

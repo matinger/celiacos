@@ -16,11 +16,12 @@ import javax.servlet.http.HttpSession;
 
 import Celiacos.Perfil;
 import Celiacos.PerfilSocio;
+import Dao.FactoryDAO;
 
 /**
  * Servlet Filter implementation class Socio
  */
-@WebFilter("/Socio")
+
 public class Socio implements Filter {
 
     /**
@@ -50,7 +51,7 @@ public class Socio implements Filter {
         	FacesContext context = FacesContext.getCurrentInstance();
     		PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
     		
-    		if (!p.isBeneficio()){
+    		if (!p.isBeneficio() ){
                 String contextPath = ((HttpServletRequest)request).getContextPath();
                 ((HttpServletResponse)response).sendRedirect(contextPath + "/error");
         	}

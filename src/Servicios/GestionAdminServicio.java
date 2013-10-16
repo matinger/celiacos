@@ -30,9 +30,11 @@ public class GestionAdminServicio {
 		
 		TipoUnidadDAO unidao = FactoryDAO.getTipoUnidadDAO();
 		TipoUnidad unidadaguardar = unidao.encontrar(unidad);
-		s.setUnidad(unidadaguardar);
+		if(s.getUnidad().getId() != unidad){
+			s.setUnidad(unidadaguardar);
+		}
 		dao.modificar(s);
-		
+		System.out.println("guardo!");
 		return true;
 	}
 	

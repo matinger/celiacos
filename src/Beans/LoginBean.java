@@ -40,14 +40,9 @@ public class LoginBean {
             
 			List<Perfil> perfiles = u.getPerfiles();
 			FacesContext context = FacesContext.getCurrentInstance();
-			if (perfiles.size() == 1){
-				Perfil p = perfiles.get(0);			            
-				session.setAttribute("perfil", p);
-				return p.getClass().getName();
-			}else{			
-				context.getExternalContext().getSessionMap().put("perfiles", perfiles);				
-				return "perfiles";
-			}
+			Perfil p = perfiles.get(0);			            
+			session.setAttribute("perfil", p);
+			return p.getClass().getName();
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
 			FacesMessage message = new FacesMessage("Invalid Username and/or Password");
