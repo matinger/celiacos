@@ -2,12 +2,12 @@ package Dao;
 
 import java.util.List;
 
-import Celiacos.Perfil;
 import Celiacos.PerfilSocio;
+import Celiacos.TipoUnidad;
 
 public interface PerfilSocioDAO extends GenericDAO<PerfilSocio>{
 
-	public List<PerfilSocio> getSociosFromPerfil(Perfil perfil);
+	public List<PerfilSocio> getSociosFromUnidad(TipoUnidad unidad);
 	public List<PerfilSocio> getSociosVirtualesUnidad();
 
 }

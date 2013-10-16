@@ -33,7 +33,7 @@ public class Test {
 		 * em.close();
 		 */
 		
-		DateFormat dfm = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat dfm = new SimpleDateFormat("dd/MM/yyyy");
 
 		//Crea unidades
 		Unidad unidad1 = new Unidad("Unidad 1","12 y 35","4111111","unidad1@email.com", "Beneficiaria");
@@ -77,12 +77,12 @@ public class Test {
 		PerfilAdministradorCentral perfiladministradorcentral = new PerfilAdministradorCentral();
 		PerfilOperadorUnidad perfiloperador = new PerfilOperadorUnidad();
 		PerfilOperadorCentral perfilcentral = new PerfilOperadorCentral();
-		Date fechanac = dfm.parse("1990-06-01");
-		Date fechadiag = dfm.parse("2005-03-11");
+		Date fechanac = dfm.parse("01/06/1990");
+		Date fechadiag = dfm.parse("11/03/2005");
 		PerfilSocio perfilsocio = new PerfilSocio(2021,3232322,"51 y 23", "estudiante", fechanac, fechadiag,fechadiag, "Dr. Pepe", "4333333","email4@email.com",false,false);
 		
-		Date fechanac2 = dfm.parse("1990-06-02");
-		Date fechadiag2 = dfm.parse("2013-04-01");
+		Date fechanac2 = dfm.parse("02/06/1990");
+		Date fechadiag2 = dfm.parse("01/04/2013");
 		PerfilSocio perfilsocio2 = new PerfilSocio(2020,35410175,"50 y 120", "estudiante", fechanac2, fechadiag2,fechadiag2, "Dr. Pepe", "4222222","email@email.com",true,true);
 		
 		
@@ -112,13 +112,15 @@ public class Test {
 		perfildao.guardar(perfilcentral);
 		
 		// Crea las cuotas
-		Date cuota1 = dfm.parse("2013-06-01");
+		
+			
+		Date cuota1 = dfm.parse("01/06/2013");
 		Cuota cu = new Cuota(100, cuota1);
-		Date cuota2 = dfm.parse("2013-05-01");
+		Date cuota2 = dfm.parse("01/05/2013");
 		Cuota cu2 = new Cuota(100, cuota2);
-		Date cuota3 = dfm.parse("2013-04-01");
+		Date cuota3 = dfm.parse("01/04/2013");
 		Cuota cu3 = new Cuota(100, cuota3);
-		Date cuota4 = dfm.parse("2013-03-01");
+		Date cuota4 = dfm.parse("01/03/2013");
 		Cuota cu4 = new Cuota(100, cuota4);
 		
 		//Asigna las cuotas a las unidades
@@ -135,16 +137,16 @@ public class Test {
 		cuotadao.guardar(cu4);
 		
 		//Creo pago
-		Date d2 = dfm.parse("2013-06-10");
+		Date d2 = dfm.parse("10/06/2013");
 		Pago pago = new Pago(d2,100);
 		
-		Date d3 = dfm.parse("2013-04-02");
+		Date d3 = dfm.parse("02/04/2013");
 		Pago pago2 = new Pago(d3,60);
 		
-		Date d4 = dfm.parse("2013-05-02");
+		Date d4 = dfm.parse("02/05/2013");
 		Pago pago3 = new Pago(d4,90);
 		
-		Date d5 = dfm.parse("2013-05-02");
+		Date d5 = dfm.parse("02/05/2013");
 		Pago pago4 = new Pago(d5,10);
 		
 		//Asigno pago a socio y a cuota
@@ -166,7 +168,7 @@ public class Test {
 		pagodao.guardar(pago4);
 		
 		//Creo notificacion
-		Date dnot = dfm.parse("2013-05-10");
+		Date dnot = dfm.parse("10/05/2013");
 		Notificacion noti = new Notificacion(222,dnot,"bapro","1234",false);
 		
 		//Asigno notificacion
@@ -177,9 +179,9 @@ public class Test {
 		notidao.guardar(noti);
 		
 		// Se crean productos
-		Date do4 = dfm.parse("2013-06-04");
-		Date do5 = dfm.parse("2013-06-05");
-		Date do6 = dfm.parse("2013-06-06");
+		Date do4 = dfm.parse("01/04/2013");
+		Date do5 = dfm.parse("01/05/2013");
+		Date do6 = dfm.parse("01/08/2013");
 		Producto p1 = new Producto("a","a","a","a","a","a",do4,do4);
 		Producto p2 = new Producto("b","b","b","b","b","b",do5,do5);
 		Producto p3 = new Producto("c","c","c","c","c","c",do6,do6);

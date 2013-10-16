@@ -10,7 +10,6 @@
 		<class>Celiacos.Pago</class>
 		<class>Celiacos.Usuario</class>
 		<class>Celiacos.TipoUnidad</class>
-		<class>Celiacos.Cuota</class>
 		<class>Celiacos.Perfil</class>
 		<class>Celiacos.PerfilOperadorCentral</class>
 		<class>Celiacos.PerfilOperadorUnidad</class>

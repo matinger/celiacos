@@ -21,7 +21,7 @@ import Dao.PagoDAO;
 
 @ManagedBean
 @ViewScoped
-public class GestionPago {
+public class GestionPagoBean {
 	
 	public class Deuda {
 		private Date fecha;

@@ -32,7 +32,7 @@ Socio
 	<ui:define name="container">
 		<div class="container">
 			<h:dataTable class="table table-bordered table-striped table-hover"
-				value="#{Productos.getListaProductos()}" var="producto">
+				value="#{Productos.getListaProductos()}" var="producto" rendered="#{Socios.getAcceso()}">
 				<h:column>
 					<f:facet name="header">Producto</f:facet>				
 	    		#{producto.getNombre()}

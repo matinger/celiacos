@@ -181,13 +181,13 @@
 <managed-bean>
 <description> GestionCuota </description>
 <managed-bean-name>GestionCuota</managed-bean-name>
-<managed-bean-class>Beans.GestionCuota</managed-bean-class>
+<managed-bean-class>Beans.GestionCuotaBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 <managed-bean>
 <description> GestionPago </description>
 <managed-bean-name>GestionPago</managed-bean-name>
-<managed-bean-class>Beans.GestionPago</managed-bean-class>
+<managed-bean-class>Beans.GestionPagoBean</managed-bean-class>
 <managed-bean-scope>session</managed-bean-scope>
 </managed-bean>
 <managed-bean>

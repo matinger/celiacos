@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import Celiacos.Perfil;
 import Celiacos.PerfilSocio;
+import Celiacos.TipoUnidad;
 
 public class PerfilSocioDAOhibernate extends GenericDAOhibernate<PerfilSocio> implements PerfilSocioDAO{
 
@@ -14,10 +14,10 @@ public class PerfilSocioDAOhibernate extends GenericDAOhibernate<PerfilSocio> im
 		// TODO Auto-generated constructor stub
 	}
 	@Transactional(readOnly=true) 
-	public List<PerfilSocio> getSociosFromPerfil(Perfil perfil){
+	public List<PerfilSocio> getSociosFromUnidad(TipoUnidad unidad){
 		String sql = "SELECT s FROM PerfilSocio s join s.unidad where s.unidad = :unidad";
 		Query query = entityManager.createQuery(sql);
-		query.setParameter("unidad", perfil.getUnidad());	
+		query.setParameter("unidad",unidad);	
 		return query.getResultList();
 	}
 	@Transactional(readOnly=true) 

@@ -63,6 +63,12 @@ public class SociosBean {
 			return p.isSocioVirtual();
 		}
 		
+		public boolean getAcceso(){
+			FacesContext context = FacesContext.getCurrentInstance();
+			PerfilSocio p = (PerfilSocio) context.getExternalContext().getSessionMap().get("perfil");
+			return p.isBeneficio() ? p.isBeneficio() : p.isActivada();
+		}
+		
 		public void enviarNotificacion(){
 			NotificacionServicio noti = new NotificacionServicio();
 			FacesContext context = FacesContext.getCurrentInstance();

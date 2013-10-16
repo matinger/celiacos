@@ -31,7 +31,7 @@ Socio
 	<ui:define name="container">
 		<div class="container">
 			<h:dataTable class="table table-bordered table-striped table-hover"
-				value="#{Bares.getListaBares()}" var="bar">
+				value="#{Bares.getListaBares()}" var="bar" rendered="#{Socios.getAcceso()}">
 				<h:column>
 					<f:facet name="header">Bar</f:facet>				
 	    		#{bar.getNombre()}

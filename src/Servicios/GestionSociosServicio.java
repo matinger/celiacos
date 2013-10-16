@@ -17,13 +17,13 @@ public class GestionSociosServicio {
 	PerfilSocioDAO dao = FactoryDAO.getPerfilSocioDAO();
 	public List<PerfilSocio> getListaPersonas(Perfil perfil) {
 					
-		List<PerfilSocio> socios = dao.getSociosFromPerfil(perfil);
+		List<PerfilSocio> socios = dao.getSociosFromUnidad(perfil.getUnidad());
 		return socios;
 	}
 	
 	public List<PerfilSocio> getListaPersonasCentral(Perfil perfil) {
 		
-		List<PerfilSocio> socioscentral = dao.getSociosFromPerfil(perfil);
+		List<PerfilSocio> socioscentral = dao.getSociosFromUnidad(perfil.getUnidad());
 		List<PerfilSocio> sociosvirtuales = dao.getSociosVirtualesUnidad();
 		socioscentral.addAll(sociosvirtuales);
 		return socioscentral;
